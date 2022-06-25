@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 touchPosition;
     public Collider2D touchedCollider;
     public Vector2 canvasPosition;
+    public int hp;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +54,25 @@ public class PlayerMovement : MonoBehaviour
             if (touch.phase == TouchPhase.Ended) 
             {
                 moveAllowed = false;
+            }
+        }
+    }
+
+    public int getHealth() 
+    {
+        return hp;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) 
+    {
+        Debug.Log("asd");
+        Debug.Log(collision.tag);
+        if (collision.tag == "Enemy" || collision.tag == "Missile") 
+        {
+            hp = hp - 1;
+            if (hp == 0) 
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
     }
