@@ -7,9 +7,8 @@ public class PlayerMovement : MonoBehaviour
     
     public bool moveAllowed;
     public Collider2D col;
-    public Bounds colBounds;
     public Vector2 touchPosition;
-    public Collider2D touchedCollider;
+    Collider2D touchedCollider;
     public Vector2 canvasPosition;
     // Start is called before the first frame update
     void Start()
@@ -24,8 +23,6 @@ public class PlayerMovement : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
             touchPosition = touch.position;
-
-            colBounds = col.bounds;
 
             canvasPosition = GameObject.Find("Canvas").transform.position;
 
@@ -42,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
             // if finger is still on screen and moving around
             if (touch.phase == TouchPhase.Moved) 
             {
-                if (moveAllowed) 
+                if (moveAllowed && touchPosition.y < canvasPosition.y - 100) 
                 {
                     transform.position = new Vector2(touchPosition.x, touchPosition.y);
                 }
