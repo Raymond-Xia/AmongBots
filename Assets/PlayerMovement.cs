@@ -10,9 +10,12 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 touchPosition;
     Collider2D touchedCollider;
     public Vector2 canvasPosition;
+    // public Vector2 canvasSize;
     // Start is called before the first frame update
     void Start()
     {
+        canvasPosition = GameObject.Find("Canvas").transform.position;
+        // canvasSize = GameObject.Find("Canvas").GetComponent<RectTransform>().sizeDelta;
         col = GetComponent<Collider2D>();
     }
 
@@ -23,9 +26,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
             touchPosition = touch.position;
-
-            canvasPosition = GameObject.Find("Canvas").transform.position;
-
+            
             // when the finger first touches the screen
             if (touch.phase == TouchPhase.Began)
             {
