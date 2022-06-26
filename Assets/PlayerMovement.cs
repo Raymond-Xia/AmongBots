@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,12 +11,11 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 touchPosition;
     Collider2D touchedCollider;
     public Vector2 canvasPosition;
-    // public Vector2 canvasSize;
+    public static int hp = 5;
     // Start is called before the first frame update
     void Start()
     {
         canvasPosition = GameObject.Find("Canvas").transform.position;
-        // canvasSize = GameObject.Find("Canvas").GetComponent<RectTransform>().sizeDelta;
         col = GetComponent<Collider2D>();
     }
 
@@ -26,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
             touchPosition = touch.position;
-            
             // when the finger first touches the screen
             if (touch.phase == TouchPhase.Began)
             {
@@ -50,6 +49,19 @@ public class PlayerMovement : MonoBehaviour
             if (touch.phase == TouchPhase.Ended) 
             {
                 moveAllowed = false;
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) 
+    {
+        if (collision.tag == "Enemy" || collision.tag == "Missile") 
+        {
+            hp = hp - 1;
+            if (hp == 0) 
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                hp = 5;
             }
         }
     }
