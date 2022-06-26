@@ -11,7 +11,7 @@ public class BossMovement : MonoBehaviour
     void Start()
     {
         Vector2 canvasPosition = GameObject.Find("Canvas").transform.position;
-        targetPosition = new Vector2(canvasPosition.x, canvasPosition.y + 600);
+        targetPosition = new Vector2(canvasPosition.x, canvasPosition.y + 500);
     }
 
     // Update is called once per frame
