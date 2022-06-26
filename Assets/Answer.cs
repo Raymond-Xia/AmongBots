@@ -11,9 +11,16 @@ public class Answer : MonoBehaviour
     public void AnswerQuestion()
     {
         result = GetComponentInChildren<TMP_Text>();
-        if (result.text == QuestionGenerator.answer.ToString())
+        
+        // if the answer is correct
+        if (result.text == QuestionGenerator.answer.ToString()) 
         {
+            // switch to win screen sceen
             SceneManager.LoadScene(0);
+        }
+        else // if answer is incorrect 
+        {
+            // switch to lose screen sceen 
         }
     }
 
