@@ -11,7 +11,7 @@ public class MissileMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(MissileTimer(missile, 20.0f));
+        StartCoroutine(MissileTimer(missile, 5.0f));
     }
 
     // Update is called once per frame

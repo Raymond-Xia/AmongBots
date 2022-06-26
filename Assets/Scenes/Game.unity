@@ -419,7 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1aa1a9affb1c674ab7d47b14e93991f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootSpeed: 10000
+  shootSpeed: 30000
   shootPos: {fileID: 1862379059}
   missile: {fileID: 6700127299897576037, guid: 176a2ae270067184c8b9c3ea06e7e185, type: 3}
   col: {fileID: 324227295}
