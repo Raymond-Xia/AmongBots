@@ -26,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
             touchPosition = touch.position;
-
             // when the finger first touches the screen
             if (touch.phase == TouchPhase.Began)
             {
