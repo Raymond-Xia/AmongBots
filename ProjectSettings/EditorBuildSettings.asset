@@ -14,6 +14,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 51c6a0fa202dd4e438b10ae1ec4a0705
+  - enabled: 1
+    path: Assets/Scenes/Lose.unity
+    guid: c51f4266aba584cae8a9bb024c8a4522
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 6e53aced3c5f2460f8ef3006660b2346
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: c5fcd31983f524a03846dd2c47e136b9, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 3d174a2c65ee7450893817dc699acd7f, type: 2}
