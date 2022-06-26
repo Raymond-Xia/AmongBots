@@ -6,6 +6,7 @@ public class MissileMovement : MonoBehaviour
 {
     public float damage;
     public GameObject missile;
+    public static int score = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -32,5 +33,6 @@ public class MissileMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);
+        score = score + 1;
     }
 }
