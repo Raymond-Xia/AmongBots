@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 touchPosition;
     public Collider2D touchedCollider;
     public Vector2 canvasPosition;
-    public int hp;
+    public static int hp = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,14 +58,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public int getHealth() 
-    {
-        return hp;
-    }
-
     private void OnTriggerEnter2D(Collider2D collision) 
     {
-        Debug.Log("asd");
         Debug.Log(collision.tag);
         if (collision.tag == "Enemy" || collision.tag == "Missile") 
         {
@@ -73,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
             if (hp == 0) 
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                hp = 5;
             }
         }
     }

@@ -10,6 +10,8 @@ public class EnemyAI : MonoBehaviour
     public Collider2D col;
     public GameObject enemy;
     public int ammo;
+    public Bounds missilePosition;
+    public GameObject canvas;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,7 @@ public class EnemyAI : MonoBehaviour
         StartCoroutine(Spawn(enemy, 5.0f));
         enemy.SetActive(true);
         StartCoroutine(Shoot(1));
+        canvas = GameObject.Find("Canvas");
     }
 
     // Update is called once per frame
@@ -35,8 +38,9 @@ public class EnemyAI : MonoBehaviour
     {
         while (ammo > 0) 
         {
-            GameObject newMissile = Instantiate(missile, shootPos.position, Quaternion.Euler(0,0,0)) as GameObject;
+            GameObject newMissile = Instantiate(missile, shootPos.position, Quaternion.identity) as GameObject;
             newMissile.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -shootSpeed * Time.fixedDeltaTime);
+            newMissile.transform.SetParent(GameObject.Find("Canvas").transform, true);
             ammo -= 1;
             yield return new WaitForSeconds(delay);
         }

@@ -10,7 +10,7 @@ public class MissileMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(MissileTimer(missile, 5.0f));
+        StartCoroutine(MissileTimer(missile, 20.0f));
     }
 
     // Update is called once per frame
@@ -21,6 +21,7 @@ public class MissileMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) 
     {
+        Debug.Log(collision.tag);
         if (collision.tag == "Player") 
         {
             Destroy(gameObject);
