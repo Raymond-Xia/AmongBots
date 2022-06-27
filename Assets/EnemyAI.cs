@@ -34,9 +34,9 @@ public class EnemyAI : MonoBehaviour
         enemy.SetActive(false);
     }
 
-    IEnumerator Shoot(float delay) 
+    IEnumerator Shoot(float delay)
     {
-        while (ammo > 0) 
+        while (ammo > 0)
         {
             GameObject newMissile = Instantiate(missile, shootPos.position, Quaternion.identity) as GameObject;
             newMissile.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -shootSpeed * Time.fixedDeltaTime);

@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Shop : MonoBehaviour
 {
 
-    public string[] sprites = new string[]
+    public static string[] sprites = new string[]
     {
         "Sprites/CrewmateBlack",
         "Sprites/CrewmateBlue",
         "Sprites/CrewmateBrown",
+        "Sprites/CrewmateCyan",
         "Sprites/CrewmateGreen",
         "Sprites/CrewmateLime",
         "Sprites/CrewmateOrange",
@@ -27,6 +29,7 @@ public class Shop : MonoBehaviour
     {
         i = 0;
         UpdateSprite();
+        UpdateButton();
     }
 
     public void LeftButton()
@@ -37,6 +40,7 @@ public class Shop : MonoBehaviour
             i = sprites.Length - 1;
         }
         UpdateSprite();
+        UpdateButton();
     }
 
     public void RightButton()
@@ -47,6 +51,27 @@ public class Shop : MonoBehaviour
             i = 0;
         }
         UpdateSprite();
+        UpdateButton();
+    }
+
+    public void BuyButton()
+    {
+        char[] owned = "000000000000".ToCharArray();
+        if (PlayerPrefs.HasKey("owned"))
+        {
+            owned = PlayerPrefs.GetString("owned").ToCharArray();
+        }
+        owned[i] = '1';
+        PlayerPrefs.SetString("owned", new string(owned));
+        PlayerPrefs.Save();
+        UpdateButton();
+    }
+
+    public void ResetButton()
+    {
+        PlayerPrefs.SetString("owned", "000000000000");
+        PlayerPrefs.Save();
+        UpdateButton();
     }
 
     private void UpdateSprite()
@@ -54,4 +79,24 @@ public class Shop : MonoBehaviour
         Sprite sprite = Resources.Load<Sprite>(sprites[i]);
         GameObject.Find("Crewmate").GetComponent<Image>().sprite = sprite;
     }
+
+    private void UpdateButton()
+    {
+        char[] owned = "000000000000".ToCharArray();
+        if (PlayerPrefs.HasKey("owned"))
+        {
+            owned = PlayerPrefs.GetString("owned").ToCharArray();
+        }
+        if (owned[i].Equals('1'))
+        {
+            GameObject.Find("BuyButton").GetComponent<Button>().interactable = false;
+            GameObject.Find("BuyText").GetComponent<TMP_Text>().text = "OWNED";
+        }
+        else
+        {
+            GameObject.Find("BuyButton").GetComponent<Button>().interactable = true;
+            GameObject.Find("BuyText").GetComponent<TMP_Text>().text = "BUY";
+        }
+    }
+
 }
