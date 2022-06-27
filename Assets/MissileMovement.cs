@@ -33,6 +33,6 @@ public class MissileMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);
-        score = score + 1;
+        score += 1;
     }
 }

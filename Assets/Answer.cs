@@ -16,7 +16,8 @@ public class Answer : MonoBehaviour
         if (result.text == QuestionGenerator.answer.ToString()) 
         {
             // switch to win screen sceen
-            SceneManager.LoadScene(3);
+            MissileMovement.score += 10;
+            SceneManager.LoadScene(1);
         }
         else // if answer is incorrect 
         {
