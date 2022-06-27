@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
             hp = hp - 1;
             if (hp == 0) 
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                SceneManager.LoadScene(2);
                 hp = 5;
             }
         }
