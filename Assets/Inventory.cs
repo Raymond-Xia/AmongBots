@@ -26,13 +26,16 @@ public class Inventory : MonoBehaviour
 
     public void UpdateInventory()
     {
-        // This renders the inventory on top of the old one :^)
+        foreach (Transform child in GameObject.Find("ScrollContent").transform) {
+            GameObject.Destroy(child.gameObject);
+        }
         GameObject.Find("ScrollView").GetComponent<ScrollRect>().verticalNormalizedPosition = 1;
         char[] owned = "000000000000".ToCharArray();
         if (PlayerPrefs.HasKey("owned"))
         {
             owned = PlayerPrefs.GetString("owned").ToCharArray();
         }
+        Debug.Log(new string(owned));
 
         int h = 1600;
         for (int i = 0; i < owned.Length; i++)

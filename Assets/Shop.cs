@@ -32,6 +32,13 @@ public class Shop : MonoBehaviour
         UpdateButton();
     }
 
+    public void UpdateStart()
+    {
+        i = 0;
+        UpdateSprite();
+        UpdateButton();
+    }
+
     public void LeftButton()
     {
         i--;
@@ -63,13 +70,6 @@ public class Shop : MonoBehaviour
         }
         owned[i] = '1';
         PlayerPrefs.SetString("owned", new string(owned));
-        PlayerPrefs.Save();
-        UpdateButton();
-    }
-
-    public void ResetButton()
-    {
-        PlayerPrefs.SetString("owned", "000000000000");
         PlayerPrefs.Save();
         UpdateButton();
     }
