@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     Collider2D touchedCollider;
     public Vector2 canvasPosition;
     public static int hp = 5;
+    public static float rotationAngle = 0f;
     public static string[] sprites = new string[]
     {
         "Sprites/CrewmateBlack",
