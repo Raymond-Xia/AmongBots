@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
     Collider2D touchedCollider;
     public Vector2 canvasPosition;
     public static int hp = 5;
-    public static float rotationAngle = 0f;
     public static string[] sprites = new string[]
     {
         "Sprites/CrewmateBlack",
@@ -57,7 +56,8 @@ public class PlayerMovement : MonoBehaviour
             // if finger is still on screen and moving around
             if (touch.phase == TouchPhase.Moved)
             {
-                if (moveAllowed && touchPosition.y < canvasPosition.y - 100)
+                // if (moveAllowed && touchPosition.y < canvasPosition.y - 100)
+                if (moveAllowed)
                 {
                     transform.position = new Vector2(touchPosition.x, touchPosition.y);
                 }

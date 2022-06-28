@@ -16,7 +16,6 @@ public class HealthOverlay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(PlayerMovement.hp);
         healthText.text = "HP: " + PlayerMovement.hp.ToString();
     }
 }
