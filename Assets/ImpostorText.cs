@@ -14,7 +14,7 @@ public class ImpostorText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.Find("Crewmate");
         impostorText = GetComponent<TMP_Text>();
         gameOverMessage = "You were not The Impostor";
         textIterator = 0;

@@ -61,6 +61,6 @@ public class EjectedPlayer : MonoBehaviour
             selected = PlayerPrefs.GetInt("selected");
         }
         Sprite sprite = Resources.Load<Sprite>(sprites[selected]);
-        GameObject.Find("Player").GetComponent<Image>().sprite = sprite;
+        GameObject.Find("Crewmate").GetComponent<Image>().sprite = sprite;
     }
 }
