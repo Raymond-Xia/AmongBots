@@ -56,7 +56,8 @@ public class PlayerMovement : MonoBehaviour
             // if finger is still on screen and moving around
             if (touch.phase == TouchPhase.Moved)
             {
-                if (moveAllowed && touchPosition.y < canvasPosition.y - 100)
+                // if (moveAllowed && touchPosition.y < canvasPosition.y - 100)
+                if (moveAllowed)
                 {
                     transform.position = new Vector2(touchPosition.x, touchPosition.y);
                 }
