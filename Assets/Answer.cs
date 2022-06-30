@@ -7,23 +7,35 @@ using UnityEngine.SceneManagement;
 public class Answer : MonoBehaviour
 {
     public TMP_Text result;
+    public GameObject explosion;
+    public GameObject newExplosion;
 
     public void AnswerQuestion()
     {
         result = GetComponentInChildren<TMP_Text>();
         
-        // if the answer is correct
+        // if the answer is correct, progress game
         if (result.text == QuestionGenerator.answer.ToString()) 
         {
-            // switch to win screen sceen
+            // destroy boss and question
+            GameObject boss = GameObject.Find("Boss(Clone)");
+            BossAI bossAI = (BossAI) boss.GetComponent(typeof(BossAI));
+            bossAI.DestroyAnimation();
+            Destroy(GameObject.Find("Question(Clone)"));
+
+            // increment score
             MissileMovement.score += 10;
-            SceneManager.LoadScene(1);
+
+            // start new level
+            GameObject canvas = GameObject.Find("Canvas");
+            LevelController levelController = (LevelController) canvas.GetComponent(typeof(LevelController));
+            levelController.NewLevel();
         }
-        else // if answer is incorrect 
+        else // if answer is incorrect, lose game
         {
-            // switch to lose screen sceen 
             SceneManager.LoadScene(2);
         }
     }
+
 
 }

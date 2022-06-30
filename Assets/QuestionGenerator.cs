@@ -38,7 +38,7 @@ public class QuestionGenerator : MonoBehaviour
             wrongAnswer2 = Random.Range(answer-10, answer+10);
             wrongAnswer3 = Random.Range(answer-10, answer+10);
         } while (wrongAnswer1 == answer || wrongAnswer2 == answer || wrongAnswer3 == answer 
-            && wrongAnswer1 == wrongAnswer2 || wrongAnswer1 == wrongAnswer3 || wrongAnswer2 == wrongAnswer3);
+            || wrongAnswer1 == wrongAnswer2 || wrongAnswer1 == wrongAnswer3 || wrongAnswer2 == wrongAnswer3);
 
         // Write text to question and answer buttons
         int randomButton = Random.Range(1,4);

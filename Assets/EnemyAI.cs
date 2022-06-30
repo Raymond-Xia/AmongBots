@@ -15,7 +15,7 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemy = GameObject.Find("Enemy");
+        enemy = GameObject.Find("Enemy(Clone)");
         StartCoroutine(Spawn(enemy, 5.0f));
         enemy.SetActive(true);
         StartCoroutine(Shoot(1));
@@ -31,7 +31,7 @@ public class EnemyAI : MonoBehaviour
     IEnumerator Spawn(GameObject go, float delay)
     {
         yield return new WaitForSeconds(delay);
-        enemy.SetActive(false);
+        Destroy(gameObject);
     }
 
     IEnumerator Shoot(float delay)

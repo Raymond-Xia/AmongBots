@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class BossTimer : MonoBehaviour
 {
-    GameObject boss;
+    public GameObject boss;
     float delay = 10.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        boss = GameObject.Find("Boss");
         StartCoroutine(WaitAndShow(boss, delay));   
     }
 
     IEnumerator WaitAndShow(GameObject go, float delay)
     {
-        boss.SetActive(false);
         yield return new WaitForSeconds(delay);
-        boss.SetActive(true);
+        Transform canvas = GameObject.Find("Canvas").transform;
+        GameObject newBoss = Instantiate(boss, new Vector2(canvas.position.x, canvas.position.y + 1600), Quaternion.identity, canvas) as GameObject;
     }
 }
