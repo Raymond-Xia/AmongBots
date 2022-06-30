@@ -13,8 +13,8 @@ jobs:
       - if: contains(github.event.pull_request.requested_reviewers.*.login, 'Agam642')
         run: echo "AGAM= <@193137013686272001>" >> $GITHUB_ENV
       # Banin
-      - if: contains(github.event.pull_request.requested_reviewers.*.login, 'Agam642')
-        run: echo "AGAM= <@193137013686272001>" >> $GITHUB_ENV
+      - if: contains(github.event.pull_request.requested_reviewers.*.login, 'babrar')
+        run: echo "BANIN= <@331363514159464452>" >> $GITHUB_ENV
       # Daniel
       - if: contains(github.event.pull_request.requested_reviewers.*.login, 'danielkim10')
         run: echo "DANIEL= <@173275763343228928>" >> $GITHUB_ENV
@@ -33,4 +33,4 @@ jobs:
           PR_URL: https://github.com/snaplapse/${{ github.event.repository.name }}/pull/${{ github.event.number }}
         uses: Ilshidur/action-discord@master
         with:
-            args: ${{ env.PR_URL }}${{ env.AGAM }}${{ env.DANIEL }}${{ env.GAUTHAM }}${{ env.KEVIN }}${{ env.RAYMOND }}
+            args: ${{ env.PR_URL }}${{ env.AGAM }}${{ env.BANIN }}${{ env.DANIEL }}${{ env.GAUTHAM }}${{ env.KEVIN }}${{ env.RAYMOND }}
