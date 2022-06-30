@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 public class Answer : MonoBehaviour
 {
     public TMP_Text result;
-    public GameObject explosion;
-    public GameObject newExplosion;
 
     public void AnswerQuestion()
     {
