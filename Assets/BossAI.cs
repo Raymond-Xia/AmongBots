@@ -6,12 +6,11 @@ public class BossAI : MonoBehaviour
 {
     public Vector2 targetPosition;
     public float speed; 
-    public GameObject explosion;
     public GameObject question;
+    public GameObject explosion;
     float questionY = -40;
     float explosionDuration = 1.5f;
     Transform canvas;
-    GameObject newExplosion;
     GameObject newQuestion;
     bool askQuestion, questionAsked;
 
@@ -22,6 +21,8 @@ public class BossAI : MonoBehaviour
         targetPosition = new Vector2(canvas.position.x, canvas.position.y + 400);
         askQuestion = false;
         questionAsked = false;
+        explosion = GameObject.Find("Explosion");
+        explosion.SetActive(false);
     }
 
     // Update is called once per frame
@@ -46,7 +47,7 @@ public class BossAI : MonoBehaviour
     
     public void DestroyAnimation()
     {
-        newExplosion = Instantiate(explosion, gameObject.transform.position, Quaternion.identity, gameObject.transform) as GameObject;
+        explosion.SetActive(true);
         StartCoroutine(HideBoss(explosionDuration));
     }
     
@@ -54,6 +55,5 @@ public class BossAI : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);
-        Destroy(newExplosion);
     }
 }
