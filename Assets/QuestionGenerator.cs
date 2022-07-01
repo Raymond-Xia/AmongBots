@@ -30,22 +30,21 @@ public class QuestionGenerator : MonoBehaviour
         answer = X + Y;
 
         // Generate wrong answers
-        int wrongAnswer1;
-        int wrongAnswer2;
-        int wrongAnswer3;
-        do {
-            wrongAnswer1 = Random.Range(answer-10, answer+10);
-            wrongAnswer2 = Random.Range(answer-10, answer+10);
-            wrongAnswer3 = Random.Range(answer-10, answer+10);
-        } while (wrongAnswer1 == answer || wrongAnswer2 == answer || wrongAnswer3 == answer 
-            && wrongAnswer1 == wrongAnswer2 || wrongAnswer1 == wrongAnswer3 || wrongAnswer2 == wrongAnswer3);
+        Stack<int> wrongAnswers = new Stack<int>();
+        for (int i = 0; i < 2; i++) {
+            int rand;
+            do {
+                rand = Random.Range(answer-10, answer+10);
+            } while (wrongAnswers.Contains(rand) || rand == answer);
+            wrongAnswers.Push(rand);
+        }
 
         // Write text to question and answer buttons
         int randomButton = Random.Range(1,4);
         question.text = X + " + " + Y + " = ?";
-        a1.text = randomButton == 1 ? answer + "" : wrongAnswer1 + "";
-        a2.text = randomButton == 2 ? answer + "" : wrongAnswer2 + "";
-        a3.text = randomButton == 3 ? answer + "" : wrongAnswer3 + "";
+        a1.text = randomButton == 1 ? answer + "" : wrongAnswers.Pop() + "";
+        a2.text = randomButton == 2 ? answer + "" : wrongAnswers.Pop() + "";
+        a3.text = randomButton == 3 ? answer + "" : wrongAnswers.Pop() + "";
     }
 
 }
