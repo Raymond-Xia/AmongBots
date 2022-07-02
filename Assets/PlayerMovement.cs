@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     Collider2D touchedCollider;
     public Vector2 canvasPosition;
     public static int hp = 5;
+    public GameObject backButton;
+    public GameObject score;
     public static string[] sprites = new string[]
     {
         "Sprites/CrewmateBlack",
@@ -34,6 +36,12 @@ public class PlayerMovement : MonoBehaviour
         canvasPosition = GameObject.Find("Canvas").transform.position;
         col = GetComponent<Collider2D>();
         UpdateSprite();
+
+        backButton = GameObject.Find("MenuButton");
+        backButton.transform.SetPositionAndRotation(new Vector3((Screen.width - (Screen.width / 6)), (Screen.height - (Screen.height / 10)), 0), Quaternion.identity);
+
+        score = GameObject.Find("Score");
+        score.transform.SetPositionAndRotation(new Vector3((Screen.width / 6), Screen.height - (Screen.height / 10), 0), Quaternion.identity);
     }
 
     // Update is called once per frame

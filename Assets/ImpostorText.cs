@@ -8,7 +8,6 @@ public class ImpostorText : MonoBehaviour
     public TMP_Text impostorText;
     public string gameOverMessage;
     public int textIterator;
-    public float centerX;
     public GameObject player;
     public bool runCoroutine;
     // Start is called before the first frame update
@@ -23,7 +22,7 @@ public class ImpostorText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.transform.position.x >= centerX && !runCoroutine) 
+        if (player.transform.position.x >= Screen.width / 2 && !runCoroutine) 
         {
             runCoroutine = true;
             StartCoroutine(DisplayMessage(0.1f));
