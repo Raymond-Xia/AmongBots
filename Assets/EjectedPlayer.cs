@@ -7,8 +7,7 @@ using TMPro;
 public class EjectedPlayer : MonoBehaviour
 {
     public float rotationAngle = 0.0f;
-    public static float currentX = 0f;
-    public float centerX = Screen.width / 2;
+    public float centerX;
     public GameObject crewmate;
     public static string[] sprites = new string[]
     {
@@ -30,6 +29,7 @@ public class EjectedPlayer : MonoBehaviour
     {
         crewmate = GameObject.Find("Crewmate");
         crewmate.transform.SetPositionAndRotation(new Vector3(-100, Screen.height - (Screen.height / 6), 0), Quaternion.identity);
+        centerX = Screen.width / 2;
 
         UpdateSprite();
     }
@@ -37,13 +37,9 @@ public class EjectedPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x < Screen.width / 2) 
+        if (transform.position.x < centerX) 
         {
             transform.position = new Vector2(transform.position.x + 1f, transform.position.y);
-        }
-        else 
-        {
-            currentX = centerX;    
         }
 
         rotationAngle += 0.5f;

@@ -7,6 +7,7 @@ public class ImpostorText : MonoBehaviour
 {
     public TMP_Text impostorText;
     public string gameOverMessage;
+    public float centerX;
     public int textIterator;
     public GameObject player;
     public bool runCoroutine;
@@ -17,12 +18,13 @@ public class ImpostorText : MonoBehaviour
         impostorText = GetComponent<TMP_Text>();
         gameOverMessage = "You were not The Impostor";
         textIterator = 0;
+        centerX = Screen.width / 2;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (player.transform.position.x >= Screen.width / 2 && !runCoroutine) 
+        if (player.transform.position.x >= centerX && !runCoroutine) 
         {
             runCoroutine = true;
             StartCoroutine(DisplayMessage(0.1f));
