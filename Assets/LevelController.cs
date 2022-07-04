@@ -6,8 +6,12 @@ public class LevelController : MonoBehaviour
 {
     public static int level;
     public static float levelDuration = 10.0f;
+    
+    public GameObject backButton;
     public GameObject enemy;
     public GameObject boss;
+    public GameObject score;
+
     float enemyY = 500;
     float bossY = 1600;
     Transform canvas;
@@ -17,6 +21,12 @@ public class LevelController : MonoBehaviour
         level = 0;
         canvas = gameObject.transform;
         NewLevel();
+
+        backButton = GameObject.Find("MenuButton");
+        backButton.transform.SetPositionAndRotation(new Vector3((Screen.width - (Screen.width / 6)), (Screen.height - (Screen.height / 10)), 0), Quaternion.identity);
+
+        score = GameObject.Find("Score");
+        score.transform.SetPositionAndRotation(new Vector3((Screen.width / 6), Screen.height - (Screen.height / 10), 0), Quaternion.identity);
     }
 
     // Update is called once per frame

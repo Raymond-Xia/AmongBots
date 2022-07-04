@@ -7,8 +7,8 @@ using TMPro;
 public class EjectedPlayer : MonoBehaviour
 {
     public float rotationAngle = 0.0f;
-    public static float currentX = 0f;
     public float centerX;
+    public GameObject crewmate;
     public static string[] sprites = new string[]
     {
         "Sprites/CrewmateBlack",
@@ -27,6 +27,10 @@ public class EjectedPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        crewmate = GameObject.Find("Crewmate");
+        crewmate.transform.SetPositionAndRotation(new Vector3(-100, Screen.height - (Screen.height / 6), 0), Quaternion.identity);
+        centerX = Screen.width / 2;
+
         UpdateSprite();
     }
 
@@ -37,12 +41,8 @@ public class EjectedPlayer : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x + 1f, transform.position.y);
         }
-        else 
-        {
-            currentX = centerX;    
-        }
 
-        rotationAngle += 1.0f;
+        rotationAngle += 0.5f;
 
         Quaternion target = Quaternion.Euler(0, 0, rotationAngle);
         transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 3.0f);

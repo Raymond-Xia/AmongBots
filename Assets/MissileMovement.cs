@@ -11,13 +11,16 @@ public class MissileMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(MissileTimer(missile, 5.0f));
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position.y < 0f || transform.position.x > Screen.width || transform.position.x < 0) 
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) 
@@ -26,12 +29,5 @@ public class MissileMovement : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    IEnumerator MissileTimer(GameObject go, float delay) 
-    {
-        yield return new WaitForSeconds(delay);
-        Destroy(gameObject);
-        score += 1;
     }
 }

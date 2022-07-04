@@ -7,8 +7,8 @@ public class ImpostorText : MonoBehaviour
 {
     public TMP_Text impostorText;
     public string gameOverMessage;
-    public int textIterator;
     public float centerX;
+    public int textIterator;
     public GameObject player;
     public bool runCoroutine;
     // Start is called before the first frame update
@@ -18,6 +18,7 @@ public class ImpostorText : MonoBehaviour
         impostorText = GetComponent<TMP_Text>();
         gameOverMessage = "You were not The Impostor";
         textIterator = 0;
+        centerX = Screen.width / 2;
     }
 
     // Update is called once per frame
