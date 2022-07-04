@@ -53,4 +53,5 @@ public class Constants
     // SHOP
     public static readonly string BUY_BUTTON_SHOP = "BuyButton";
     public static readonly string BUY_TEXT_SHOP = "BuyText";
+    
 }
