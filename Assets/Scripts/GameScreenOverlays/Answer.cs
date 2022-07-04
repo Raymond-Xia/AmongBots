@@ -22,7 +22,7 @@ public class Answer : MonoBehaviour
             Destroy(GameObject.Find("Question(Clone)"));
 
             // increment score
-            MissileMovement.score += 10;
+            Score.score += 10;
 
             // start new level
             GameObject canvas = GameObject.Find("Canvas");

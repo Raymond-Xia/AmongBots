@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MissileMovement : MonoBehaviour
+public class AttackVertical : MonoBehaviour
 {
     public float damage;
     public GameObject missile;
-    public static int score = 0;
 
     // Start is called before the first frame update
     void Start()
