@@ -6,8 +6,8 @@ public class Settings : MonoBehaviour
 {
     public void ResetButton()
     {
-        PlayerPrefs.SetString("owned", "000100000000");
-        PlayerPrefs.SetInt("selected", 3);
+        PlayerPrefs.SetString(Constants.SPRITE_OWNED_KEY, "000100000000");
+        PlayerPrefs.SetInt(Constants.SPRITE_SELECTED_KEY, 3);
         PlayerPrefs.Save();
         Debug.Log("Reset");
     }

@@ -24,7 +24,7 @@ public class AttackVertical : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) 
     {
-        if (collision.tag == "Player") 
+        if (collision.tag == Constants.PLAYER_TAG) 
         {
             Destroy(gameObject);
         }

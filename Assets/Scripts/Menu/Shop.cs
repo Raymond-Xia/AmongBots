@@ -9,18 +9,18 @@ public class Shop : MonoBehaviour
 
     public static string[] sprites = new string[]
     {
-        "Sprites/CrewmateBlack",
-        "Sprites/CrewmateBlue",
-        "Sprites/CrewmateBrown",
-        "Sprites/CrewmateCyan",
-        "Sprites/CrewmateGreen",
-        "Sprites/CrewmateLime",
-        "Sprites/CrewmateOrange",
-        "Sprites/CrewmatePink",
-        "Sprites/CrewmatePurple",
-        "Sprites/CrewmateRed",
-        "Sprites/CrewmateWhite",
-        "Sprites/CrewmateYellow"
+        Constants.BLACK_CREWMATE,
+        Constants.BLUE_CREWMATE,
+        Constants.BROWN_CREWMATE,
+        Constants.CYAN_CREWMATE,
+        Constants.GREEN_CREWMATE,
+        Constants.LIME_CREWMATE,
+        Constants.ORANGE_CREWMATE,
+        Constants.PINK_CREWMATE,
+        Constants.PURPLE_CREWMATE,
+        Constants.RED_CREWMATE,
+        Constants.WHITE_CREWMATE,
+        Constants.YELLOW_CREWMATE
     };
 
     public int i = 0;
@@ -64,12 +64,12 @@ public class Shop : MonoBehaviour
     public void BuyButton()
     {
         char[] owned = "000000000000".ToCharArray();
-        if (PlayerPrefs.HasKey("owned"))
+        if (PlayerPrefs.HasKey(Constants.SPRITE_OWNED_KEY))
         {
-            owned = PlayerPrefs.GetString("owned").ToCharArray();
+            owned = PlayerPrefs.GetString(Constants.SPRITE_OWNED_KEY).ToCharArray();
         }
         owned[i] = '1';
-        PlayerPrefs.SetString("owned", new string(owned));
+        PlayerPrefs.SetString(Constants.SPRITE_OWNED_KEY, new string(owned));
         PlayerPrefs.Save();
         UpdateButton();
     }
@@ -77,25 +77,25 @@ public class Shop : MonoBehaviour
     private void UpdateSprite()
     {
         Sprite sprite = Resources.Load<Sprite>(sprites[i]);
-        GameObject.Find("Crewmate").GetComponent<Image>().sprite = sprite;
+        GameObject.Find(Constants.CREWMATE_OBJECT).GetComponent<Image>().sprite = sprite;
     }
 
     private void UpdateButton()
     {
         char[] owned = "000000000000".ToCharArray();
-        if (PlayerPrefs.HasKey("owned"))
+        if (PlayerPrefs.HasKey(Constants.SPRITE_OWNED_KEY))
         {
-            owned = PlayerPrefs.GetString("owned").ToCharArray();
+            owned = PlayerPrefs.GetString(Constants.SPRITE_OWNED_KEY).ToCharArray();
         }
         if (owned[i].Equals('1'))
         {
-            GameObject.Find("BuyButton").GetComponent<Button>().interactable = false;
-            GameObject.Find("BuyText").GetComponent<TMP_Text>().text = "OWNED";
+            GameObject.Find(Constants.BUY_BUTTON_SHOP).GetComponent<Button>().interactable = false;
+            GameObject.Find(Constants.BUY_TEXT_SHOP).GetComponent<TMP_Text>().text = "OWNED";
         }
         else
         {
-            GameObject.Find("BuyButton").GetComponent<Button>().interactable = true;
-            GameObject.Find("BuyText").GetComponent<TMP_Text>().text = "BUY";
+            GameObject.Find(Constants.BUY_BUTTON_SHOP).GetComponent<Button>().interactable = true;
+            GameObject.Find(Constants.BUY_TEXT_SHOP).GetComponent<TMP_Text>().text = "BUY";
         }
     }
 

@@ -8,32 +8,32 @@ public class Inventory : MonoBehaviour
 {
     public string[] skins = new string[]
     {
-        "Sprites/CrewmateBlack",
-        "Sprites/CrewmateBlue",
-        "Sprites/CrewmateBrown",
-        "Sprites/CrewmateCyan",
-        "Sprites/CrewmateGreen",
-        "Sprites/CrewmateLime",
-        "Sprites/CrewmateOrange",
-        "Sprites/CrewmatePink",
-        "Sprites/CrewmatePurple",
-        "Sprites/CrewmateRed",
-        "Sprites/CrewmateWhite",
-        "Sprites/CrewmateYellow"
+        Constants.BLACK_CREWMATE,
+        Constants.BLUE_CREWMATE,
+        Constants.BROWN_CREWMATE,
+        Constants.CYAN_CREWMATE,
+        Constants.GREEN_CREWMATE,
+        Constants.LIME_CREWMATE,
+        Constants.ORANGE_CREWMATE,
+        Constants.PINK_CREWMATE,
+        Constants.PURPLE_CREWMATE,
+        Constants.RED_CREWMATE,
+        Constants.WHITE_CREWMATE,
+        Constants.YELLOW_CREWMATE
     };
 
     public GameObject[] buttons = new GameObject[12];
 
     public void UpdateInventory()
     {
-        foreach (Transform child in GameObject.Find("ScrollContent").transform) {
+        foreach (Transform child in GameObject.Find(Constants.SCROLL_CONTENT_INVENTORY).transform) {
             GameObject.Destroy(child.gameObject);
         }
-        GameObject.Find("ScrollView").GetComponent<ScrollRect>().verticalNormalizedPosition = 1;
+        GameObject.Find(Constants.SCROLL_VIEW_INVENTORY).GetComponent<ScrollRect>().verticalNormalizedPosition = 1;
         char[] owned = "000000000000".ToCharArray();
-        if (PlayerPrefs.HasKey("owned"))
+        if (PlayerPrefs.HasKey(Constants.SPRITE_OWNED_KEY))
         {
-            owned = PlayerPrefs.GetString("owned").ToCharArray();
+            owned = PlayerPrefs.GetString(Constants.SPRITE_OWNED_KEY).ToCharArray();
         }
         Debug.Log(new string(owned));
 
@@ -43,7 +43,7 @@ public class Inventory : MonoBehaviour
             if (owned[i].Equals('1'))
             {
                 buttons[i] = new GameObject();
-                buttons[i].transform.parent = GameObject.Find("ScrollContent").transform;
+                buttons[i].transform.parent = GameObject.Find(Constants.SCROLL_CONTENT_INVENTORY).transform;
                 int x = i;
                 buttons[i].AddComponent<Button>().onClick.AddListener(delegate { selectCrewmate(x); });
 
@@ -62,7 +62,7 @@ public class Inventory : MonoBehaviour
 
     void selectCrewmate(int i)
     {
-        PlayerPrefs.SetInt("selected", i);
+        PlayerPrefs.SetInt(Constants.SPRITE_SELECTED_KEY, i);
         PlayerPrefs.Save();
     }
 }
