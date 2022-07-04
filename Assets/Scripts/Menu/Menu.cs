@@ -31,7 +31,7 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene(1);
         PlayerMovement.hp = 5;
-        MissileMovement.score = 0;
+        Score.score = 0;
     }
 
     public void UpdateSprite()

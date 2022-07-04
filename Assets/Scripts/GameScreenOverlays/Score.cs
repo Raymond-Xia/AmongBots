@@ -6,6 +6,7 @@ using TMPro;
 public class Score : MonoBehaviour
 {
     public TMP_Text scoreText;
+    public static int score = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +16,6 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "SCORE: " + MissileMovement.score.ToString();
+        scoreText.text = "SCORE: " + score.ToString();
     }
 }
