@@ -16,22 +16,22 @@ public class Answer : MonoBehaviour
         if (result.text == QuestionGenerator.answer.ToString()) 
         {
             // destroy boss and question
-            GameObject boss = GameObject.Find("Boss(Clone)");
+            GameObject boss = GameObject.Find(Constants.BOSS_PREFAB);
             BossAI bossAI = (BossAI) boss.GetComponent(typeof(BossAI));
             bossAI.DestroyAnimation();
-            Destroy(GameObject.Find("Question(Clone)"));
+            Destroy(GameObject.Find(Constants.QUESTION_PREFAB));
 
             // increment score
             Score.score += 10;
 
             // start new level
-            GameObject canvas = GameObject.Find("Canvas");
+            GameObject canvas = GameObject.Find(Constants.CANVAS_OBJECT);
             LevelController levelController = (LevelController) canvas.GetComponent(typeof(LevelController));
             levelController.NewLevel();
         }
         else // if answer is incorrect, lose game
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(Constants.LOSE_SCENE);
         }
     }
 

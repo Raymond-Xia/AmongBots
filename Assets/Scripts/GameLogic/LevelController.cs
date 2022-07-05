@@ -22,10 +22,10 @@ public class LevelController : MonoBehaviour
         canvas = gameObject.transform;
         NewLevel();
 
-        backButton = GameObject.Find("MenuButton");
+        backButton = GameObject.Find(Constants.MENU_BUTTON_OVERLAY);
         backButton.transform.SetPositionAndRotation(new Vector3((Screen.width - (Screen.width / 6)), (Screen.height - (Screen.height / 10)), 0), Quaternion.identity);
 
-        score = GameObject.Find("Score");
+        score = GameObject.Find(Constants.SCORE_OVERLAY);
         score.transform.SetPositionAndRotation(new Vector3((Screen.width / 6), Screen.height - (Screen.height / 10), 0), Quaternion.identity);
     }
 

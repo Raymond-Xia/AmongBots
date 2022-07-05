@@ -18,9 +18,9 @@ public class QuestionGenerator : MonoBehaviour
     {
         // Find question and answer components
         question = GetComponent<TMP_Text>();
-        a1 = GameObject.Find("A1Text").GetComponent<TMP_Text>();
-        a2 = GameObject.Find("A2Text").GetComponent<TMP_Text>();
-        a3 = GameObject.Find("A3Text").GetComponent<TMP_Text>();
+        a1 = GameObject.Find(Constants.ANSWER_ONE_OVERLAY).GetComponent<TMP_Text>();
+        a2 = GameObject.Find(Constants.ANSWER_TWO_OVERLAY).GetComponent<TMP_Text>();
+        a3 = GameObject.Find(Constants.ANSWER_THREE_OVERLAY).GetComponent<TMP_Text>();
         
         // Generate answer
         minNum = 0;

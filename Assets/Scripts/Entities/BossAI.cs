@@ -17,11 +17,11 @@ public class BossAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canvas = GameObject.Find("Canvas").transform;
+        canvas = GameObject.Find(Constants.CANVAS_OBJECT).transform;
         targetPosition = new Vector2(canvas.position.x, canvas.position.y + 400);
         askQuestion = false;
         questionAsked = false;
-        explosion = GameObject.Find("Explosion");
+        explosion = GameObject.Find(Constants.EXPLOSION_OBJECT);
         explosion.SetActive(false);
     }
 

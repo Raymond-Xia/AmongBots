@@ -11,23 +11,23 @@ public class EjectedPlayer : MonoBehaviour
     public GameObject crewmate;
     public static string[] sprites = new string[]
     {
-        "Sprites/CrewmateBlack",
-        "Sprites/CrewmateBlue",
-        "Sprites/CrewmateBrown",
-        "Sprites/CrewmateCyan",
-        "Sprites/CrewmateGreen",
-        "Sprites/CrewmateLime",
-        "Sprites/CrewmateOrange",
-        "Sprites/CrewmatePink",
-        "Sprites/CrewmatePurple",
-        "Sprites/CrewmateRed",
-        "Sprites/CrewmateWhite",
-        "Sprites/CrewmateYellow"
+        Constants.BLACK_CREWMATE,
+        Constants.BLUE_CREWMATE,
+        Constants.BROWN_CREWMATE,
+        Constants.CYAN_CREWMATE,
+        Constants.GREEN_CREWMATE,
+        Constants.LIME_CREWMATE,
+        Constants.ORANGE_CREWMATE,
+        Constants.PINK_CREWMATE,
+        Constants.PURPLE_CREWMATE,
+        Constants.RED_CREWMATE,
+        Constants.WHITE_CREWMATE,
+        Constants.YELLOW_CREWMATE
     };
     // Start is called before the first frame update
     void Start()
     {
-        crewmate = GameObject.Find("Crewmate");
+        crewmate = GameObject.Find(Constants.CREWMATE_OBJECT);
         crewmate.transform.SetPositionAndRotation(new Vector3(-100, Screen.height - (Screen.height / 6), 0), Quaternion.identity);
         centerX = Screen.width / 2;
 
@@ -56,11 +56,11 @@ public class EjectedPlayer : MonoBehaviour
     private void UpdateSprite()
     {
         int selected = 3;
-        if (PlayerPrefs.HasKey("selected"))
+        if (PlayerPrefs.HasKey(Constants.SPRITE_SELECTED_KEY))
         {
-            selected = PlayerPrefs.GetInt("selected");
+            selected = PlayerPrefs.GetInt(Constants.SPRITE_SELECTED_KEY);
         }
         Sprite sprite = Resources.Load<Sprite>(sprites[selected]);
-        GameObject.Find("Crewmate").GetComponent<Image>().sprite = sprite;
+        GameObject.Find(Constants.CREWMATE_OBJECT).GetComponent<Image>().sprite = sprite;
     }
 }

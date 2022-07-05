@@ -8,18 +8,18 @@ public class Menu : MonoBehaviour
 {
     public static string[] sprites = new string[]
     {
-        "Sprites/CrewmateBlack",
-        "Sprites/CrewmateBlue",
-        "Sprites/CrewmateBrown",
-        "Sprites/CrewmateCyan",
-        "Sprites/CrewmateGreen",
-        "Sprites/CrewmateLime",
-        "Sprites/CrewmateOrange",
-        "Sprites/CrewmatePink",
-        "Sprites/CrewmatePurple",
-        "Sprites/CrewmateRed",
-        "Sprites/CrewmateWhite",
-        "Sprites/CrewmateYellow"
+        Constants.BLACK_CREWMATE,
+        Constants.BLUE_CREWMATE,
+        Constants.BROWN_CREWMATE,
+        Constants.CYAN_CREWMATE,
+        Constants.GREEN_CREWMATE,
+        Constants.LIME_CREWMATE,
+        Constants.ORANGE_CREWMATE,
+        Constants.PINK_CREWMATE,
+        Constants.PURPLE_CREWMATE,
+        Constants.RED_CREWMATE,
+        Constants.WHITE_CREWMATE,
+        Constants.YELLOW_CREWMATE
     };
 
     void Start()
@@ -29,7 +29,7 @@ public class Menu : MonoBehaviour
 
     public void PlayButton()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(Constants.GAME_SCENE);
         PlayerMovement.hp = 5;
         Score.score = 0;
     }
@@ -37,11 +37,11 @@ public class Menu : MonoBehaviour
     public void UpdateSprite()
     {
         int selected = 3;
-        if (PlayerPrefs.HasKey("selected"))
+        if (PlayerPrefs.HasKey(Constants.SPRITE_SELECTED_KEY))
         {
-            selected = PlayerPrefs.GetInt("selected");
+            selected = PlayerPrefs.GetInt(Constants.SPRITE_SELECTED_KEY);
         }
         Sprite sprite = Resources.Load<Sprite>(sprites[selected]);
-        GameObject.Find("Crewmate").GetComponent<Image>().sprite = sprite;
+        GameObject.Find(Constants.CREWMATE_OBJECT).GetComponent<Image>().sprite = sprite;
     }
 }

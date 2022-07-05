@@ -14,24 +14,24 @@ public class PlayerMovement : MonoBehaviour
     public static int hp = 5;
     public static string[] sprites = new string[]
     {
-        "Sprites/CrewmateBlack",
-        "Sprites/CrewmateBlue",
-        "Sprites/CrewmateBrown",
-        "Sprites/CrewmateCyan",
-        "Sprites/CrewmateGreen",
-        "Sprites/CrewmateLime",
-        "Sprites/CrewmateOrange",
-        "Sprites/CrewmatePink",
-        "Sprites/CrewmatePurple",
-        "Sprites/CrewmateRed",
-        "Sprites/CrewmateWhite",
-        "Sprites/CrewmateYellow"
+        Constants.BLACK_CREWMATE,
+        Constants.BLUE_CREWMATE,
+        Constants.BROWN_CREWMATE,
+        Constants.CYAN_CREWMATE,
+        Constants.GREEN_CREWMATE,
+        Constants.LIME_CREWMATE,
+        Constants.ORANGE_CREWMATE,
+        Constants.PINK_CREWMATE,
+        Constants.PURPLE_CREWMATE,
+        Constants.RED_CREWMATE,
+        Constants.WHITE_CREWMATE,
+        Constants.YELLOW_CREWMATE
     };
 
     // Start is called before the first frame update
     void Start()
     {
-        canvasPosition = GameObject.Find("Canvas").transform.position;
+        canvasPosition = GameObject.Find(Constants.CANVAS_OBJECT).transform.position;
         col = GetComponent<Collider2D>();
         UpdateSprite();
     }
@@ -74,22 +74,22 @@ public class PlayerMovement : MonoBehaviour
     private void UpdateSprite()
     {
         int selected = 3;
-        if (PlayerPrefs.HasKey("selected"))
+        if (PlayerPrefs.HasKey(Constants.SPRITE_SELECTED_KEY))
         {
-            selected = PlayerPrefs.GetInt("selected");
+            selected = PlayerPrefs.GetInt(Constants.SPRITE_SELECTED_KEY);
         }
         Sprite sprite = Resources.Load<Sprite>(sprites[selected]);
-        GameObject.Find("Player").GetComponent<Image>().sprite = sprite;
+        GameObject.Find(Constants.PLAYER_OBJECT).GetComponent<Image>().sprite = sprite;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy" || collision.tag == "Missile")
+        if (collision.tag == Constants.ENEMY_TAG || collision.tag == Constants.MISSILE_TAG)
         {
             hp = hp - 1;
             if (hp == 0)
             {
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(Constants.LOSE_SCENE);
                 hp = 5;
             }
         }
