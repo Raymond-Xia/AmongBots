@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAI2 : MonoBehaviour
 {
     public float shootSpeed;
     public Transform shootPos;
@@ -15,10 +15,10 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemy = GameObject.Find(Constants.ENEMY_PREFAB);
+        enemy = GameObject.Find(Constants.ENEMY2_PREFAB);
         StartCoroutine(Spawn(enemy, 5.0f));
         enemy.SetActive(true);
-        StartCoroutine(AttackVertical.Shoot(missile, 1, ammo, shootSpeed, shootPos));
+        StartCoroutine(AttackFan.Shoot(missile, 1, ammo, shootSpeed, shootPos));
     }
 
     // Update is called once per frame
@@ -32,6 +32,4 @@ public class EnemyAI : MonoBehaviour
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);
     }
-
-    
 }

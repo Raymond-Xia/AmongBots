@@ -14,6 +14,7 @@ public class Constants
     // PREFABS
     public static readonly string BOSS_PREFAB = "Boss(Clone)";
     public static readonly string ENEMY_PREFAB = "Enemy(Clone)";
+    public static readonly string ENEMY2_PREFAB = "Enemy2(Clone)";
     public static readonly string QUESTION_PREFAB = "Question(Clone)";
 
     // TAGS
