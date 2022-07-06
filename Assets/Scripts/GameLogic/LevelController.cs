@@ -9,11 +9,9 @@ public class LevelController : MonoBehaviour
     
     public GameObject backButton;
     public GameObject enemy;
-    public GameObject enemy2;
     public GameObject boss;
     public GameObject score;
 
-    float enemyX = 300;
     float enemyY = 500;
     float bossY = 1600;
     Transform canvas;
@@ -49,8 +47,7 @@ public class LevelController : MonoBehaviour
         level += 1;
         GameObject newEnemy = Instantiate(enemy, new Vector2(canvas.position.x, canvas.position.y + enemyY), Quaternion.identity, canvas) as GameObject;
         newEnemy.transform.SetSiblingIndex(1);
-        GameObject newEnemy2 = Instantiate(enemy2, new Vector2(canvas.position.x + enemyX, canvas.position.y + enemyY), Quaternion.identity, canvas) as GameObject;
-        newEnemy2.transform.SetSiblingIndex(1);
+        newEnemy.SendMessage("SetAttackPattern", 2);
         StartCoroutine(WaitAndSpawnBoss(levelDuration));
     }
 
