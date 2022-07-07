@@ -24,16 +24,16 @@ public class ImpostorText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.transform.position.x >= centerX && !runCoroutine) 
+        if (player.transform.position.x >= centerX && !runCoroutine)
         {
             runCoroutine = true;
             StartCoroutine(DisplayMessage(0.1f));
         }
     }
 
-    IEnumerator DisplayMessage(float delay) 
+    IEnumerator DisplayMessage(float delay)
     {
-        while (impostorText.text != gameOverMessage) 
+        while (impostorText.text != gameOverMessage)
         {
             impostorText.text += gameOverMessage[textIterator];
             textIterator += 1;

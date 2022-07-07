@@ -41,7 +41,7 @@ public class EnemyAI : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void SetAttackPattern(int attackPattern) 
+    public void SetAttackPattern(int attackPattern)
     {
         this.attackPattern = attackPattern;
     }
