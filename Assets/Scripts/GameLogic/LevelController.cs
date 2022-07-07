@@ -6,7 +6,7 @@ public class LevelController : MonoBehaviour
 {
     public static int level;
     public static float levelDuration = 10.0f;
-    
+
     public GameObject backButton;
     public GameObject enemy;
     public GameObject boss;
@@ -32,13 +32,13 @@ public class LevelController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void NewLevel()
     {
         float delay = level == 0 ? 0.5f : 2.0f; // delay enemies appearance -- need this to stall for Boss's explosion animation!
-        StartCoroutine(WaitAndStartLevel(delay)); 
+        StartCoroutine(WaitAndStartLevel(delay));
     }
 
     IEnumerator WaitAndStartLevel(float delay)
@@ -57,5 +57,5 @@ public class LevelController : MonoBehaviour
         GameObject newBoss = Instantiate(boss, new Vector2(canvas.position.x, canvas.position.y + bossY), Quaternion.identity, canvas) as GameObject;
         newBoss.transform.SetSiblingIndex(1);
     }
-    
+
 }

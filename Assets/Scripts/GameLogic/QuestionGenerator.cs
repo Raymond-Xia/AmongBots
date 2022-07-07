@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro; 
+using TMPro;
 
 public class QuestionGenerator : MonoBehaviour
 {
@@ -21,7 +21,7 @@ public class QuestionGenerator : MonoBehaviour
         a1 = GameObject.Find(Constants.ANSWER_ONE_OVERLAY).GetComponent<TMP_Text>();
         a2 = GameObject.Find(Constants.ANSWER_TWO_OVERLAY).GetComponent<TMP_Text>();
         a3 = GameObject.Find(Constants.ANSWER_THREE_OVERLAY).GetComponent<TMP_Text>();
-        
+
         // Generate answer
         minNum = 0;
         maxNum = 10;

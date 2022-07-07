@@ -10,7 +10,7 @@ public class HealthOverlay : MonoBehaviour
     void Start()
     {
         healthText = GetComponent<Text>();
-        
+
     }
 
     // Update is called once per frame

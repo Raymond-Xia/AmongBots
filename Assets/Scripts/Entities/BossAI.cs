@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossAI : MonoBehaviour
 {
     public Vector2 targetPosition;
-    public float speed; 
+    public float speed;
     public GameObject question;
     public GameObject explosion;
     float questionY = -40;
@@ -31,7 +31,7 @@ public class BossAI : MonoBehaviour
         if ((Vector2)transform.position != targetPosition) // entrance animation
         {
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-        } 
+        }
         else // ask question when reached position
         {
             askQuestion = true;
@@ -44,14 +44,14 @@ public class BossAI : MonoBehaviour
         }
 
     }
-    
+
     public void DestroyAnimation()
     {
         explosion.SetActive(true);
         StartCoroutine(HideBoss(explosionDuration));
     }
-    
-    IEnumerator HideBoss(float delay) 
+
+    IEnumerator HideBoss(float delay)
     {
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);
