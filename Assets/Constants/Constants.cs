@@ -54,4 +54,9 @@ public class Constants
     public static readonly string BUY_BUTTON_SHOP = "BuyButton";
     public static readonly string BUY_TEXT_SHOP = "BuyText";
     
+    // QUESTION GENERATION
+    public static readonly string ADDITION = "+";
+    public static readonly string SUBTRACTION = "−";
+    public static readonly string MULTIPLICATION = "×";
+    public static readonly string DIVISION = "÷";
 }
