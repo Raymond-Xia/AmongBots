@@ -47,6 +47,7 @@ public class LevelController : MonoBehaviour
         level += 1;
         GameObject newEnemy = Instantiate(enemy, new Vector2(canvas.position.x, canvas.position.y + enemyY), Quaternion.identity, canvas) as GameObject;
         newEnemy.transform.SetSiblingIndex(1);
+        newEnemy.SendMessage("SetAttackPattern", 2);
         StartCoroutine(WaitAndSpawnBoss(levelDuration));
     }
 

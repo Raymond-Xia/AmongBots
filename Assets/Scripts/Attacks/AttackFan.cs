@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackVertical : MonoBehaviour
+public class AttackFan : MonoBehaviour
 {
     public float damage;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -33,9 +33,16 @@ public class AttackVertical : MonoBehaviour
     {
         while (ammo > 0)
         {
-            GameObject newMissile = Instantiate(missile, shootPos.position, Quaternion.identity) as GameObject;
-            newMissile.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -shootSpeed * Time.fixedDeltaTime);
-            newMissile.transform.SetParent(GameObject.Find(Constants.CANVAS_OBJECT).transform, true);
+            int angle = 00;
+            while (angle <= 180) 
+            {
+                GameObject newMissile = Instantiate(missile, shootPos.position, Quaternion.identity) as GameObject;
+                newMissile.GetComponent<Rigidbody2D>().velocity = new Vector2(-shootSpeed * Time.fixedDeltaTime * Mathf.Cos((angle * Mathf.PI) / 180), -shootSpeed * Time.fixedDeltaTime * Mathf.Sin((angle * Mathf.PI) / 180));
+                newMissile.transform.SetParent(GameObject.Find(Constants.CANVAS_OBJECT).transform, true);
+                angle += 45;
+            }
+            angle = 0;
+            
             ammo -= 1;
             yield return new WaitForSeconds(delay);
         }

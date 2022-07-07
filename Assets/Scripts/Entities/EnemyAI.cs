@@ -12,14 +12,21 @@ public class EnemyAI : MonoBehaviour
     public int ammo;
     public Bounds missilePosition;
     public GameObject canvas;
+    public int attackPattern;
     // Start is called before the first frame update
     void Start()
     {
         enemy = GameObject.Find(Constants.ENEMY_PREFAB);
         StartCoroutine(Spawn(enemy, 5.0f));
         enemy.SetActive(true);
-        StartCoroutine(Shoot(1));
-        canvas = GameObject.Find(Constants.CANVAS_OBJECT);
+        if (attackPattern == 1)
+        {
+            StartCoroutine(AttackVertical.Shoot(missile, 1, ammo, shootSpeed, shootPos));
+        }
+        else if (attackPattern == 2)
+        {
+            StartCoroutine(AttackFan.Shoot(missile, 1, ammo, shootSpeed, shootPos));
+        }
     }
 
     // Update is called once per frame
@@ -34,15 +41,8 @@ public class EnemyAI : MonoBehaviour
         Destroy(gameObject);
     }
 
-    IEnumerator Shoot(float delay)
+    public void SetAttackPattern(int attackPattern) 
     {
-        while (ammo > 0)
-        {
-            GameObject newMissile = Instantiate(missile, shootPos.position, Quaternion.identity) as GameObject;
-            newMissile.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -shootSpeed * Time.fixedDeltaTime);
-            newMissile.transform.SetParent(GameObject.Find(Constants.CANVAS_OBJECT).transform, true);
-            ammo -= 1;
-            yield return new WaitForSeconds(delay);
-        }
+        this.attackPattern = attackPattern;
     }
 }
