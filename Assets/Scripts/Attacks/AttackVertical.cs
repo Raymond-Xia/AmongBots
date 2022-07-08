@@ -29,7 +29,7 @@ public class AttackVertical : MonoBehaviour
         }
     }
 
-    public static IEnumerator Shoot(GameObject missile, float delay, int ammo, float shootSpeed, Transform shootPos)
+    public static IEnumerator Shoot(GameObject enemy, GameObject missile, float delay, int ammo, float shootSpeed, Transform shootPos)
     {
         while (ammo > 0)
         {
@@ -39,5 +39,6 @@ public class AttackVertical : MonoBehaviour
             ammo -= 1;
             yield return new WaitForSeconds(delay);
         }
+        enemy.SendMessage("EmptyAmmo", 0);
     }
 }

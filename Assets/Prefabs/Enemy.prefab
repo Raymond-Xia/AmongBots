@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootSpeed: 30000
+  moveSpeed: 30000
   shootPos: {fileID: 9176720485077596765}
   missile: {fileID: 6700127299897576037, guid: 176a2ae270067184c8b9c3ea06e7e185, type: 3}
   col: {fileID: 9176720485684825265}
@@ -164,6 +165,21 @@ MonoBehaviour:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   canvas: {fileID: 0}
+  movementPattern: 0
+  attackPattern: 0
+  isExiting: 0
+  pausePoint: {x: 0, y: 0}
+  spawnLocations:
+  - {x: 0, y: 268, z: 0}
+  - {x: 0, y: 335, z: 0}
+  - {x: 0, y: 403, z: 0}
+  - {x: 366, y: 403, z: 0}
+  - {x: 733, y: 403, z: 0}
+  - {x: 1099, y: 403, z: 0}
+  - {x: 1466, y: 403, z: 0}
+  - {x: 1466, y: 335, z: 0}
+  - {x: 1466, y: 268, z: 0}
+  body: {fileID: 0}
 --- !u!50 &9176720485684825230
 Rigidbody2D:
   serializedVersion: 4
