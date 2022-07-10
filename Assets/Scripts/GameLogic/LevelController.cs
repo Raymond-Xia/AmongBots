@@ -11,8 +11,6 @@ public class LevelController : MonoBehaviour
     public GameObject enemy;
     public GameObject boss;
     public GameObject score;
-
-    float enemyY = 500;
     float bossY = 1600;
     Transform canvas;
     // Start is called before the first frame update
@@ -24,7 +22,7 @@ public class LevelController : MonoBehaviour
 
         backButton = GameObject.Find(Constants.MENU_BUTTON_OVERLAY);
         backButton.transform.SetPositionAndRotation(new Vector3((Screen.width - (Screen.width / 6)), (Screen.height - (Screen.height / 10)), 0), Quaternion.identity);
-
+        
         score = GameObject.Find(Constants.SCORE_OVERLAY);
         score.transform.SetPositionAndRotation(new Vector3((Screen.width / 6), Screen.height - (Screen.height / 10), 0), Quaternion.identity);
     }
@@ -45,9 +43,9 @@ public class LevelController : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         level += 1;
-        GameObject newEnemy = Instantiate(enemy, new Vector2(canvas.position.x, canvas.position.y + enemyY), Quaternion.identity, canvas) as GameObject;
+        GameObject newEnemy = Instantiate(enemy, new Vector2(Screen.width / 2, Screen.height), Quaternion.identity, canvas) as GameObject;
         newEnemy.transform.SetSiblingIndex(1);
-        newEnemy.SendMessage("SetAttackPattern", 2);
+        newEnemy.SendMessage("SetParameters", new EnemyParameters(30000f, 30000f, 3, 2, new Vector2(Screen.width / 2, 2*Screen.height / 3), 2, 6));
         StartCoroutine(WaitAndSpawnBoss(levelDuration));
     }
 

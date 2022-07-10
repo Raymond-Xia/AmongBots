@@ -29,11 +29,11 @@ public class AttackFan : MonoBehaviour
         }
     }
 
-    public static IEnumerator Shoot(GameObject missile, float delay, int ammo, float shootSpeed, Transform shootPos)
+    public static IEnumerator Shoot(GameObject enemy, GameObject missile, float delay, int ammo, float shootSpeed, Transform shootPos)
     {
         while (ammo > 0)
         {
-            int angle = 00;
+            int angle = 0;
             while (angle <= 180)
             {
                 GameObject newMissile = Instantiate(missile, shootPos.position, Quaternion.identity) as GameObject;
@@ -46,5 +46,6 @@ public class AttackFan : MonoBehaviour
             ammo -= 1;
             yield return new WaitForSeconds(delay);
         }
+        enemy.SendMessage("EmptyAmmo", 0);
     }
 }
