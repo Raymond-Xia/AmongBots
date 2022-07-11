@@ -4,18 +4,18 @@ using TMPro;
 
 public class Shop : MonoBehaviour
 {
-    public int i = 0;
+    public int i = 1;
 
     void Start()
     {
-        i = 0;
+        i = 1;
         UpdateSprite();
         UpdateButton();
     }
 
     public void UpdateStart()
     {
-        i = 0;
+        i = 1;
         UpdateSprite();
         UpdateButton();
     }
@@ -23,7 +23,7 @@ public class Shop : MonoBehaviour
     public void LeftButton()
     {
         i--;
-        if (i < 0)
+        if (i < 1)
         {
             i = Constants.SKINS.Length - 1;
         }
@@ -36,7 +36,7 @@ public class Shop : MonoBehaviour
         i++;
         if (i == Constants.SKINS.Length)
         {
-            i = 0;
+            i = 1;
         }
         UpdateSprite();
         UpdateButton();
