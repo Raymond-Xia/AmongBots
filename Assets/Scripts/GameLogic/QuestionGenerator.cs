@@ -9,7 +9,6 @@ public class QuestionGenerator : MonoBehaviour
     public TMP_Text a1;
     public TMP_Text a2;
     public TMP_Text a3;
-    public int minNum, maxNum;
     public int X, Y;
     public static int answer;
 
@@ -21,13 +20,67 @@ public class QuestionGenerator : MonoBehaviour
         a1 = GameObject.Find(Constants.ANSWER_ONE_OVERLAY).GetComponent<TMP_Text>();
         a2 = GameObject.Find(Constants.ANSWER_TWO_OVERLAY).GetComponent<TMP_Text>();
         a3 = GameObject.Find(Constants.ANSWER_THREE_OVERLAY).GetComponent<TMP_Text>();
-
-        // Generate answer
-        minNum = 0;
-        maxNum = 10;
-        X = Random.Range(minNum,maxNum);
-        Y = Random.Range(minNum,maxNum);
-        answer = X + Y;
+        
+        // Generate question
+        int level = LevelController.level;
+        int chooseDifficulty = Random.Range(0, Mathf.Min(1 + level/5, 8));
+        string op = "";
+        switch (chooseDifficulty) {
+            case 0: // single digit addition
+                X = Random.Range(0, 9);
+                Y = Random.Range(0, 9);
+                answer = X + Y;
+                op = Constants.ADDITION;
+                break;
+            case 1: // double/single digit addition
+                X = Random.Range(0, 99);
+                Y = Random.Range(0, 99);
+                answer = X + Y;
+                op = Constants.ADDITION;
+                break;
+            case 2: // single digit subtraction
+                X = Random.Range(0, 9);
+                Y = Random.Range(0, 9);
+                answer = X - Y;
+                op = Constants.SUBTRACTION;
+                break;
+            case 3: // double/single digit subtraction
+                X = Random.Range(0, 99);
+                Y = Random.Range(0, 99);
+                answer = X - Y;
+                op = Constants.SUBTRACTION;
+                break;
+            case 4: // single digit multiplication
+                X = Random.Range(0, 9);
+                Y = Random.Range(0, 9);
+                answer = X * Y;
+                op = Constants.MULTIPLICATION;
+                break;
+            case 5: // double/single digit multiplication
+                X = Random.Range(1, 99);
+                Y = Random.Range(0, 1000/X); // keep answers below 1000 to maintain simplicity
+                answer = X * Y;
+                op = Constants.MULTIPLICATION;
+                break;
+            case 6: // single digit division
+                answer = Random.Range(0, 9);
+                Y = Random.Range(1, 9);
+                X = answer * Y;
+                op = Constants.DIVISION;
+                break;
+            case 7: // double/single digit division
+                answer = Random.Range(0, 99);
+                Y = Random.Range(1, 1000/99); // keep answers below 1000 to maintain simplicity
+                X = answer * Y;
+                op = Constants.DIVISION;
+                break;
+            default:
+                Y = 0;
+                X = 0;
+                answer = 0;
+                op = Constants.ADDITION;
+                break;
+        }
 
         // Generate wrong answers
         Stack<int> wrongAnswers = new Stack<int>();
@@ -40,8 +93,9 @@ public class QuestionGenerator : MonoBehaviour
         }
 
         // Write text to question and answer buttons
+        question.text = string.Format(Constants.QUESTION_FORMAT, X, op, Y);
+
         int randomButton = Random.Range(1,4);
-        question.text = X + " + " + Y + " = ?";
         a1.text = randomButton == 1 ? answer + "" : wrongAnswers.Pop() + "";
         a2.text = randomButton == 2 ? answer + "" : wrongAnswers.Pop() + "";
         a3.text = randomButton == 3 ? answer + "" : wrongAnswers.Pop() + "";
