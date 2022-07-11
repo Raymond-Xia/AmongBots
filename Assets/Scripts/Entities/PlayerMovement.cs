@@ -1,16 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public bool moveAllowed;
-    public Collider2D col;
-    public Vector2 touchPosition;
-    Collider2D touchedCollider;
-    public Vector2 canvasPosition;
     public static int hp = 5;
     public static string[] sprites = new string[]
     {
@@ -27,6 +20,12 @@ public class PlayerMovement : MonoBehaviour
         Constants.WHITE_CREWMATE,
         Constants.YELLOW_CREWMATE
     };
+
+    public bool moveAllowed;
+    public Collider2D col;
+    public Vector2 touchPosition;
+    Collider2D touchedCollider;
+    public Vector2 canvasPosition;
 
     // Start is called before the first frame update
     void Start()
