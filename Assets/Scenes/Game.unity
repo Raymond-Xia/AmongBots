@@ -310,7 +310,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backButton: {fileID: 0}
   enemy: {fileID: 9176720485684825268, guid: 4bd95a026ea98804594546547b2c6e3e, type: 3}
-  enemy2: {fileID: 3251331511038271474, guid: f4ab963089a49da4f858e2874fd20ca4, type: 3}
   boss: {fileID: 2522402450729913665, guid: eec29f6a55b04cd4da94743f36ec2feb, type: 3}
   score: {fileID: 0}
 --- !u!1 &401113862
@@ -1083,8 +1082,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -224.62, y: 818.21}
-  m_SizeDelta: {x: 566.7668, y: 117.5862}
+  m_AnchoredPosition: {x: -224.62, y: 789.9667}
+  m_SizeDelta: {x: 566.7668, y: 174.073}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1996731306
 CanvasRenderer:
