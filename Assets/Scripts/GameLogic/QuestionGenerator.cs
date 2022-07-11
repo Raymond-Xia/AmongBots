@@ -23,7 +23,7 @@ public class QuestionGenerator : MonoBehaviour
         
         // Generate question
         int level = LevelController.level;
-        int chooseDifficulty = Random.Range(0, 1 + level/5);
+        int chooseDifficulty = Random.Range(0, Mathf.Min(1 + level/5, 8));
         string op = "";
         switch (chooseDifficulty) {
             case 0: // single digit addition
