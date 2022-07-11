@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
 
 public class Inventory : MonoBehaviour
 {
@@ -26,7 +23,8 @@ public class Inventory : MonoBehaviour
 
     public void UpdateInventory()
     {
-        foreach (Transform child in GameObject.Find(Constants.SCROLL_CONTENT_INVENTORY).transform) {
+        foreach (Transform child in GameObject.Find(Constants.SCROLL_CONTENT_INVENTORY).transform)
+        {
             GameObject.Destroy(child.gameObject);
         }
         GameObject.Find(Constants.SCROLL_VIEW_INVENTORY).GetComponent<ScrollRect>().verticalNormalizedPosition = 1;

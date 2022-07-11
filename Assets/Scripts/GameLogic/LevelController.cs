@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelController : MonoBehaviour
@@ -22,7 +21,7 @@ public class LevelController : MonoBehaviour
 
         backButton = GameObject.Find(Constants.MENU_BUTTON_OVERLAY);
         backButton.transform.SetPositionAndRotation(new Vector3((Screen.width - (Screen.width / 6)), (Screen.height - (Screen.height / 10)), 0), Quaternion.identity);
-        
+
         score = GameObject.Find(Constants.SCORE_OVERLAY);
         score.transform.SetPositionAndRotation(new Vector3((Screen.width / 6), Screen.height - (Screen.height / 10), 0), Quaternion.identity);
     }
@@ -55,5 +54,4 @@ public class LevelController : MonoBehaviour
         GameObject newBoss = Instantiate(boss, new Vector2(canvas.position.x, canvas.position.y + bossY), Quaternion.identity, canvas) as GameObject;
         newBoss.transform.SetSiblingIndex(1);
     }
-
 }

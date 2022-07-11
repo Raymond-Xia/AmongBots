@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
@@ -18,7 +17,7 @@ public class EnemyAI : MonoBehaviour
     public Vector2 pausePoint;
     public Vector2 spawnLocation;
     public Vector3 exitLocation;
-    public Vector3[] fixedSpawnLocations = 
+    public Vector3[] fixedSpawnLocations =
     {
         new Vector3(0, 2*Screen.height / 3),
         new Vector3(0, 5*Screen.height / 6, 0),
@@ -38,7 +37,7 @@ public class EnemyAI : MonoBehaviour
         enemy = GameObject.Find(Constants.ENEMY_PREFAB);
         enemy.transform.SetPositionAndRotation(spawnLocation, Quaternion.identity);
         body = enemy.GetComponent<Rigidbody2D>();
-        body.velocity = calculateVelocity(spawnLocation, pausePoint, moveSpeed);        
+        body.velocity = calculateVelocity(spawnLocation, pausePoint, moveSpeed);
     }
 
     // Update is called once per frame
@@ -49,28 +48,28 @@ public class EnemyAI : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (transform.position.y <= pausePoint.y + 25 
-        && transform.position.y >= pausePoint.x - 25 
+        if (transform.position.y <= pausePoint.y + 25
+        && transform.position.y >= pausePoint.x - 25
         && transform.position.x <= pausePoint.x + 25
         && transform.position.x >= pausePoint.x - 25
-        && !isExiting) 
+        && !isExiting)
         {
             isExiting = true;
             StartCoroutine(PauseAndResume(2.0f));
         }
     }
 
-    Vector2 calculateVelocity(Vector2 currentPoint, Vector2 targetPoint, float moveSpeed)  
+    Vector2 calculateVelocity(Vector2 currentPoint, Vector2 targetPoint, float moveSpeed)
     {
         float x  = targetPoint.x - currentPoint.x;
         float y = targetPoint.y - currentPoint.y;
-        if (Mathf.Abs(x) >= Mathf.Abs(y)) 
+        if (Mathf.Abs(x) >= Mathf.Abs(y))
         {
             y /= Mathf.Abs(x);
             x /= Mathf.Abs(x);
-            
+
         }
-        else 
+        else
         {
             x /= Mathf.Abs(y);
             y /= Mathf.Abs(y);
@@ -78,21 +77,21 @@ public class EnemyAI : MonoBehaviour
         return new Vector2(x * moveSpeed * Time.fixedDeltaTime, y * moveSpeed * Time.fixedDeltaTime);
     }
 
-    IEnumerator PauseAndResume(float delay) 
+    IEnumerator PauseAndResume(float delay)
     {
         body.velocity = new Vector2(0, 0);
 
         Attack(attackPattern);
-        
+
         yield return new WaitUntil(new System.Func<bool>(() => this.ammo == 0));
         yield return new WaitForSeconds(delay);
         body.velocity = calculateVelocity(pausePoint, exitLocation, moveSpeed);
         isExiting = true;
     }
 
-    void Attack(int attackPattern) 
+    void Attack(int attackPattern)
     {
-        switch(attackPattern) 
+        switch(attackPattern)
         {
             case 1:
                 StartCoroutine(AttackVertical.Shoot(enemy, missile, 1, ammo, shootSpeed, shootPos));
@@ -105,7 +104,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    public void SetParameters(EnemyParameters e) 
+    public void SetParameters(EnemyParameters e)
     {
         this.shootSpeed = e.shootSpeed;
         this.moveSpeed = e.moveSpeed;
@@ -116,7 +115,7 @@ public class EnemyAI : MonoBehaviour
         this.exitLocation = fixedSpawnLocations[e.exitLocation];
     }
 
-    public void EmptyAmmo() 
+    public void EmptyAmmo()
     {
         this.ammo = 0;
     }
