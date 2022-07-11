@@ -21,56 +21,56 @@ public class QuestionGenerator : MonoBehaviour
         a2 = GameObject.Find(Constants.ANSWER_TWO_OVERLAY).GetComponent<TMP_Text>();
         a3 = GameObject.Find(Constants.ANSWER_THREE_OVERLAY).GetComponent<TMP_Text>();
         
-        // Generate answer
+        // Generate question
         int level = LevelController.level;
-        int chooseOperator = Random.Range(0, level/5);
+        int chooseDifficulty = Random.Range(0, 1 + level/5);
         string op = "";
-        switch (chooseOperator) {
-            case 0:
+        switch (chooseDifficulty) {
+            case 0: // single digit addition
                 X = Random.Range(0, 9);
                 Y = Random.Range(0, 9);
                 answer = X + Y;
                 op = Constants.ADDITION;
                 break;
-            case 1:
+            case 1: // double/single digit addition
                 X = Random.Range(0, 99);
                 Y = Random.Range(0, 99);
                 answer = X + Y;
                 op = Constants.ADDITION;
                 break;
-            case 2:
+            case 2: // single digit subtraction
                 X = Random.Range(0, 9);
                 Y = Random.Range(0, 9);
                 answer = X - Y;
                 op = Constants.SUBTRACTION;
                 break;
-            case 3:
+            case 3: // double/single digit subtraction
                 X = Random.Range(0, 99);
                 Y = Random.Range(0, 99);
                 answer = X - Y;
                 op = Constants.SUBTRACTION;
                 break;
-            case 4:
+            case 4: // single digit multiplication
                 X = Random.Range(0, 9);
                 Y = Random.Range(0, 9);
                 answer = X * Y;
                 op = Constants.MULTIPLICATION;
                 break;
-            case 5:
-                X = Random.Range(0, 99);
-                Y = Random.Range(0, 99);
+            case 5: // double/single digit multiplication
+                X = Random.Range(1, 99);
+                Y = Random.Range(0, 1000/X); // keep answers below 1000 to maintain simplicity
                 answer = X * Y;
                 op = Constants.MULTIPLICATION;
                 break;
-            case 6:
+            case 6: // single digit division
                 answer = Random.Range(0, 9);
-                Y = Random.Range(0, 9);
+                Y = Random.Range(1, 9);
                 X = answer * Y;
                 op = Constants.DIVISION;
                 break;
-            case 7:
+            case 7: // double/single digit division
                 answer = Random.Range(0, 99);
-                Y = Random.Range(0, 1000/99);
+                Y = Random.Range(1, 1000/99); // keep answers below 1000 to maintain simplicity
                 X = answer * Y;
                 op = Constants.DIVISION;
                 break;

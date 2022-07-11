@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
     public static int level;
-    public static float levelDuration = 10.0f;
+    public static float levelDuration = 5.0f;
     
     public GameObject backButton;
     public GameObject enemy;
