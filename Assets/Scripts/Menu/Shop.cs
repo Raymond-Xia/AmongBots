@@ -7,18 +7,8 @@ public class Shop : MonoBehaviour
 
     public static string[] sprites = new string[]
     {
-        Constants.BLACK_CREWMATE,
-        Constants.BLUE_CREWMATE,
-        Constants.BROWN_CREWMATE,
-        Constants.CYAN_CREWMATE,
-        Constants.GREEN_CREWMATE,
-        Constants.LIME_CREWMATE,
-        Constants.ORANGE_CREWMATE,
-        Constants.PINK_CREWMATE,
-        Constants.PURPLE_CREWMATE,
-        Constants.RED_CREWMATE,
-        Constants.WHITE_CREWMATE,
-        Constants.YELLOW_CREWMATE
+        Constants.SKIN_0,
+        Constants.SKIN_1,
     };
 
     public int i = 0;
