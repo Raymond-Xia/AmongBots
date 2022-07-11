@@ -30,18 +30,21 @@ public class Constants
     public static readonly string ANSWER_THREE_OVERLAY = "A3Text";
 
     // SPRITE NAMES
-    public static readonly string BLACK_CREWMATE = "Sprites/CrewmateBlack";
-    public static readonly string BLUE_CREWMATE = "Sprites/CrewmateBlue";
-    public static readonly string BROWN_CREWMATE = "Sprites/CrewmateBrown";
-    public static readonly string CYAN_CREWMATE = "Sprites/CrewmateCyan";
-    public static readonly string GREEN_CREWMATE = "Sprites/CrewmateGreen";
-    public static readonly string LIME_CREWMATE = "Sprites/CrewmateLime";
-    public static readonly string ORANGE_CREWMATE = "Sprites/CrewmateOrange";
-    public static readonly string PINK_CREWMATE = "Sprites/CrewmatePink";
-    public static readonly string PURPLE_CREWMATE = "Sprites/CrewmatePurple";
-    public static readonly string RED_CREWMATE = "Sprites/CrewmateRed";
-    public static readonly string WHITE_CREWMATE = "Sprites/CrewmateWhite";
-    public static readonly string YELLOW_CREWMATE = "Sprites/CrewmateYellow";
+    public static readonly string[] SPRITES =
+    {
+        "Sprites/CrewmateBlack",
+        "Sprites/CrewmateBlue",
+        "Sprites/CrewmateBrown",
+        "Sprites/CrewmateCyan",
+        "Sprites/CrewmateGreen",
+        "Sprites/CrewmateLime",
+        "Sprites/CrewmateOrange",
+        "Sprites/CrewmatePink",
+        "Sprites/CrewmatePurple",
+        "Sprites/CrewmateRed",
+        "Sprites/CrewmateWhite",
+        "Sprites/CrewmateYellow",
+    };
     public static readonly string[] SKINS =
     {
         "Sprites/Skin0",
@@ -52,6 +55,7 @@ public class Constants
     // PLAYER PREF KEYS
     public static readonly string SPRITE_SELECTED_KEY = "sprite_selected";
     public static readonly string SPRITE_OWNED_KEY = "sprite_owned";
+    public static readonly string SPRITE_OWNED_MASK = "100000000000";
     public static readonly string SKIN_SELECTED_KEY = "skin_selected";
     public static readonly string SKIN_OWNED_KEY = "skin_owned";
     public static readonly string SKIN_OWNED_MASK = "100";

@@ -4,22 +4,6 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
-    public static string[] sprites = new string[]
-    {
-        Constants.BLACK_CREWMATE,
-        Constants.BLUE_CREWMATE,
-        Constants.BROWN_CREWMATE,
-        Constants.CYAN_CREWMATE,
-        Constants.GREEN_CREWMATE,
-        Constants.LIME_CREWMATE,
-        Constants.ORANGE_CREWMATE,
-        Constants.PINK_CREWMATE,
-        Constants.PURPLE_CREWMATE,
-        Constants.RED_CREWMATE,
-        Constants.WHITE_CREWMATE,
-        Constants.YELLOW_CREWMATE
-    };
-
     public int i = 0;
     delegate void Cycle();
 
@@ -38,12 +22,12 @@ public class Menu : MonoBehaviour
 
     public void UpdateSprite()
     {
-        int selected = 3;
+        int selected = 0;
         if (PlayerPrefs.HasKey(Constants.SPRITE_SELECTED_KEY))
         {
             selected = PlayerPrefs.GetInt(Constants.SPRITE_SELECTED_KEY);
         }
-        Sprite sprite = Resources.Load<Sprite>(sprites[selected]);
+        Sprite sprite = Resources.Load<Sprite>(Constants.SPRITES[selected]);
         GameObject.Find(Constants.CREWMATE_OBJECT).GetComponent<Image>().sprite = sprite;
     }
 

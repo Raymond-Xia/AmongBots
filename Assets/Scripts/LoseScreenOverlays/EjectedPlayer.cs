@@ -6,21 +6,7 @@ public class EjectedPlayer : MonoBehaviour
     public float rotationAngle = 0.0f;
     public float centerX;
     public GameObject crewmate;
-    public static string[] sprites = new string[]
-    {
-        Constants.BLACK_CREWMATE,
-        Constants.BLUE_CREWMATE,
-        Constants.BROWN_CREWMATE,
-        Constants.CYAN_CREWMATE,
-        Constants.GREEN_CREWMATE,
-        Constants.LIME_CREWMATE,
-        Constants.ORANGE_CREWMATE,
-        Constants.PINK_CREWMATE,
-        Constants.PURPLE_CREWMATE,
-        Constants.RED_CREWMATE,
-        Constants.WHITE_CREWMATE,
-        Constants.YELLOW_CREWMATE
-    };
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,12 +38,12 @@ public class EjectedPlayer : MonoBehaviour
 
     private void UpdateSprite()
     {
-        int selected = 3;
+        int selected = 0;
         if (PlayerPrefs.HasKey(Constants.SPRITE_SELECTED_KEY))
         {
             selected = PlayerPrefs.GetInt(Constants.SPRITE_SELECTED_KEY);
         }
-        Sprite sprite = Resources.Load<Sprite>(sprites[selected]);
+        Sprite sprite = Resources.Load<Sprite>(Constants.SPRITES[selected]);
         GameObject.Find(Constants.CREWMATE_OBJECT).GetComponent<Image>().sprite = sprite;
     }
 }

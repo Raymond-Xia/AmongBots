@@ -3,23 +3,7 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    public string[] skins = new string[]
-    {
-        Constants.BLACK_CREWMATE,
-        Constants.BLUE_CREWMATE,
-        Constants.BROWN_CREWMATE,
-        Constants.CYAN_CREWMATE,
-        Constants.GREEN_CREWMATE,
-        Constants.LIME_CREWMATE,
-        Constants.ORANGE_CREWMATE,
-        Constants.PINK_CREWMATE,
-        Constants.PURPLE_CREWMATE,
-        Constants.RED_CREWMATE,
-        Constants.WHITE_CREWMATE,
-        Constants.YELLOW_CREWMATE
-    };
-
-    public GameObject[] buttons = new GameObject[12];
+    public GameObject[] buttons = new GameObject[Constants.SPRITES.Length];
 
     public void UpdateInventory()
     {
@@ -28,7 +12,7 @@ public class Inventory : MonoBehaviour
             GameObject.Destroy(child.gameObject);
         }
         GameObject.Find(Constants.SCROLL_VIEW_INVENTORY).GetComponent<ScrollRect>().verticalNormalizedPosition = 1;
-        char[] owned = "000000000000".ToCharArray();
+        char[] owned = Constants.SPRITE_OWNED_MASK.ToCharArray();
         if (PlayerPrefs.HasKey(Constants.SPRITE_OWNED_KEY))
         {
             owned = PlayerPrefs.GetString(Constants.SPRITE_OWNED_KEY).ToCharArray();
@@ -46,7 +30,7 @@ public class Inventory : MonoBehaviour
                 buttons[i].AddComponent<Button>().onClick.AddListener(delegate { selectCrewmate(x); });
 
                 GameObject crewmate = new GameObject();
-                Sprite sprite = Resources.Load<Sprite>(skins[i]);
+                Sprite sprite = Resources.Load<Sprite>(Constants.SPRITES[i]);
                 crewmate.AddComponent<Image>().sprite = sprite;
                 RectTransform crewmateRectTransform = crewmate.GetComponent<RectTransform>();
                 crewmateRectTransform.SetParent(buttons[i].transform, true);
