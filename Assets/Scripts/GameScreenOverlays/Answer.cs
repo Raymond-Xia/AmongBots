@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro; 
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class Answer : MonoBehaviour
@@ -11,9 +11,9 @@ public class Answer : MonoBehaviour
     public void AnswerQuestion()
     {
         result = GetComponentInChildren<TMP_Text>();
-        
+
         // if the answer is correct, progress game
-        if (result.text == QuestionGenerator.answer.ToString()) 
+        if (result.text == QuestionGenerator.answer.ToString())
         {
             // destroy boss and question
             GameObject boss = GameObject.Find(Constants.BOSS_PREFAB);

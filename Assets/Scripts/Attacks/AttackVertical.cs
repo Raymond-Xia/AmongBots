@@ -15,21 +15,21 @@ public class AttackVertical : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y < 0f || transform.position.y > Screen.height || transform.position.x > Screen.width || transform.position.x < 0) 
+        if (transform.position.y < 0f || transform.position.y > Screen.height || transform.position.x > Screen.width || transform.position.x < 0)
         {
             Destroy(gameObject);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) 
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == Constants.PLAYER_TAG) 
+        if (collision.tag == Constants.PLAYER_TAG)
         {
             Destroy(gameObject);
         }
     }
 
-    public static IEnumerator Shoot(GameObject missile, float delay, int ammo, float shootSpeed, Transform shootPos)
+    public static IEnumerator Shoot(GameObject enemy, GameObject missile, float delay, int ammo, float shootSpeed, Transform shootPos)
     {
         while (ammo > 0)
         {
@@ -39,5 +39,6 @@ public class AttackVertical : MonoBehaviour
             ammo -= 1;
             yield return new WaitForSeconds(delay);
         }
+        enemy.SendMessage("EmptyAmmo", 0);
     }
 }

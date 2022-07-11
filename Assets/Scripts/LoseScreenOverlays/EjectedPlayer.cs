@@ -37,7 +37,7 @@ public class EjectedPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x < centerX) 
+        if (transform.position.x < centerX)
         {
             transform.position = new Vector2(transform.position.x + 1f, transform.position.y);
         }
@@ -46,8 +46,8 @@ public class EjectedPlayer : MonoBehaviour
 
         Quaternion target = Quaternion.Euler(0, 0, rotationAngle);
         transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 3.0f);
-        
-        if (rotationAngle >= 360f) 
+
+        if (rotationAngle >= 360f)
         {
             rotationAngle = 0f;
         }
