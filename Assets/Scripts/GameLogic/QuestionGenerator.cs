@@ -93,8 +93,7 @@ public class QuestionGenerator : MonoBehaviour
         }
 
         // Write text to question and answer buttons
-        string questionText = "{0} {1} {2} = ?";
-        question.text = string.Format(questionText, X, op, Y);
+        question.text = string.Format(Constants.QUESTION_FORMAT, X, op, Y);
 
         int randomButton = Random.Range(1,4);
         a1.text = randomButton == 1 ? answer + "" : wrongAnswers.Pop() + "";
