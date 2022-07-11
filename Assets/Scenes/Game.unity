@@ -310,7 +310,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backButton: {fileID: 0}
   enemy: {fileID: 9176720485684825268, guid: 4bd95a026ea98804594546547b2c6e3e, type: 3}
-  enemy2: {fileID: 3251331511038271474, guid: f4ab963089a49da4f858e2874fd20ca4, type: 3}
   boss: {fileID: 2522402450729913665, guid: eec29f6a55b04cd4da94743f36ec2feb, type: 3}
   score: {fileID: 0}
 --- !u!1 &401113862
@@ -434,7 +433,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -433, y: 986}
+  m_AnchoredPosition: {x: -373, y: 986.03}
   m_SizeDelta: {x: 350, y: 200.478}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &722636940
@@ -918,7 +917,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 272, y: 986.03}
+  m_AnchoredPosition: {x: 461, y: 986.03}
   m_SizeDelta: {x: 150, y: 200.478}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1121454334
@@ -1083,8 +1082,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -224.62, y: 818.21}
-  m_SizeDelta: {x: 566.7668, y: 117.5862}
+  m_AnchoredPosition: {x: -254, y: 790.7847}
+  m_SizeDelta: {x: 508, y: 172.4369}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1996731306
 CanvasRenderer:
@@ -1128,8 +1127,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 72
+    m_Font: {fileID: 12800000, guid: cd716861f1f504d87bc401d1573dbeec, type: 3}
+    m_FontSize: 120
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1140,4 +1139,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 'HP: 5'
