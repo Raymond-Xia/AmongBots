@@ -8,6 +8,7 @@ public class Constants
     // GAME OBJECTS
     public static readonly string CANVAS_OBJECT = "Canvas";
     public static readonly string CREWMATE_OBJECT = "Crewmate";
+    public static readonly string SKIN_OBJECT = "Skin";
     public static readonly string PLAYER_OBJECT = "Player";
     public static readonly string EXPLOSION_OBJECT = "Explosion";
 
@@ -41,10 +42,19 @@ public class Constants
     public static readonly string RED_CREWMATE = "Sprites/CrewmateRed";
     public static readonly string WHITE_CREWMATE = "Sprites/CrewmateWhite";
     public static readonly string YELLOW_CREWMATE = "Sprites/CrewmateYellow";
+    public static readonly string[] SKINS =
+    {
+        "Sprites/Skin0",
+        "Sprites/Skin1",
+        "Sprites/Skin2",
+    };
 
     // PLAYER PREF KEYS
-    public static readonly string SPRITE_SELECTED_KEY = "selected";
-    public static readonly string SPRITE_OWNED_KEY = "owned";
+    public static readonly string SPRITE_SELECTED_KEY = "sprite_selected";
+    public static readonly string SPRITE_OWNED_KEY = "sprite_owned";
+    public static readonly string SKIN_SELECTED_KEY = "skin_selected";
+    public static readonly string SKIN_OWNED_KEY = "skin_owned";
+    public static readonly string SKIN_OWNED_MASK = "100";
 
     // INVENTORY
     public static readonly string SCROLL_CONTENT_INVENTORY = "ScrollContent";
@@ -53,7 +63,7 @@ public class Constants
     // SHOP
     public static readonly string BUY_BUTTON_SHOP = "BuyButton";
     public static readonly string BUY_TEXT_SHOP = "BuyText";
-    
+
     // QUESTION GENERATION
     public static readonly string ADDITION = "+";
     public static readonly string SUBTRACTION = "−";

@@ -4,35 +4,18 @@ using TMPro;
 
 public class Shop : MonoBehaviour
 {
-
-    public static string[] sprites = new string[]
-    {
-        Constants.BLACK_CREWMATE,
-        Constants.BLUE_CREWMATE,
-        Constants.BROWN_CREWMATE,
-        Constants.CYAN_CREWMATE,
-        Constants.GREEN_CREWMATE,
-        Constants.LIME_CREWMATE,
-        Constants.ORANGE_CREWMATE,
-        Constants.PINK_CREWMATE,
-        Constants.PURPLE_CREWMATE,
-        Constants.RED_CREWMATE,
-        Constants.WHITE_CREWMATE,
-        Constants.YELLOW_CREWMATE
-    };
-
-    public int i = 0;
+    public int i = 1;
 
     void Start()
     {
-        i = 0;
+        i = 1;
         UpdateSprite();
         UpdateButton();
     }
 
     public void UpdateStart()
     {
-        i = 0;
+        i = 1;
         UpdateSprite();
         UpdateButton();
     }
@@ -40,9 +23,9 @@ public class Shop : MonoBehaviour
     public void LeftButton()
     {
         i--;
-        if (i < 0)
+        if (i < 1)
         {
-            i = sprites.Length - 1;
+            i = Constants.SKINS.Length - 1;
         }
         UpdateSprite();
         UpdateButton();
@@ -51,9 +34,9 @@ public class Shop : MonoBehaviour
     public void RightButton()
     {
         i++;
-        if (i == sprites.Length)
+        if (i == Constants.SKINS.Length)
         {
-            i = 0;
+            i = 1;
         }
         UpdateSprite();
         UpdateButton();
@@ -61,29 +44,29 @@ public class Shop : MonoBehaviour
 
     public void BuyButton()
     {
-        char[] owned = "000000000000".ToCharArray();
-        if (PlayerPrefs.HasKey(Constants.SPRITE_OWNED_KEY))
+        char[] owned = Constants.SKIN_OWNED_MASK.ToCharArray();
+        if (PlayerPrefs.HasKey(Constants.SKIN_OWNED_KEY))
         {
-            owned = PlayerPrefs.GetString(Constants.SPRITE_OWNED_KEY).ToCharArray();
+            owned = PlayerPrefs.GetString(Constants.SKIN_OWNED_KEY).ToCharArray();
         }
         owned[i] = '1';
-        PlayerPrefs.SetString(Constants.SPRITE_OWNED_KEY, new string(owned));
+        PlayerPrefs.SetString(Constants.SKIN_OWNED_KEY, new string(owned));
         PlayerPrefs.Save();
         UpdateButton();
     }
 
     private void UpdateSprite()
     {
-        Sprite sprite = Resources.Load<Sprite>(sprites[i]);
+        Sprite sprite = Resources.Load<Sprite>(Constants.SKINS[i]);
         GameObject.Find(Constants.CREWMATE_OBJECT).GetComponent<Image>().sprite = sprite;
     }
 
     private void UpdateButton()
     {
-        char[] owned = "000000000000".ToCharArray();
-        if (PlayerPrefs.HasKey(Constants.SPRITE_OWNED_KEY))
+        char[] owned = Constants.SKIN_OWNED_MASK.ToCharArray();
+        if (PlayerPrefs.HasKey(Constants.SKIN_OWNED_KEY))
         {
-            owned = PlayerPrefs.GetString(Constants.SPRITE_OWNED_KEY).ToCharArray();
+            owned = PlayerPrefs.GetString(Constants.SKIN_OWNED_KEY).ToCharArray();
         }
         if (owned[i].Equals('1'))
         {
@@ -96,5 +79,4 @@ public class Shop : MonoBehaviour
             GameObject.Find(Constants.BUY_TEXT_SHOP).GetComponent<TMP_Text>().text = "BUY";
         }
     }
-
 }
