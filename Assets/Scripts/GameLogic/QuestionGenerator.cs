@@ -30,16 +30,16 @@ public class QuestionGenerator : MonoBehaviour
                 chooseDifficulty = Random.Range(0, Mathf.Min(1 + level/5, 8));
                 break;
             case Constants.ADDITION_GAMEMODE:
-                chooseDifficulty = Random.Range(0, 2) == 0 ? 0 : 1;
+                chooseDifficulty = level < 10 ? 0 : Random.Range(0, 2);
                 break;
             case Constants.SUBTRACTION_GAMEMODE:
-                chooseDifficulty = Random.Range(0, 2) == 0 ? 2 : 3;
+                chooseDifficulty = level < 10 ? 2 : Random.Range(2, 4);
                 break;
             case Constants.MULTIPLICATION_GAMEMODE:
-                chooseDifficulty = Random.Range(0, 2) == 0 ? 4 : 5;
+                chooseDifficulty = level < 10 ? 4 : Random.Range(4, 6);
                 break;
             case Constants.DIVISION_GAMEMODE:
-                chooseDifficulty = Random.Range(0, 2) == 0 ? 6 : 7;
+                chooseDifficulty = level < 10 ? 6 : Random.Range(6, 8);
                 break;
         }
         switch (chooseDifficulty) {
