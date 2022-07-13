@@ -21,9 +21,27 @@ public class QuestionGenerator : MonoBehaviour
         a3 = GameObject.Find(Constants.ANSWER_THREE_OVERLAY).GetComponent<TMP_Text>();
         
         // Generate question
+        int gameMode = LevelController.gameMode;
         int level = LevelController.level;
-        int chooseDifficulty = Random.Range(0, Mathf.Min(1 + level/5, 8));
+        int chooseDifficulty = 0;
         string op = "";
+        switch (gameMode) {
+            case Constants.ORIGINAL_GAMEMODE:
+                chooseDifficulty = Random.Range(0, Mathf.Min(1 + level/5, 8));
+                break;
+            case Constants.ADDITION_GAMEMODE:
+                chooseDifficulty = Random.Range(0, 2) == 0 ? 0 : 1;
+                break;
+            case Constants.SUBTRACTION_GAMEMODE:
+                chooseDifficulty = Random.Range(0, 2) == 0 ? 2 : 3;
+                break;
+            case Constants.MULTIPLICATION_GAMEMODE:
+                chooseDifficulty = Random.Range(0, 2) == 0 ? 4 : 5;
+                break;
+            case Constants.DIVISION_GAMEMODE:
+                chooseDifficulty = Random.Range(0, 2) == 0 ? 6 : 7;
+                break;
+        }
         switch (chooseDifficulty) {
             case 0: // single digit addition
                 X = Random.Range(0, 9);

@@ -5,6 +5,7 @@ public class LevelController : MonoBehaviour
 {
     public static int level;
     public static float levelDuration = 10.0f;
+    public static int gameMode;
 
     public GameObject backButton;
     public GameObject enemy;
