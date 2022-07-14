@@ -6,12 +6,15 @@ public class EjectedPlayer : MonoBehaviour
     public float rotationAngle = 0.0f;
     public float centerX;
     public GameObject crewmate;
+    public GameObject skin;
 
     // Start is called before the first frame update
     void Start()
     {
         crewmate = GameObject.Find(Constants.CREWMATE_OBJECT);
+        skin = GameObject.Find(Constants.SKIN_OBJECT);
         crewmate.transform.SetPositionAndRotation(new Vector3(-100, Screen.height - (Screen.height / 6), 0), Quaternion.identity);
+        skin.transform.SetPositionAndRotation(new Vector3(-100, Screen.height - (Screen.height / 6), 0), Quaternion.identity);
         centerX = Screen.width / 2;
 
         UpdateSprite();
