@@ -69,6 +69,13 @@ public class Constants
     public static readonly string BUY_BUTTON_SHOP = "BuyButton";
     public static readonly string BUY_TEXT_SHOP = "BuyText";
 
+    // GAME MODES
+    public const int ORIGINAL_GAMEMODE = 0;
+    public const int ADDITION_GAMEMODE = 1;
+    public const int SUBTRACTION_GAMEMODE = 2;
+    public const int MULTIPLICATION_GAMEMODE = 3;
+    public const int DIVISION_GAMEMODE = 4;
+
     // QUESTION GENERATION
     public static readonly string ADDITION = "+";
     public static readonly string SUBTRACTION = "−";

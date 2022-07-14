@@ -5,6 +5,7 @@ public class LevelController : MonoBehaviour
 {
     public static int level;
     public static float levelDuration = 10.0f;
+    public static int gameMode;
 
     public GameObject backButton;
     public GameObject enemy;
@@ -16,6 +17,7 @@ public class LevelController : MonoBehaviour
     void Start()
     {
         level = 0;
+        Score.score = 0;
         canvas = gameObject.transform;
         NewLevel();
 
