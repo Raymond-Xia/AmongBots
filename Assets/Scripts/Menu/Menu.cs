@@ -6,11 +6,15 @@ public class Menu : MonoBehaviour
 {
     public int i = 0;
     delegate void Cycle();
-
+    public GameObject crewmate;
+    public GameObject skin;
     void Start()
     {
-        UpdateSprite();
-        UpdateSkin();
+        crewmate = GameObject.Find(Constants.CREWMATE_OBJECT);
+        skin = GameObject.Find(Constants.SKIN_OBJECT);
+
+        crewmate.GetComponent<Image>().sprite = Cosmetics.UpdateSprite();
+        skin.GetComponent<Image>().sprite = Cosmetics.UpdateSkin();
     }
 
     public void PlayButton()
@@ -22,28 +26,6 @@ public class Menu : MonoBehaviour
     public void ExitButton()
     {
         SceneManager.LoadScene(Constants.MENU_SCENE);
-    }
-
-    public void UpdateSprite()
-    {
-        int selected = 0;
-        if (PlayerPrefs.HasKey(Constants.SPRITE_SELECTED_KEY))
-        {
-            selected = PlayerPrefs.GetInt(Constants.SPRITE_SELECTED_KEY);
-        }
-        Sprite sprite = Resources.Load<Sprite>(Constants.SPRITES[selected]);
-        GameObject.Find(Constants.CREWMATE_OBJECT).GetComponent<Image>().sprite = sprite;
-    }
-
-    public void UpdateSkin()
-    {
-        int selected = 0;
-        if (PlayerPrefs.HasKey(Constants.SKIN_SELECTED_KEY))
-        {
-            selected = PlayerPrefs.GetInt(Constants.SKIN_SELECTED_KEY);
-        }
-        Sprite sprite = Resources.Load<Sprite>(Constants.SKINS[selected]);
-        GameObject.Find(Constants.SKIN_OBJECT).GetComponent<Image>().sprite = sprite;
     }
 
     public void LeftButton()
@@ -85,6 +67,6 @@ public class Menu : MonoBehaviour
         } while (owned[i] == '0');
         PlayerPrefs.SetInt(Constants.SKIN_SELECTED_KEY, i);
         PlayerPrefs.Save();
-        UpdateSkin();
+        skin.GetComponent<Image>().sprite = Cosmetics.UpdateSkin();
     }
 }
