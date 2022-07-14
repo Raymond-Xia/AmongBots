@@ -21,7 +21,7 @@ public class Menu : MonoBehaviour
 
     public void ExitButton()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(Constants.MENU_SCENE);
     }
 
     public void UpdateSprite()
