@@ -17,6 +17,7 @@ public class LevelController : MonoBehaviour
     void Start()
     {
         level = 0;
+        Score.score = 0;
         canvas = gameObject.transform;
         NewLevel();
 
