@@ -19,6 +19,11 @@ public class Menu : MonoBehaviour
         PlayerMovement.hp = 5;
     }
 
+    public void ExitButton()
+    {
+        SceneManager.LoadScene(Constants.MENU_SCENE);
+    }
+
     public void UpdateSprite()
     {
         int selected = 0;
