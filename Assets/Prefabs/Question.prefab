@@ -148,8 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   result: {fileID: 0}
-  explosion: {fileID: 9080909410638136605, guid: e0530412c5724304d8798b744e113220, type: 3}
-  newExplosion: {fileID: 0}
+  hpPower: {fileID: 775424797627098482, guid: 7c0bda45dedad7241a79691e01fcc3a0, type: 3}
 --- !u!1 &7645268104295857026
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,8 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   result: {fileID: 0}
-  explosion: {fileID: 9080909410638136605, guid: e0530412c5724304d8798b744e113220, type: 3}
-  newExplosion: {fileID: 0}
+  hpPower: {fileID: 775424797627098482, guid: 7c0bda45dedad7241a79691e01fcc3a0, type: 3}
 --- !u!1 &7645268104590146534
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,8 +851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   result: {fileID: 0}
-  explosion: {fileID: 9080909410638136605, guid: e0530412c5724304d8798b744e113220, type: 3}
-  newExplosion: {fileID: 0}
+  hpPower: {fileID: 775424797627098482, guid: 7c0bda45dedad7241a79691e01fcc3a0, type: 3}
 --- !u!1 &7645268105257188822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,7 +1007,5 @@ MonoBehaviour:
   a1: {fileID: 0}
   a2: {fileID: 0}
   a3: {fileID: 0}
-  minNum: 0
-  maxNum: 0
   X: 0
   Y: 0

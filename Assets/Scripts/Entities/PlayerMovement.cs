@@ -70,12 +70,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.tag == Constants.ENEMY_TAG || collision.tag == Constants.MISSILE_TAG)
         {
-            hp = hp - 1;
+            hp -= 1;
             if (hp == 0)
             {
                 SceneManager.LoadScene(Constants.LOSE_SCENE);
                 hp = 5;
             }
+        }
+
+        if (collision.tag == "HpPowerup")
+        {
+            hp += 1;
         }
     }
 }

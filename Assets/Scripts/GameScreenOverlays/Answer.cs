@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class Answer : MonoBehaviour
 {
     public TMP_Text result;
+    public GameObject hpPower;
 
     public void AnswerQuestion()
     {
@@ -22,8 +23,11 @@ public class Answer : MonoBehaviour
             // increment score
             Score.score += 10;
 
-            // start new level
+            // Spawn health powerup
             GameObject canvas = GameObject.Find(Constants.CANVAS_OBJECT);
+            GameObject healthPowerup = Instantiate(hpPower, new Vector2(canvas.transform.position.x, canvas.transform.position.y), Quaternion.identity, canvas.transform) as GameObject;
+
+            // start new level        
             LevelController levelController = (LevelController) canvas.GetComponent(typeof(LevelController));
             levelController.NewLevel();
         }

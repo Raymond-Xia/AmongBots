@@ -21,6 +21,7 @@ public class Constants
     public static readonly string PLAYER_TAG = "Player";
     public static readonly string ENEMY_TAG = "Enemy";
     public static readonly string MISSILE_TAG = "Missile";
+    public static readonly string HEALTHPOWERUP_TAG = "HpPowerup";
 
     // OVERLAYS
     public static readonly string MENU_BUTTON_OVERLAY = "MenuButton";
