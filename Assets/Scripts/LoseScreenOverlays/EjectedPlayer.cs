@@ -15,6 +15,7 @@ public class EjectedPlayer : MonoBehaviour
         centerX = Screen.width / 2;
 
         UpdateSprite();
+        UpdateSkin();
     }
 
     // Update is called once per frame
@@ -45,5 +46,16 @@ public class EjectedPlayer : MonoBehaviour
         }
         Sprite sprite = Resources.Load<Sprite>(Constants.SPRITES[selected]);
         GameObject.Find(Constants.CREWMATE_OBJECT).GetComponent<Image>().sprite = sprite;
+    }
+
+    private void UpdateSkin() 
+    {
+        int selected = 0;
+        if (PlayerPrefs.HasKey(Constants.SKIN_SELECTED_KEY))
+        {
+            selected = PlayerPrefs.GetInt(Constants.SKIN_SELECTED_KEY);
+        }
+        Sprite sprite = Resources.Load<Sprite>(Constants.SKINS[selected]);
+        GameObject.Find(Constants.SKIN_OBJECT).GetComponent<Image>().sprite = sprite;
     }
 }

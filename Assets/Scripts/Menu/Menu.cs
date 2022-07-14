@@ -17,7 +17,6 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene(Constants.GAME_SCENE);
         PlayerMovement.hp = 5;
-        Score.score = 0;
     }
 
     public void UpdateSprite()
