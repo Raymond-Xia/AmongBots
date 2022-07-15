@@ -58,18 +58,25 @@ public class CueCardMenu : MonoBehaviour
 
     public void CreateCueCard() 
     {
-        string question = GameObject.Find("QuestionInput").GetComponent<InputField>().text;
-        string answer = GameObject.Find("AnswerInput").GetComponent<InputField>().text;
-        if (!cardmap.ContainsKey(question)) {
-            cardmap.Add(question, answer);
-        } else {
-            cardmap[question] = answer;
-        }
+        Text prompt = GameObject.Find("AddCueCard").transform.GetChild(2).GetComponent<Text>();
 
-        Debug.Log(cardmap.Count);
-        GameObject.Find("QuestionInput").GetComponent<InputField>().text = "";
-        GameObject.Find("AnswerInput").GetComponent<InputField>().text = "";
-        SaveCueCards();
+        if (cardmap.Count < 100) {
+            string question = GameObject.Find("QuestionInput").GetComponent<InputField>().text;
+            string answer = GameObject.Find("AnswerInput").GetComponent<InputField>().text;
+            if (!cardmap.ContainsKey(question)) {
+                cardmap.Add(question, answer);
+            } else {
+                cardmap[question] = answer;
+            }
+
+            Debug.Log(cardmap.Count);
+            GameObject.Find("QuestionInput").GetComponent<InputField>().text = "";
+            GameObject.Find("AnswerInput").GetComponent<InputField>().text = "";
+            prompt.text = "CUE CARD ADDED!";
+            SaveCueCards();
+        } else {
+            prompt.text = "MAX 100 CUE CARDS!";
+        }
     }
 
     public static void SaveCueCards() 
