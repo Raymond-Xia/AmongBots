@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (collision.tag == "HpPowerup")
+        if (collision.tag == Constants.HEALTHPOWERUP_TAG)
         {
             hp += 1;
         }

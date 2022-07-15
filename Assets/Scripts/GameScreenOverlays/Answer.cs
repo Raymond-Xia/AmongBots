@@ -1,11 +1,12 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class Answer : MonoBehaviour
 {
     public TMP_Text result;
-    public GameObject hpPower;
+    GameObject canvas;
 
     public void AnswerQuestion()
     {
@@ -24,11 +25,11 @@ public class Answer : MonoBehaviour
             Score.score += 10;
 
             // Spawn health powerup
-            GameObject canvas = GameObject.Find(Constants.CANVAS_OBJECT);
-            GameObject healthPowerup = Instantiate(hpPower, new Vector2(canvas.transform.position.x, canvas.transform.position.y), Quaternion.identity, canvas.transform) as GameObject;
+            canvas = GameObject.Find(Constants.CANVAS_OBJECT);
+            LevelController levelController = (LevelController)canvas.GetComponent(typeof(LevelController));
+            levelController.SpawnHpPowerup();
 
             // start new level        
-            LevelController levelController = (LevelController) canvas.GetComponent(typeof(LevelController));
             levelController.NewLevel();
         }
         else // if answer is incorrect, lose game
@@ -36,5 +37,4 @@ public class Answer : MonoBehaviour
             SceneManager.LoadScene(Constants.LOSE_SCENE);
         }
     }
-
 }
