@@ -22,9 +22,16 @@ public class Answer : MonoBehaviour
             // increment score
             Score.score += 10;
 
-            // start new level
             GameObject canvas = GameObject.Find(Constants.CANVAS_OBJECT);
-            LevelController levelController = (LevelController) canvas.GetComponent(typeof(LevelController));
+            LevelController levelController = (LevelController)canvas.GetComponent(typeof(LevelController));
+
+            // Spawn health powerup every 3 bosses
+            if (Score.score % 3 == 0)
+            {
+                levelController.SpawnHpPowerup();
+            }
+
+            // start new level        
             levelController.NewLevel();
         }
         else // if answer is incorrect, lose game
@@ -32,5 +39,4 @@ public class Answer : MonoBehaviour
             SceneManager.LoadScene(Constants.LOSE_SCENE);
         }
     }
-
 }
