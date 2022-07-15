@@ -13,6 +13,7 @@ public class LevelController : MonoBehaviour
     public GameObject score;
     float bossY = 1600;
     Transform canvas;
+    public GameObject hpPower;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,5 +56,17 @@ public class LevelController : MonoBehaviour
         yield return new WaitForSeconds(delay);
         GameObject newBoss = Instantiate(boss, new Vector2(canvas.position.x, canvas.position.y + bossY), Quaternion.identity, canvas) as GameObject;
         newBoss.transform.SetSiblingIndex(1);
+    }
+
+    public void SpawnHpPowerup()
+    {
+        StartCoroutine(WaitAndSpawnHpPowerup());
+    }
+
+    public IEnumerator WaitAndSpawnHpPowerup()
+    {
+        yield return new WaitForSeconds(2.0f);
+        GameObject healthPowerup = Instantiate(hpPower, new Vector2(canvas.position.x, canvas.position.y), Quaternion.identity, canvas) as GameObject;
+        FindObjectOfType<HealthPowerup>().DestroyPowerup();
     }
 }
