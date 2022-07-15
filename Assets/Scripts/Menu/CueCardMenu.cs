@@ -23,9 +23,7 @@ public class CueCardMenu : MonoBehaviour
         if(File.Exists(Application.persistentDataPath + "/savedCueCards.gd")) {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/savedCueCards.gd", FileMode.Open);
-            Debug.Log(cardmap);
             cardmap = (Dictionary<string, string>)bf.Deserialize(file);
-            Debug.Log(cardmap);
             file.Close();
         } else {
             Debug.Log("Save file does not exist.");
@@ -59,24 +57,28 @@ public class CueCardMenu : MonoBehaviour
     public void CreateCueCard() 
     {
         Text prompt = GameObject.Find("AddCueCard").transform.GetChild(2).GetComponent<Text>();
-
-        if (cardmap.Count < 100) {
+        if (cardmap.Count >= 100) {
+            prompt.text = "MAX 100 CUE CARDS!";
+        } else {
             string question = GameObject.Find("QuestionInput").GetComponent<InputField>().text;
             string answer = GameObject.Find("AnswerInput").GetComponent<InputField>().text;
-            if (!cardmap.ContainsKey(question)) {
-                cardmap.Add(question, answer);
+            if (question == "" || answer == "") {
+                prompt.text = "FIELDS CAN'T BE EMPTY!";
             } else {
-                cardmap[question] = answer;
-            }
+                if (!cardmap.ContainsKey(question)) {
+                    cardmap.Add(question, answer);
+                } else {
+                    cardmap[question] = answer;
+                }
 
-            Debug.Log(cardmap.Count);
-            GameObject.Find("QuestionInput").GetComponent<InputField>().text = "";
-            GameObject.Find("AnswerInput").GetComponent<InputField>().text = "";
-            prompt.text = "CUE CARD ADDED!";
-            SaveCueCards();
-        } else {
-            prompt.text = "MAX 100 CUE CARDS!";
-        }
+                Debug.Log(cardmap.Count);
+                GameObject.Find("QuestionInput").GetComponent<InputField>().text = "";
+                GameObject.Find("AnswerInput").GetComponent<InputField>().text = "";
+                prompt.text = "CUE CARD ADDED!";
+                SaveCueCards();
+            }
+            
+        } 
     }
 
     public static void SaveCueCards() 
