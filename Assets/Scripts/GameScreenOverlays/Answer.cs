@@ -24,11 +24,12 @@ public class Answer : MonoBehaviour
 
             GameObject canvas = GameObject.Find(Constants.CANVAS_OBJECT);
             LevelController levelController = (LevelController)canvas.GetComponent(typeof(LevelController));
+            PowerupController powerupController = (PowerupController)canvas.GetComponent(typeof(PowerupController));
 
             // Spawn health powerup every 3 bosses
             if (Score.score % 3 == 0)
             {
-                levelController.SpawnHpPowerup();
+                powerupController.SpawnHpPowerup();
             }
 
             // start new level        

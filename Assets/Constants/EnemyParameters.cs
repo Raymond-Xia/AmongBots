@@ -19,12 +19,12 @@ public class EnemyParameters
     public Vector2 pausePoint;
 
     // Initial spawn point, where the enemy flies in from, selected from an array
-    public int spawnLocation;
+    public Vector2 spawnLocation;
 
     // Exit point, where the enemy flies away to, selected from an array
-    public int exitLocation;
+    public Vector2 exitLocation;
 
-    public EnemyParameters(float shootSpeed, float moveSpeed, int ammo, int attackPattern, Vector2 pausePoint, int spawnLocation, int exitLocation) 
+    public EnemyParameters(float shootSpeed, float moveSpeed, int ammo, int attackPattern, Vector2 pausePoint, Vector3 spawnLocation, Vector3 exitLocation) 
     {
         this.shootSpeed = shootSpeed;
         this.moveSpeed = moveSpeed;

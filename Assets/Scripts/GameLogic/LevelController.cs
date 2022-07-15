@@ -4,22 +4,22 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
     public static int level;
-    public static float levelDuration = 10.0f;
+    public static int enemiesPerRound;
     public static int gameMode;
-
+    public BossController bossController;
+    public EnemyController enemyController;
     public GameObject backButton;
-    public GameObject enemy;
-    public GameObject boss;
     public GameObject score;
-    float bossY = 1600;
-    Transform canvas;
-    public GameObject hpPower;
+    public Transform canvas;
+    public Vector3[] fixedSpawnLocations;
     // Start is called before the first frame update
     void Start()
     {
         level = 0;
         Score.score = 0;
         canvas = gameObject.transform;
+        bossController = (BossController)canvas.GetComponent(typeof(BossController));
+        enemyController = (EnemyController)canvas.GetComponent(typeof(EnemyController));
         NewLevel();
 
         backButton = GameObject.Find(Constants.MENU_BUTTON_OVERLAY);
@@ -45,28 +45,8 @@ public class LevelController : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         level += 1;
-        GameObject newEnemy = Instantiate(enemy, new Vector2(Screen.width / 2, Screen.height), Quaternion.identity, canvas) as GameObject;
-        newEnemy.transform.SetSiblingIndex(1);
-        newEnemy.SendMessage("SetParameters", new EnemyParameters(30000f, 30000f, 3, 2, new Vector2(Screen.width / 2, 2*Screen.height / 3), 2, 6));
-        StartCoroutine(WaitAndSpawnBoss(levelDuration));
-    }
-
-    IEnumerator WaitAndSpawnBoss(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        GameObject newBoss = Instantiate(boss, new Vector2(canvas.position.x, canvas.position.y + bossY), Quaternion.identity, canvas) as GameObject;
-        newBoss.transform.SetSiblingIndex(1);
-    }
-
-    public void SpawnHpPowerup()
-    {
-        StartCoroutine(WaitAndSpawnHpPowerup());
-    }
-
-    public IEnumerator WaitAndSpawnHpPowerup()
-    {
-        yield return new WaitForSeconds(2.0f);
-        GameObject healthPowerup = Instantiate(hpPower, new Vector2(canvas.position.x, canvas.position.y), Quaternion.identity, canvas) as GameObject;
-        FindObjectOfType<HealthPowerup>().DestroyPowerup();
+        enemyController.GenerateWave(level);
+        
+        StartCoroutine(bossController.WaitAndSpawnBoss());
     }
 }

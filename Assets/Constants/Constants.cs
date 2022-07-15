@@ -82,4 +82,5 @@ public class Constants
     public static readonly string MULTIPLICATION = "×";
     public static readonly string DIVISION = "÷";
     public static readonly string QUESTION_FORMAT = "{0} {1} {2} = ?";
+    
 }

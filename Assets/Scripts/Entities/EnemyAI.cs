@@ -16,19 +16,7 @@ public class EnemyAI : MonoBehaviour
     public bool isExiting;
     public Vector2 pausePoint;
     public Vector2 spawnLocation;
-    public Vector3 exitLocation;
-    public Vector3[] fixedSpawnLocations =
-    {
-        new Vector3(0, 2*Screen.height / 3),
-        new Vector3(0, 5*Screen.height / 6, 0),
-        new Vector3(0, Screen.height, 0),
-        new Vector3(Screen.width / 4, Screen.height, 0),
-        new Vector3(Screen.width / 2, Screen.height, 0),
-        new Vector3(3*Screen.width / 4, Screen.height, 0),
-        new Vector3(Screen.width, Screen.height, 0),
-        new Vector3(Screen.width, 5*Screen.height / 6, 0),
-        new Vector3(Screen.width, 2*Screen.height / 3, 0)
-    };
+    public Vector2 exitLocation;
     public Rigidbody2D body;
 
     // Start is called before the first frame update
@@ -111,8 +99,8 @@ public class EnemyAI : MonoBehaviour
         this.ammo = e.ammo;
         this.attackPattern = e.attackPattern;
         this.pausePoint = e.pausePoint;
-        this.spawnLocation = fixedSpawnLocations[e.spawnLocation];
-        this.exitLocation = fixedSpawnLocations[e.exitLocation];
+        this.spawnLocation = e.spawnLocation;
+        this.exitLocation = e.exitLocation;
     }
 
     public void EmptyAmmo()
