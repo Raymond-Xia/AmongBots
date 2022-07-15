@@ -67,5 +67,6 @@ public class LevelController : MonoBehaviour
     {
         yield return new WaitForSeconds(2.0f);
         GameObject healthPowerup = Instantiate(hpPower, new Vector2(canvas.position.x, canvas.position.y), Quaternion.identity, canvas) as GameObject;
+        FindObjectOfType<HealthPowerup>().DestroyPowerup();
     }
 }

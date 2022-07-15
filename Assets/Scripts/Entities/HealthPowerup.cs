@@ -9,4 +9,9 @@ public class HealthPowerup : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void DestroyPowerup()
+    {
+        Destroy(gameObject, 5.0f);
+    }
 }
