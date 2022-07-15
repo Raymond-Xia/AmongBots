@@ -11,13 +11,19 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 touchPosition;
     Collider2D touchedCollider;
     public Vector2 canvasPosition;
+    public GameObject player;
+    public GameObject skin;
 
     // Start is called before the first frame update
     void Start()
     {
         canvasPosition = GameObject.Find(Constants.CANVAS_OBJECT).transform.position;
+        player = GameObject.Find(Constants.PLAYER_OBJECT);
+        skin = GameObject.Find(Constants.SKIN_OBJECT);
         col = GetComponent<Collider2D>();
-        UpdateSprite();
+
+        player.GetComponent<Image>().sprite = Cosmetics.UpdateSprite();
+        skin.GetComponent<Image>().sprite = Cosmetics.UpdateSkin();
     }
 
     // Update is called once per frame
@@ -27,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
             touchPosition = touch.position;
+
             // when the finger first touches the screen
             if (touch.phase == TouchPhase.Began)
             {
@@ -40,10 +47,10 @@ public class PlayerMovement : MonoBehaviour
             // if finger is still on screen and moving around
             if (touch.phase == TouchPhase.Moved)
             {
-                // if (moveAllowed && touchPosition.y < canvasPosition.y - 100)
                 if (moveAllowed)
                 {
                     transform.position = new Vector2(touchPosition.x, touchPosition.y);
+                    skin.transform.position = new Vector2(touchPosition.x, touchPosition.y);
                 }
             }
 
@@ -53,17 +60,6 @@ public class PlayerMovement : MonoBehaviour
                 moveAllowed = false;
             }
         }
-    }
-
-    private void UpdateSprite()
-    {
-        int selected = 0;
-        if (PlayerPrefs.HasKey(Constants.SPRITE_SELECTED_KEY))
-        {
-            selected = PlayerPrefs.GetInt(Constants.SPRITE_SELECTED_KEY);
-        }
-        Sprite sprite = Resources.Load<Sprite>(Constants.SPRITES[selected]);
-        GameObject.Find(Constants.PLAYER_OBJECT).GetComponent<Image>().sprite = sprite;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
