@@ -20,61 +20,51 @@ public class CueCardMenu : MonoBehaviour
     public void UpdateCueCards()
     {
         // Load saved cue cards data
-        if(File.Exists(Application.persistentDataPath + "/savedCueCards.gd")) {
+        if(File.Exists(Application.persistentDataPath + Constants.CARD_SAVE_FILE)) {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/savedCueCards.gd", FileMode.Open);
+            FileStream file = File.Open(Application.persistentDataPath + Constants.CARD_SAVE_FILE, FileMode.Open);
             cardmap = (Dictionary<string, string>)bf.Deserialize(file);
             file.Close();
-        } else {
-            Debug.Log("Save file does not exist.");
-        }
+        } 
 
         // Clear screen
-        foreach (Transform child in GameObject.Find("CardScrollContent").transform)
+        Transform cardScrollContent = GameObject.Find(Constants.CARD_SCROLL_CONTENT).transform;
+        foreach (Transform child in cardScrollContent)
         {
             GameObject.Destroy(child.gameObject);
         }
-        GameObject.Find("CardScrollView").GetComponent<ScrollRect>().verticalNormalizedPosition = 1;
 
         // Display cue cards
-        float h = 1350;
-        bool first = true;
         foreach (KeyValuePair<string, string> pair in cardmap)
         {
-            GameObject newCard = Instantiate(cueCardPrefab, new Vector2(0,0), Quaternion.identity, GameObject.Find("CardScrollContent").transform) as GameObject;
+            GameObject newCard = Instantiate(cueCardPrefab, new Vector2(0,0), Quaternion.identity, cardScrollContent) as GameObject;
+            GameObject.Find(Constants.CARD_SCROLL_VIEW).GetComponent<ScrollRect>().verticalNormalizedPosition = 1;
 
             Text text = newCard.transform.GetChild(0).GetComponent<Text>();
-            text.text = "Q: " + pair.Key + "\nA: " + pair.Value;
-            // RectTransform cardRectTransform = cardtext.GetComponent<RectTransform>();
-            // cardRectTransform.SetParent(cardtext.transform, false);
-            if (!first) h -= text.preferredHeight/2; else first = false;
-            newCard.transform.position = new Vector2(Screen.width / 2, h);
-            
-            h -= text.preferredHeight/2 + 50;
+            text.text = string.Format(Constants.CARD_TEXT_FORMAT, pair.Key, pair.Value);
         }
     }
 
     public void CreateCueCard() 
     {
-        Text prompt = GameObject.Find("AddCueCard").transform.GetChild(2).GetComponent<Text>();
-        if (cardmap.Count >= 100) {
-            prompt.text = "MAX 100 CUE CARDS!";
+        Text prompt = GameObject.Find(Constants.CARD_ADD_PROMPT).GetComponent<Text>();
+        if (cardmap.Count >= Constants.MAX_CUE_CARDS) {
+            prompt.text = string.Format(Constants.MAX_CARDS_MSG, Constants.MAX_CUE_CARDS);
         } else {
-            string question = GameObject.Find("QuestionInput").GetComponent<InputField>().text;
-            string answer = GameObject.Find("AnswerInput").GetComponent<InputField>().text;
-            if (question == "" || answer == "") {
-                prompt.text = "FIELDS CAN'T BE EMPTY!";
+            InputField question = GameObject.Find(Constants.CARD_QUESTION_INPUT).GetComponent<InputField>();
+            InputField answer = GameObject.Find(Constants.CARD_ANSWER_INPUT).GetComponent<InputField>();
+            if (question.text == "" || answer.text == "") {
+                prompt.text = Constants.EMPTY_FIELDS_MSG;
             } else {
-                if (!cardmap.ContainsKey(question)) {
-                    cardmap.Add(question, answer);
+                if (!cardmap.ContainsKey(question.text)) {
+                    cardmap.Add(question.text, answer.text);
                 } else {
-                    cardmap[question] = answer;
+                    cardmap[question.text] = answer.text;
                 }
 
-                Debug.Log(cardmap.Count);
-                GameObject.Find("QuestionInput").GetComponent<InputField>().text = "";
-                GameObject.Find("AnswerInput").GetComponent<InputField>().text = "";
-                prompt.text = "CUE CARD ADDED!";
+                question.text = "";
+                answer.text = "";
+                prompt.text = Constants.CARD_ADDED_MSG;
                 SaveCueCards();
             }
             
@@ -83,9 +73,8 @@ public class CueCardMenu : MonoBehaviour
 
     public static void SaveCueCards() 
     {
-        Debug.Log(Application.persistentDataPath);
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create (Application.persistentDataPath + "/savedCueCards.gd");
+        FileStream file = File.Create (Application.persistentDataPath + Constants.CARD_SAVE_FILE);
         bf.Serialize(file, cardmap);
         file.Close();
     }
