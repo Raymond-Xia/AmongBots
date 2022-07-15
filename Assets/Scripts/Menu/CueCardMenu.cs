@@ -48,16 +48,17 @@ public class CueCardMenu : MonoBehaviour
             InputField answer = GameObject.Find(Constants.CARD_ANSWER_INPUT).GetComponent<InputField>();
             if (question.text == "" || answer.text == "") { // empty fields check
                 prompt.text = Constants.EMPTY_FIELDS_MSG;
-            } else { // add or overwrite card
-                if (!cardmap.ContainsKey(question.text)) {
+            } else {
+                if (!cardmap.ContainsKey(question.text)) { // add card
                     cardmap.Add(question.text, answer.text);
-                } else {
+                    prompt.text = Constants.CARD_ADDED_MSG;
+                } else { // overwrite card
                     cardmap[question.text] = answer.text;
+                    prompt.text = Constants.CARD_OVERWRITTEN_MSG; 
                 }
 
                 question.text = "";
                 answer.text = "";
-                prompt.text = Constants.CARD_ADDED_MSG;
                 SaveCueCards();
             }
             

@@ -90,6 +90,7 @@ public class Constants
     public static readonly string MAX_CARDS_MSG = "MAX {0} CUE CARDS!";
     public static readonly string EMPTY_FIELDS_MSG = "FIELDS CAN'T BE EMPTY!";
     public static readonly string CARD_ADDED_MSG = "CUE CARD ADDED!";
+    public static readonly string CARD_OVERWRITTEN_MSG = "CUE CARD OVERWRITTEN!";
     public static readonly string CARD_QUESTION_INPUT = "QuestionInput";
     public static readonly string CARD_ANSWER_INPUT = "AnswerInput";
     public static readonly string CARD_ADD_PROMPT = "Prompt";
