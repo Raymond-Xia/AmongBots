@@ -7,15 +7,8 @@ using System.IO;
 
 public class CueCardMenu : MonoBehaviour
 {
-    public GameObject[] cards = new GameObject[100];
     public static Dictionary<string, string> cardmap = new Dictionary<string, string>();
     public GameObject cueCardPrefab;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        UpdateCueCards();
-    }
 
     public void UpdateCueCards()
     {
@@ -48,14 +41,14 @@ public class CueCardMenu : MonoBehaviour
     public void CreateCueCard() 
     {
         Text prompt = GameObject.Find(Constants.CARD_ADD_PROMPT).GetComponent<Text>();
-        if (cardmap.Count >= Constants.MAX_CUE_CARDS) {
+        if (cardmap.Count >= Constants.MAX_CUE_CARDS) { // can't add more than max cards (100)
             prompt.text = string.Format(Constants.MAX_CARDS_MSG, Constants.MAX_CUE_CARDS);
-        } else {
+        } else { 
             InputField question = GameObject.Find(Constants.CARD_QUESTION_INPUT).GetComponent<InputField>();
             InputField answer = GameObject.Find(Constants.CARD_ANSWER_INPUT).GetComponent<InputField>();
-            if (question.text == "" || answer.text == "") {
+            if (question.text == "" || answer.text == "") { // empty fields check
                 prompt.text = Constants.EMPTY_FIELDS_MSG;
-            } else {
+            } else { // add or overwrite card
                 if (!cardmap.ContainsKey(question.text)) {
                     cardmap.Add(question.text, answer.text);
                 } else {
