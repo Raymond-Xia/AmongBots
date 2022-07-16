@@ -1479,6 +1479,7 @@ GameObject:
   - component: {fileID: 1785300241}
   - component: {fileID: 1785300240}
   - component: {fileID: 1785300239}
+  - component: {fileID: 1785300242}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -1601,6 +1602,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1785300237}
   m_CullTransparentMesh: 1
+--- !u!114 &1785300242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785300237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bfddb6fb833a4ffda6acaef893b51d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topScores: 0000000000000000000000000000000000000000
 --- !u!1 &2049475516
 GameObject:
   m_ObjectHideFlags: 0
@@ -1656,3 +1670,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   i: 0
+  crewmate: {fileID: 0}
+  skin: {fileID: 0}
