@@ -90,4 +90,19 @@ public class Constants
     // SHOOT BEHAVIOUR
     public const int PAUSE_TO_SHOOT = 1;
     public const int SHOOT_AND_FLY = 2;
+
+    // CUE CARDS
+    public static readonly string CARD_SAVE_FILE = "/savedCueCards.gd";
+    public static readonly string CARD_SCROLL_CONTENT = "CardScrollContent";
+    public static readonly string CARD_SCROLL_VIEW = "CardScrollView";
+    public static readonly string MAX_CARDS_MSG = "MAX {0} CUE CARDS!";
+    public static readonly string EMPTY_FIELDS_MSG = "FIELDS CAN'T BE EMPTY!";
+    public static readonly string CARD_ADDED_MSG = "CUE CARD ADDED!";
+    public static readonly string CARD_OVERWRITTEN_MSG = "CUE CARD OVERWRITTEN!";
+    public static readonly string CARD_QUESTION_INPUT = "QuestionInput";
+    public static readonly string CARD_ANSWER_INPUT = "AnswerInput";
+    public static readonly string CARD_ADD_PROMPT = "Prompt";
+    public static readonly string CARD_TEXT_FORMAT = "Q: {0}\nA: {1}";
+    public static readonly string CARDS_SCREEN = "CueCards";
+    public const int MAX_CUE_CARDS = 100;
 }
