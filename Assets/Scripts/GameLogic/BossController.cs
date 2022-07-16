@@ -18,9 +18,8 @@ public class BossController : MonoBehaviour
         
     }
 
-    public IEnumerator WaitAndSpawnBoss()
+    public void WaitAndSpawnBoss()
     {
-        yield return new WaitForSeconds(10.0f);
         GameObject newBoss = Instantiate(boss, new Vector2(canvas.position.x, canvas.position.y + bossY), Quaternion.identity, canvas) as GameObject;
         newBoss.transform.SetSiblingIndex(1);
     }

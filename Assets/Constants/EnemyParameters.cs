@@ -24,7 +24,16 @@ public class EnemyParameters
     // Exit point, where the enemy flies away to, selected from an array
     public Vector2 exitLocation;
 
-    public EnemyParameters(float shootSpeed, float moveSpeed, int ammo, int attackPattern, Vector2 pausePoint, Vector3 spawnLocation, Vector3 exitLocation) 
+    // Determines whether enemy stops and shoots or moves while shooting
+    public int shootBehaviour;
+
+    // For moves while shooting, partition screen to select when to shoot based on X pos
+    public int xPartition;
+
+    // For moves while shooting, partition screen to select when to shoot based on Y pos
+    public int yPartition;
+
+    public EnemyParameters(float shootSpeed, float moveSpeed, int ammo, int attackPattern, Vector2 pausePoint, Vector3 spawnLocation, Vector3 exitLocation, int shootBehaviour, int xPartition, int yPartition) 
     {
         this.shootSpeed = shootSpeed;
         this.moveSpeed = moveSpeed;
@@ -33,5 +42,8 @@ public class EnemyParameters
         this.pausePoint = pausePoint;
         this.spawnLocation = spawnLocation;
         this.exitLocation = exitLocation;
+        this.shootBehaviour = shootBehaviour;
+        this.xPartition = xPartition;
+        this.yPartition = yPartition;
     }
 }

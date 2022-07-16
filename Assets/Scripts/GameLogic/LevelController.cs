@@ -11,14 +11,12 @@ public class LevelController : MonoBehaviour
     public GameObject backButton;
     public GameObject score;
     public Transform canvas;
-    public Vector3[] fixedSpawnLocations;
     // Start is called before the first frame update
     void Start()
     {
         level = 0;
         Score.score = 0;
         canvas = gameObject.transform;
-        bossController = (BossController)canvas.GetComponent(typeof(BossController));
         enemyController = (EnemyController)canvas.GetComponent(typeof(EnemyController));
         NewLevel();
 
@@ -45,8 +43,7 @@ public class LevelController : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         level += 1;
-        enemyController.GenerateWave(level);
-        
-        StartCoroutine(bossController.WaitAndSpawnBoss());
+        enemyController.ResetRound();
+        enemyController.SelectWave(level);
     }
 }

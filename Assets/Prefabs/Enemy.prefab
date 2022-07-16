@@ -165,21 +165,19 @@ MonoBehaviour:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   canvas: {fileID: 0}
-  movementPattern: 0
   attackPattern: 0
   isExiting: 0
   pausePoint: {x: 0, y: 0}
-  spawnLocations:
-  - {x: 0, y: 268, z: 0}
-  - {x: 0, y: 335, z: 0}
-  - {x: 0, y: 403, z: 0}
-  - {x: 366, y: 403, z: 0}
-  - {x: 733, y: 403, z: 0}
-  - {x: 1099, y: 403, z: 0}
-  - {x: 1466, y: 403, z: 0}
-  - {x: 1466, y: 335, z: 0}
-  - {x: 1466, y: 268, z: 0}
+  spawnLocation: {x: 0, y: 0}
+  exitLocation: {x: 0, y: 0}
+  shootBehaviour: 0
   body: {fileID: 0}
+  enemyController: {fileID: 0}
+  xPartition: 0
+  yPartition: 0
+  xIncrement: 0
+  yIncrement: 0
+  canShoot: 0
 --- !u!50 &9176720485684825230
 Rigidbody2D:
   serializedVersion: 4

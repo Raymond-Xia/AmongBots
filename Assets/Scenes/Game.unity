@@ -429,10 +429,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b6414b28d596446be98faaeafca387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesPerRound: 0
+  enemiesPerRound: 3
   enemy: {fileID: 9176720485684825268, guid: 4bd95a026ea98804594546547b2c6e3e, type: 3}
+  bossController: {fileID: 0}
   canvas: {fileID: 0}
   fixedSpawnLocations: []
+  bossSpawned: 0
 --- !u!114 &169128973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -976,6 +978,7 @@ MonoBehaviour:
   col: {fileID: 0}
   touchPosition: {x: 0, y: 0}
   canvasPosition: {x: 0, y: 0}
+  player: {fileID: 0}
   skin: {fileID: 0}
 --- !u!114 &1016592713
 MonoBehaviour:
