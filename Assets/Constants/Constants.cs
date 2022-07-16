@@ -86,6 +86,7 @@ public class Constants
     // ATTACKS
     public const int VERTICAL_ATTACK = 1;
     public const int FAN_ATTACK = 2;
+    public const int HOMING_ATTACK = 3;
 
     // SHOOT BEHAVIOUR
     public const int PAUSE_TO_SHOOT = 1;

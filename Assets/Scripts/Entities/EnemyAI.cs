@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour
     public GameObject missile;
     public Collider2D col;
     public GameObject enemy;
+    public GameObject player;
     public int ammo;
     public Bounds missilePosition;
     public Transform canvas;
@@ -29,6 +30,7 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         canvas = GameObject.Find(Constants.CANVAS_OBJECT).transform;
+        player = GameObject.Find(Constants.PLAYER_OBJECT);
         enemyController = (EnemyController)canvas.GetComponent(typeof(EnemyController));
         transform.SetPositionAndRotation(spawnLocation, Quaternion.identity);
         body = GetComponent<Rigidbody2D>();
@@ -111,6 +113,9 @@ public class EnemyAI : MonoBehaviour
                 case Constants.FAN_ATTACK:
                     AttackFan.ShootOnDemand(enemy, missile, shootSpeed, shootPos);
                     break;
+                case Constants.HOMING_ATTACK:
+                    AttackHoming.ShootOnDemand(enemy, missile, shootSpeed, shootPos, player.transform);
+                    break;
                 default:
                     break;
             }
@@ -133,11 +138,14 @@ public class EnemyAI : MonoBehaviour
     {
         switch(attackPattern)
         {
-            case 1:
+            case Constants.VERTICAL_ATTACK:
                 StartCoroutine(AttackVertical.ShootInWaves(enemy, missile, 1, ammo, shootSpeed, shootPos));
                 break;
-            case 2:
+            case Constants.FAN_ATTACK:
                 StartCoroutine(AttackFan.ShootInWaves(enemy, missile, 1, ammo, shootSpeed, shootPos));
+                break;
+            case Constants.HOMING_ATTACK:
+                StartCoroutine(AttackHoming.ShootInWaves(enemy, missile, 1, ammo, shootSpeed, shootPos, player.transform));
                 break;
             default:
                 break;
