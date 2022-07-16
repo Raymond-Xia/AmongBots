@@ -9,9 +9,9 @@ public class HighScores : MonoBehaviour
     void Start()
     {
         highScoreText = GetComponent<TMP_Text>();
-        if (PlayerPrefs.HasKey("TopScores"))
+        if (PlayerPrefs.HasKey(Constants.SCORES_TOPSCORES))
         {
-            String[] topScores = PlayerPrefs.GetString("TopScores").Split("/n");
+            String[] topScores = PlayerPrefs.GetString(Constants.SCORES_TOPSCORES).Split("/n");
             string temp = "";
             for (int i = 0; i < 5; i++)
             {

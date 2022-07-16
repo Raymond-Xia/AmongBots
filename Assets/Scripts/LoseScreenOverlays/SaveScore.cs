@@ -7,9 +7,9 @@ public class SaveScore : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (PlayerPrefs.HasKey("TopScores"))
+        if (PlayerPrefs.HasKey(Constants.SCORES_TOPSCORES))
         {
-            String[] topScores = PlayerPrefs.GetString("TopScores").Split("/n");
+            String[] topScores = PlayerPrefs.GetString(Constants.SCORES_TOPSCORES).Split("/n");
         
             int[] ints = Array.ConvertAll(topScores, int.Parse);
             int tempScore = Score.score;
@@ -23,12 +23,12 @@ public class SaveScore : MonoBehaviour
                     tempScore = t;
                 }
             }
-            PlayerPrefs.SetString("TopScores", string.Join("/n", ints));
+            PlayerPrefs.SetString(Constants.SCORES_TOPSCORES, string.Join("/n", ints));
         }
         else
         {
             int[] ints = { Score.score, 0, 0, 0, 0, 0 };
-            PlayerPrefs.SetString("TopScores", string.Join("/n", ints));
+            PlayerPrefs.SetString(Constants.SCORES_TOPSCORES, string.Join("/n", ints));
         }
     }
 }
