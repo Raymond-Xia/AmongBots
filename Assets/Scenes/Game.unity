@@ -279,6 +279,9 @@ GameObject:
   - component: {fileID: 169128966}
   - component: {fileID: 169128965}
   - component: {fileID: 169128970}
+  - component: {fileID: 169128971}
+  - component: {fileID: 169128972}
+  - component: {fileID: 169128973}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -385,11 +388,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e3749c837657643987082ac8835c40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossController: {fileID: 0}
+  enemyController: {fileID: 0}
   backButton: {fileID: 0}
-  enemy: {fileID: 9176720485684825268, guid: 4bd95a026ea98804594546547b2c6e3e, type: 3}
-  boss: {fileID: 2522402450729913665, guid: eec29f6a55b04cd4da94743f36ec2feb, type: 3}
   score: {fileID: 0}
+  canvas: {fileID: 0}
+  fixedSpawnLocations:
+  - {x: 0, y: 268, z: 0}
+  - {x: 0, y: 335, z: 0}
+  - {x: 0, y: 403, z: 0}
+  - {x: 366, y: 403, z: 0}
+  - {x: 733, y: 403, z: 0}
+  - {x: 1099, y: 403, z: 0}
+  - {x: 1466, y: 403, z: 0}
+  - {x: 1466, y: 335, z: 0}
+  - {x: 1466, y: 268, z: 0}
+--- !u!114 &169128971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169128963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b74783e33b20554485e2223129ee457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   hpPower: {fileID: 775424797627098482, guid: 7c0bda45dedad7241a79691e01fcc3a0, type: 3}
+  canvas: {fileID: 0}
+--- !u!114 &169128972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169128963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b6414b28d596446be98faaeafca387, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesPerRound: 3
+  enemy: {fileID: 9176720485684825268, guid: 4bd95a026ea98804594546547b2c6e3e, type: 3}
+  bossController: {fileID: 0}
+  canvas: {fileID: 0}
+  fixedSpawnLocations: []
+  bossSpawned: 0
+--- !u!114 &169128973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169128963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a5d1838d0449614ea956a472bd8aef2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boss: {fileID: 2522402450729913665, guid: eec29f6a55b04cd4da94743f36ec2feb, type: 3}
+  bossY: 1600
+  canvas: {fileID: 0}
 --- !u!1 &401113862
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,6 +978,7 @@ MonoBehaviour:
   col: {fileID: 0}
   touchPosition: {x: 0, y: 0}
   canvasPosition: {x: 0, y: 0}
+  player: {fileID: 0}
   skin: {fileID: 0}
 --- !u!114 &1016592713
 MonoBehaviour:

@@ -11,33 +11,30 @@ public class EnemyAI : MonoBehaviour
     public GameObject enemy;
     public int ammo;
     public Bounds missilePosition;
-    public GameObject canvas;
+    public Transform canvas;
     public int attackPattern;
     public bool isExiting;
     public Vector2 pausePoint;
     public Vector2 spawnLocation;
-    public Vector3 exitLocation;
-    public Vector3[] fixedSpawnLocations =
-    {
-        new Vector3(0, 2*Screen.height / 3),
-        new Vector3(0, 5*Screen.height / 6, 0),
-        new Vector3(0, Screen.height, 0),
-        new Vector3(Screen.width / 4, Screen.height, 0),
-        new Vector3(Screen.width / 2, Screen.height, 0),
-        new Vector3(3*Screen.width / 4, Screen.height, 0),
-        new Vector3(Screen.width, Screen.height, 0),
-        new Vector3(Screen.width, 5*Screen.height / 6, 0),
-        new Vector3(Screen.width, 2*Screen.height / 3, 0)
-    };
+    public Vector2 exitLocation;
+    public int shootBehaviour;
     public Rigidbody2D body;
+    public EnemyController enemyController;
+    public int xPartition;
+    public int yPartition;
+    public int xIncrement;
+    public int yIncrement;
 
     // Start is called before the first frame update
     void Start()
     {
-        enemy = GameObject.Find(Constants.ENEMY_PREFAB);
-        enemy.transform.SetPositionAndRotation(spawnLocation, Quaternion.identity);
-        body = enemy.GetComponent<Rigidbody2D>();
+        canvas = GameObject.Find(Constants.CANVAS_OBJECT).transform;
+        enemyController = (EnemyController)canvas.GetComponent(typeof(EnemyController));
+        transform.SetPositionAndRotation(spawnLocation, Quaternion.identity);
+        body = GetComponent<Rigidbody2D>();
         body.velocity = calculateVelocity(spawnLocation, pausePoint, moveSpeed);
+        xIncrement = 1;
+        yIncrement = 1;   
     }
 
     // Update is called once per frame
@@ -45,18 +42,30 @@ public class EnemyAI : MonoBehaviour
     {
         if ((transform.position.y < 0f || transform.position.y > Screen.height || transform.position.x > Screen.width || transform.position.x < 0) && isExiting)
         {
+            enemyController.IncreaseDespawnCount();
             Destroy(gameObject);
         }
 
-        if (transform.position.y <= pausePoint.y + 25
-        && transform.position.y >= pausePoint.x - 25
-        && transform.position.x <= pausePoint.x + 25
-        && transform.position.x >= pausePoint.x - 25
-        && !isExiting)
+        switch(shootBehaviour) 
         {
-            isExiting = true;
-            StartCoroutine(PauseAndResume(2.0f));
+            case Constants.PAUSE_TO_SHOOT:
+                if (checkBoundingBox(pausePoint) && !isExiting)
+                {
+                    isExiting = true;
+                    StartCoroutine(PauseAndResume(2.0f));
+                }
+                break;
+            case Constants.SHOOT_AND_FLY:
+                (xIncrement, yIncrement, ammo) = ShootAndFly(xPartition, yPartition, attackPattern, ammo, xIncrement, yIncrement);
+                break;
+            default:
+                break;
         }
+    }
+
+    bool checkBoundingBox(Vector2 point) 
+    {
+        return transform.position.y <= point.y + 25 && transform.position.y >= point.x - 25 && transform.position.x <= point.x + 25 && transform.position.x >= point.x - 25;
     }
 
     Vector2 calculateVelocity(Vector2 currentPoint, Vector2 targetPoint, float moveSpeed)
@@ -67,7 +76,6 @@ public class EnemyAI : MonoBehaviour
         {
             y /= Mathf.Abs(x);
             x /= Mathf.Abs(x);
-
         }
         else
         {
@@ -77,27 +85,59 @@ public class EnemyAI : MonoBehaviour
         return new Vector2(x * moveSpeed * Time.fixedDeltaTime, y * moveSpeed * Time.fixedDeltaTime);
     }
 
+    (int, int, int) ShootAndFly(int xPartition, int yPartition, int attackPattern, int ammo, int xIncrement, int yIncrement) 
+    {
+        float x = xIncrement * Screen.width / (xPartition + 1);
+        float y = yIncrement * Screen.width / (yPartition + 1);
+        if (xPartition == 1) 
+        {
+            x = transform.position.x;
+        }
+        if (yPartition == 1) 
+        {
+            y = transform.position.y;
+        }
+        if (checkBoundingBox(new Vector2(x, y)) && ammo > 0) 
+        {
+            isExiting = true;
+            xIncrement += 1;
+            yIncrement += 1;
+            ammo -= 1;
+            switch(attackPattern) 
+            {
+                case Constants.VERTICAL_ATTACK:
+                    AttackVertical.ShootOnDemand(enemy, missile, shootSpeed, shootPos);
+                    break;
+                case Constants.FAN_ATTACK:
+                    AttackFan.ShootOnDemand(enemy, missile, shootSpeed, shootPos);
+                    break;
+                default:
+                    break;
+            }
+        }
+        return (xIncrement, yIncrement, ammo);
+    }
+
     IEnumerator PauseAndResume(float delay)
     {
         body.velocity = new Vector2(0, 0);
 
-        Attack(attackPattern);
+        AttackInWaves(attackPattern);
 
         yield return new WaitUntil(new System.Func<bool>(() => this.ammo == 0));
         yield return new WaitForSeconds(delay);
         body.velocity = calculateVelocity(pausePoint, exitLocation, moveSpeed);
-        isExiting = true;
     }
 
-    void Attack(int attackPattern)
+    void AttackInWaves(int attackPattern)
     {
         switch(attackPattern)
         {
             case 1:
-                StartCoroutine(AttackVertical.Shoot(enemy, missile, 1, ammo, shootSpeed, shootPos));
+                StartCoroutine(AttackVertical.ShootInWaves(enemy, missile, 1, ammo, shootSpeed, shootPos));
                 break;
             case 2:
-                StartCoroutine(AttackFan.Shoot(enemy, missile, 1, ammo, shootSpeed, shootPos));
+                StartCoroutine(AttackFan.ShootInWaves(enemy, missile, 1, ammo, shootSpeed, shootPos));
                 break;
             default:
                 break;
@@ -111,8 +151,11 @@ public class EnemyAI : MonoBehaviour
         this.ammo = e.ammo;
         this.attackPattern = e.attackPattern;
         this.pausePoint = e.pausePoint;
-        this.spawnLocation = fixedSpawnLocations[e.spawnLocation];
-        this.exitLocation = fixedSpawnLocations[e.exitLocation];
+        this.spawnLocation = e.spawnLocation;
+        this.exitLocation = e.exitLocation;
+        this.shootBehaviour = e.shootBehaviour;
+        this.xPartition = e.xPartition;
+        this.yPartition = e.yPartition;
     }
 
     public void EmptyAmmo()

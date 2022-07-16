@@ -82,6 +82,14 @@ public class Constants
     public static readonly string MULTIPLICATION = "×";
     public static readonly string DIVISION = "÷";
     public static readonly string QUESTION_FORMAT = "{0} {1} {2} = ?";
+    
+    // ATTACKS
+    public const int VERTICAL_ATTACK = 1;
+    public const int FAN_ATTACK = 2;
+
+    // SHOOT BEHAVIOUR
+    public const int PAUSE_TO_SHOOT = 1;
+    public const int SHOOT_AND_FLY = 2;
 
     // CUE CARDS
     public static readonly string CARD_SAVE_FILE = "/savedCueCards.gd";
