@@ -9,13 +9,16 @@ public class HighScores : MonoBehaviour
     void Start()
     {
         highScoreText = GetComponent<TMP_Text>();
-        String[] topScores = PlayerPrefs.GetString("TopScores").Split("/n");
-        string temp = "";
-        for (int i = 0; i < 5; i++)
+        if (PlayerPrefs.HasKey("TopScores"))
         {
-            temp = temp + (i+1) + ". " + topScores[i] + "\n";
+            String[] topScores = PlayerPrefs.GetString("TopScores").Split("/n");
+            string temp = "";
+            for (int i = 0; i < 5; i++)
+            {
+                temp = temp + (i+1) + ". " + topScores[i] + "\n";
+            }
+            highScoreText.text = temp;
         }
-        highScoreText.text = temp;
     }
 
 }
