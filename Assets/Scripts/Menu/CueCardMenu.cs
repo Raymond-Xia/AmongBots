@@ -84,13 +84,5 @@ public class CueCardMenu : MonoBehaviour
             answerInput.text = answerInput.text.Replace("\n", "");
         }
     }
-
-    // public void check()
-    // {
-    //     if (questionInput.text[questionInput.text.Length-1] == '\n') {
-    //         Debug.Log("check there is a return");
-    //     } else {
-    //         Debug.Log("check no returns");
-    //     }
-    // }
+    
 }

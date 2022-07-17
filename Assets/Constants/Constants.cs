@@ -10,7 +10,6 @@ public class Constants
     public static readonly string CREWMATE_OBJECT = "Crewmate";
     public static readonly string SKIN_OBJECT = "Skin";
     public static readonly string PLAYER_OBJECT = "Player";
-    public static readonly string EXPLOSION_OBJECT = "Explosion";
     public static readonly string CARD_ANSWER_TEXT_OBJECT = "AnswerText";
 
     // PREFABS
