@@ -1,8 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayMenu : MonoBehaviour
 {
+    public Text warning; 
+
     public void Original()
     {
         InitializeGame();
@@ -39,6 +42,10 @@ public class PlayMenu : MonoBehaviour
         {
             InitializeGame();
             LevelController.gameMode = Constants.CUE_CARDS_GAMEMODE;
+        }
+        else
+        {
+            warning.text = "MUST HAVE AT LEAST ONE CUE CARD TO PLAY!";
         }
     }
 
