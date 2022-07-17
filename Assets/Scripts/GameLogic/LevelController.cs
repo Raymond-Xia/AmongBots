@@ -10,7 +10,7 @@ public class LevelController : MonoBehaviour
     public static List<KeyValuePair<string, string>> usedCueCards;
     public BossController bossController;
     public EnemyController enemyController;
-    public GameObject backButton;
+    public GameObject pauseButton;
     public GameObject score;
     public Transform canvas;
     // Start is called before the first frame update
@@ -23,8 +23,8 @@ public class LevelController : MonoBehaviour
         NewLevel();
         usedCueCards = new List<KeyValuePair<string, string>>();
         
-        backButton = GameObject.Find(Constants.MENU_BUTTON_OVERLAY);
-        backButton.transform.SetPositionAndRotation(new Vector3((Screen.width - (Screen.width / 6)), (Screen.height - (Screen.height / 10)), 0), Quaternion.identity);
+        pauseButton = GameObject.Find(Constants.PAUSE_BUTTON_OVERLAY);
+        pauseButton.transform.SetPositionAndRotation(new Vector3((Screen.width - (Screen.width / 6)), (Screen.height - (Screen.height / 10)), 0), Quaternion.identity);
 
         score = GameObject.Find(Constants.SCORE_OVERLAY);
         score.transform.SetPositionAndRotation(new Vector3((Screen.width / 6), Screen.height - (Screen.height / 10), 0), Quaternion.identity);
