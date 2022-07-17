@@ -8,7 +8,6 @@ public class BossAI : MonoBehaviour
     public GameObject mathQuestion;
     public GameObject cueCardQuestion;
     public GameObject explosion;
-    float questionY = -40;
     float explosionDuration = 1.5f;
     Transform canvas;
     GameObject newQuestion;
@@ -38,7 +37,19 @@ public class BossAI : MonoBehaviour
 
         if (askQuestion && !questionAsked) // create question if question not already asked
         {
-            GameObject questionPrefab = (LevelController.gameMode == Constants.CUE_CARDS_GAMEMODE) ? cueCardQuestion : mathQuestion;
+            GameObject questionPrefab;
+            float questionY;
+            if (LevelController.gameMode == Constants.CUE_CARDS_GAMEMODE) 
+            {
+                questionPrefab = cueCardQuestion;
+                questionY = 50;
+            }
+            else 
+            {
+                questionPrefab = mathQuestion;
+                questionY = -140;
+            }
+            
             newQuestion = Instantiate(questionPrefab, new Vector2(canvas.position.x, canvas.position.y + questionY), Quaternion.identity, canvas) as GameObject;
             newQuestion.transform.SetSiblingIndex(2);
             questionAsked = true;

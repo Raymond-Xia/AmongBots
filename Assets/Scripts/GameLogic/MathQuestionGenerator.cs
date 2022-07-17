@@ -1,5 +1,9 @@
+// using System;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class MathQuestionGenerator : MonoBehaviour
@@ -10,6 +14,8 @@ public class MathQuestionGenerator : MonoBehaviour
     public TMP_Text a3;
     int X, Y;
     public static int answer;
+    public Text timer;
+    private float remainingTime;
 
     // Start is called before the first frame update
     void Start()
@@ -110,6 +116,26 @@ public class MathQuestionGenerator : MonoBehaviour
         a1.text = randomButton == 1 ? answer + "" : wrongAnswers.Pop() + "";
         a2.text = randomButton == 2 ? answer + "" : wrongAnswers.Pop() + "";
         a3.text = randomButton == 3 ? answer + "" : wrongAnswers.Pop() + "";
+        
+        // Start timer
+        remainingTime = 10.00f;
+        StartCoroutine(RunTimer());
+    }
+
+    private IEnumerator RunTimer()
+    {
+        while (remainingTime >= 0.005f) 
+        {
+            remainingTime -= Time.deltaTime;
+            if (remainingTime <= 5.0f) timer.color = Color.red;
+            timer.text = "TIME: " + remainingTime.ToString("0.00");
+            yield return null;
+        }
+        if (remainingTime < 0.005f)
+        {
+            SceneManager.LoadScene(Constants.LOSE_SCENE);
+        }
+        
     }
 
 }
