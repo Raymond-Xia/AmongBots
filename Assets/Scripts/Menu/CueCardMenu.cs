@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using TMPro;
 
 public class CueCardMenu : MonoBehaviour
 {
@@ -11,8 +12,8 @@ public class CueCardMenu : MonoBehaviour
     public GameObject cueCardPrefab;
     public Transform cardScrollContent;
     public Transform cardScrollView;
-    public InputField questionInput;
-    public InputField answerInput;
+    public TMP_InputField questionInput;
+    public TMP_InputField answerInput;
     public Text createCardPrompt;
 
     public void UpdateCueCards()
@@ -47,9 +48,10 @@ public class CueCardMenu : MonoBehaviour
         if (cardmap.Count >= Constants.MAX_CUE_CARDS) { // can't add more than max cards (100)
             createCardPrompt.text = string.Format(Constants.MAX_CARDS_MSG, Constants.MAX_CUE_CARDS);
         } else { 
-            if (questionInput.text == "" || answerInput.text == "") { // empty fields check
+            if (questionInput.text == "" || answerInput.text == "" || questionInput.text == "\n" || answerInput.text == "\n") { // empty fields check
                 createCardPrompt.text = Constants.EMPTY_FIELDS_MSG;
             } else {
+                RemoveReturnCharacters();
                 if (!cardmap.ContainsKey(questionInput.text)) { // add card
                     cardmap.Add(questionInput.text, answerInput.text);
                     createCardPrompt.text = Constants.CARD_ADDED_MSG;
@@ -62,7 +64,6 @@ public class CueCardMenu : MonoBehaviour
                 answerInput.text = "";
                 SaveCueCards();
             }
-            
         } 
     }
 
@@ -73,4 +74,23 @@ public class CueCardMenu : MonoBehaviour
         bf.Serialize(file, cardmap);
         file.Close();
     }
+
+    public void RemoveReturnCharacters()
+    {
+        if (questionInput.text.Contains("\n")) {
+            questionInput.text = questionInput.text.Replace("\n", "");
+        }
+        if (answerInput.text.Contains("\n")) {
+            answerInput.text = answerInput.text.Replace("\n", "");
+        }
+    }
+
+    // public void check()
+    // {
+    //     if (questionInput.text[questionInput.text.Length-1] == '\n') {
+    //         Debug.Log("check there is a return");
+    //     } else {
+    //         Debug.Log("check no returns");
+    //     }
+    // }
 }

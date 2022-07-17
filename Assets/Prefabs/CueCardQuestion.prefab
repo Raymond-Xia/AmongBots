@@ -183,7 +183,6 @@ GameObject:
   - component: {fileID: 4015953769972127931}
   - component: {fileID: 4015953769972127933}
   - component: {fileID: 4015953769972127932}
-  - component: {fileID: 4015953769972127934}
   m_Layer: 5
   m_Name: AnswerText
   m_TagString: Untagged
@@ -208,8 +207,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 504.06, y: -58.597}
-  m_SizeDelta: {x: 1008.1, y: 110}
+  m_AnchoredPosition: {x: 504.06, y: -46.298}
+  m_SizeDelta: {x: 1008.1, y: 85.403}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4015953769972127933
 CanvasRenderer:
@@ -253,20 +252,6 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 
---- !u!114 &4015953769972127934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4015953769972127930}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 0
-  m_VerticalFit: 2
 --- !u!1 &4015953770161670585
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +344,6 @@ GameObject:
   - component: {fileID: 4015953770163350884}
   - component: {fileID: 4015953770163350886}
   - component: {fileID: 4015953770163350885}
-  - component: {fileID: 4015953770163350887}
   m_Layer: 5
   m_Name: Placeholder
   m_TagString: Untagged
@@ -384,8 +368,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 504.06, y: -58.597}
-  m_SizeDelta: {x: 1008.1, y: 110}
+  m_AnchoredPosition: {x: 504.06, y: -46.298}
+  m_SizeDelta: {x: 1008.1, y: 85.403}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4015953770163350886
 CanvasRenderer:
@@ -429,20 +413,6 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Enter text...
---- !u!114 &4015953770163350887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4015953770163350883}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 0
-  m_VerticalFit: 2
 --- !u!1 &4015953770451760219
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +424,6 @@ GameObject:
   - component: {fileID: 4015953770451760220}
   - component: {fileID: 4015953770451760222}
   - component: {fileID: 4015953770451760221}
-  - component: {fileID: 4015953770451760223}
   m_Layer: 5
   m_Name: QuestionText
   m_TagString: Untagged
@@ -524,17 +493,3 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Question?
---- !u!114 &4015953770451760223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4015953770451760219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 0
-  m_VerticalFit: 2
