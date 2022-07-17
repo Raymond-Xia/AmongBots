@@ -1,8 +1,10 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackFan : MonoBehaviour
+public class AttackSpiral : MonoBehaviour
 {
+    // Start is called before the first frame update
     public float damage;
 
     // Start is called before the first frame update
@@ -30,22 +32,26 @@ public class AttackFan : MonoBehaviour
 
     public static void ShootOnDemand(GameObject enemy, GameObject missile, float shootSpeed, Transform shootPos) 
     {
-        int angle = 60;
-        while (angle <= 120)
-        {
-            GameObject newMissile = Instantiate(missile, shootPos.position, Quaternion.identity) as GameObject;
-            newMissile.GetComponent<Rigidbody2D>().velocity = new Vector2(-shootSpeed * Time.fixedDeltaTime * Mathf.Cos((angle * Mathf.PI) / 180), -shootSpeed * Time.fixedDeltaTime * Mathf.Sin((angle * Mathf.PI) / 180));
-            newMissile.transform.SetParent(GameObject.Find(Constants.CANVAS_OBJECT).transform, true);
-            angle += 30;
-        }
-        angle = 60;
+        
+        
     }
 
     public static IEnumerator ShootInWaves(GameObject enemy, GameObject missile, float delay, int ammo, float shootSpeed, Transform shootPos)
     {
         while (ammo > 0)
         {
-            ShootOnDemand(enemy, missile, shootSpeed, shootPos);
+            int angle = 0;
+            while (angle <= 345)
+            {
+                GameObject newMissile = Instantiate(missile, shootPos.position, Quaternion.identity) as GameObject;
+                newMissile.GetComponent<Rigidbody2D>().velocity = new Vector2(-shootSpeed * Time.fixedDeltaTime * Mathf.Cos((angle * Mathf.PI) / 180), -shootSpeed * Time.fixedDeltaTime * Mathf.Sin((angle * Mathf.PI) / 180));
+                newMissile.transform.SetParent(GameObject.Find(Constants.CANVAS_OBJECT).transform, true);
+                angle += 15;
+                yield return new WaitForSeconds(0.01f);
+            }
+            angle = 0;
+            // ShootOnDemand(enemy, missile, shootSpeed, shootPos);
+            
             ammo -= 1;
             yield return new WaitForSeconds(delay);
         }

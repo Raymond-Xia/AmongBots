@@ -116,6 +116,9 @@ public class EnemyAI : MonoBehaviour
                 case Constants.HOMING_ATTACK:
                     AttackHoming.ShootOnDemand(enemy, missile, shootSpeed, shootPos, player.transform);
                     break;
+                case Constants.CIRCLE_ATTACK:
+                    AttackCircle.ShootOnDemand(enemy, missile, shootSpeed, shootPos);
+                    break;
                 default:
                     break;
             }
@@ -146,6 +149,12 @@ public class EnemyAI : MonoBehaviour
                 break;
             case Constants.HOMING_ATTACK:
                 StartCoroutine(AttackHoming.ShootInWaves(enemy, missile, 1, ammo, shootSpeed, shootPos, player.transform));
+                break;
+            case Constants.CIRCLE_ATTACK:
+                StartCoroutine(AttackCircle.ShootInWaves(enemy, missile, 1, ammo, shootSpeed, shootPos));
+                break;
+            case Constants.SPIRAL_ATTACK:
+                StartCoroutine(AttackSpiral.ShootInWaves(enemy, missile, 0.3f, ammo, shootSpeed, shootPos));
                 break;
             default:
                 break;

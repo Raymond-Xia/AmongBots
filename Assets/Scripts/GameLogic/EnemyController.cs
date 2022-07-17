@@ -40,7 +40,7 @@ public class EnemyController : MonoBehaviour
 
     public void SelectWave(int level) 
     {
-        enemiesPerRound = 4;
+        enemiesPerRound = 2;
         StartCoroutine(Generate2Waves_A());
     }
 
@@ -51,7 +51,7 @@ public class EnemyController : MonoBehaviour
             GameObject newEnemy = Instantiate(enemy, new Vector2(Screen.width / 2, Screen.height), Quaternion.identity, canvas) as GameObject;
             newEnemy.transform.SetSiblingIndex(1);
             newEnemy.SendMessage("SetParameters", 
-                new EnemyParameters(30000f, 30000f, 5, Constants.HOMING_ATTACK, 
+                new EnemyParameters(30000f, 30000f, 5, Constants.SPIRAL_ATTACK, 
                 new Vector2((1 + i) * Screen.width / (spawnCount + 1), 2*Screen.height / 3), 
                 new Vector2((1 + i) * Screen.width / (spawnCount + 1), Screen.height), 
                 new Vector2((1 + i) * Screen.width / (spawnCount + 1), Screen.height),
@@ -83,7 +83,7 @@ public class EnemyController : MonoBehaviour
         enemiesPerWave = 0;
         enemiesPerWave += HorizontalLineSpawn_B(1);
         yield return new WaitUntil(new System.Func<bool>(() => enemiesDespawned == enemiesPerWave));
-        enemiesPerWave += HorizontalLineSpawn_A(3);
+        enemiesPerWave += HorizontalLineSpawn_A(1);
     }
 
     public void Generate2Waves_B() 
