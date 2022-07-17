@@ -14,6 +14,7 @@ public class AttackSpiral : Attack
                 GameObject newMissile = Instantiate(missile, shootPos.position, Quaternion.identity) as GameObject;
                 newMissile.GetComponent<Rigidbody2D>().velocity = new Vector2(-shootSpeed * Time.fixedDeltaTime * Mathf.Cos((angle * Mathf.PI) / 180), -shootSpeed * Time.fixedDeltaTime * Mathf.Sin((angle * Mathf.PI) / 180));
                 newMissile.transform.SetParent(GameObject.Find(Constants.CANVAS_OBJECT).transform, true);
+                newMissile.transform.SetSiblingIndex(4);
                 angle += 15;
                 yield return new WaitForSeconds(0.01f);
             }
