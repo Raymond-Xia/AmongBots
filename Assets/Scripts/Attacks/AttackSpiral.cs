@@ -30,12 +30,6 @@ public class AttackSpiral : MonoBehaviour
         }
     }
 
-    public static void ShootOnDemand(GameObject enemy, GameObject missile, float shootSpeed, Transform shootPos) 
-    {
-        
-        
-    }
-
     public static IEnumerator ShootInWaves(GameObject enemy, GameObject missile, float delay, int ammo, float shootSpeed, Transform shootPos)
     {
         while (ammo > 0)
@@ -50,7 +44,6 @@ public class AttackSpiral : MonoBehaviour
                 yield return new WaitForSeconds(0.01f);
             }
             angle = 0;
-            // ShootOnDemand(enemy, missile, shootSpeed, shootPos);
             
             ammo -= 1;
             yield return new WaitForSeconds(delay);
