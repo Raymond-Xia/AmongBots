@@ -51,7 +51,7 @@ public class EnemyController : MonoBehaviour
             GameObject newEnemy = Instantiate(enemy, new Vector2(Screen.width / 2, Screen.height), Quaternion.identity, canvas) as GameObject;
             newEnemy.transform.SetSiblingIndex(1);
             newEnemy.SendMessage("SetParameters", 
-                new EnemyParameters(30000f, 30000f, 5, Constants.HOMING_ATTACK, 
+                new EnemyParameters(30000f, 30000f, 5, Constants.CIRCLE_ATTACK, 
                 new Vector2((1 + i) * Screen.width / (spawnCount + 1), 2*Screen.height / 3), 
                 new Vector2((1 + i) * Screen.width / (spawnCount + 1), Screen.height), 
                 new Vector2((1 + i) * Screen.width / (spawnCount + 1), Screen.height),
