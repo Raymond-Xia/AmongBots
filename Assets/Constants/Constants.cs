@@ -58,6 +58,7 @@ public class Constants
     public static readonly string SKIN_SELECTED_KEY = "skin_selected";
     public static readonly string SKIN_OWNED_KEY = "skin_owned";
     public static readonly string SKIN_OWNED_MASK = "100";
+    public static readonly string SCORES_TOPSCORES = "TopScores";
 
     // INVENTORY
     public static readonly string SCROLL_CONTENT_INVENTORY = "ScrollContent";
@@ -85,6 +86,7 @@ public class Constants
     // ATTACKS
     public const int VERTICAL_ATTACK = 1;
     public const int FAN_ATTACK = 2;
+    public const int HOMING_ATTACK = 3;
 
     // SHOOT BEHAVIOUR
     public const int PAUSE_TO_SHOOT = 1;
