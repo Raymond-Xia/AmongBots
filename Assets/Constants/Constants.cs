@@ -10,12 +10,13 @@ public class Constants
     public static readonly string CREWMATE_OBJECT = "Crewmate";
     public static readonly string SKIN_OBJECT = "Skin";
     public static readonly string PLAYER_OBJECT = "Player";
-    public static readonly string EXPLOSION_OBJECT = "Explosion";
+    public static readonly string CARD_ANSWER_TEXT_OBJECT = "AnswerText";
 
     // PREFABS
     public static readonly string BOSS_PREFAB = "Boss(Clone)";
     public static readonly string ENEMY_PREFAB = "Enemy(Clone)";
-    public static readonly string QUESTION_PREFAB = "Question(Clone)";
+    public static readonly string MATH_QUESTION_PREFAB = "MathQuestion(Clone)";
+    public static readonly string CUE_CARD_QUESTION_PREFAB = "CueCardQuestion(Clone)";
 
     // TAGS
     public static readonly string PLAYER_TAG = "Player";
@@ -26,9 +27,6 @@ public class Constants
     // OVERLAYS
     public static readonly string MENU_BUTTON_OVERLAY = "MenuButton";
     public static readonly string SCORE_OVERLAY = "Score";
-    public static readonly string ANSWER_ONE_OVERLAY = "A1Text";
-    public static readonly string ANSWER_TWO_OVERLAY = "A2Text";
-    public static readonly string ANSWER_THREE_OVERLAY = "A3Text";
 
     // SPRITE NAMES
     public static readonly string[] SPRITES =
@@ -76,6 +74,7 @@ public class Constants
     public const int SUBTRACTION_GAMEMODE = 2;
     public const int MULTIPLICATION_GAMEMODE = 3;
     public const int DIVISION_GAMEMODE = 4;
+    public const int CUE_CARDS_GAMEMODE = 5;
 
     // QUESTION GENERATION
     public static readonly string ADDITION = "+";
@@ -93,17 +92,13 @@ public class Constants
     public const int PAUSE_TO_SHOOT = 1;
     public const int SHOOT_AND_FLY = 2;
 
-    // CUE CARDS
+    // CUE CARD CREATOR
     public static readonly string CARD_SAVE_FILE = "/savedCueCards.gd";
-    public static readonly string CARD_SCROLL_CONTENT = "CardScrollContent";
-    public static readonly string CARD_SCROLL_VIEW = "CardScrollView";
     public static readonly string MAX_CARDS_MSG = "MAX {0} CUE CARDS!";
     public static readonly string EMPTY_FIELDS_MSG = "FIELDS CAN'T BE EMPTY!";
     public static readonly string CARD_ADDED_MSG = "CUE CARD ADDED!";
     public static readonly string CARD_OVERWRITTEN_MSG = "CUE CARD OVERWRITTEN!";
-    public static readonly string CARD_QUESTION_INPUT = "QuestionInput";
-    public static readonly string CARD_ANSWER_INPUT = "AnswerInput";
-    public static readonly string CARD_ADD_PROMPT = "Prompt";
+    public static readonly string NO_CARDS_MSG = "MUST HAVE AT LEAST ONE CUE CARD TO PLAY!";
     public static readonly string CARD_TEXT_FORMAT = "Q: {0}\nA: {1}";
     public static readonly string CARDS_SCREEN = "CueCards";
     public const int MAX_CUE_CARDS = 100;

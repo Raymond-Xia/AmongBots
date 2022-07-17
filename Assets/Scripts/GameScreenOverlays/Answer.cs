@@ -1,23 +1,36 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Answer : MonoBehaviour
 {
-    public TMP_Text result;
-
-    public void AnswerQuestion()
+    public void AnswerMathQuestion()
     {
-        result = GetComponentInChildren<TMP_Text>();
+        string attempt = GetComponentInChildren<TMP_Text>().text;
+        string answer = MathQuestionGenerator.answer.ToString();
+        GameObject questionObject = GameObject.Find(Constants.MATH_QUESTION_PREFAB);
+        AnswerQuestion(attempt, answer, questionObject);
+    }
 
+    public void AnswerCueCardQuestion()
+    {
+        string attempt = GameObject.Find(Constants.CARD_ANSWER_TEXT_OBJECT).GetComponent<Text>().text;
+        string answer = GameObject.Find(Constants.CUE_CARD_QUESTION_PREFAB).GetComponent<CueCardQuestionGenerator>().answer;
+        GameObject questionObject = GameObject.Find(Constants.CUE_CARD_QUESTION_PREFAB);
+        AnswerQuestion(attempt, answer, questionObject);
+    }
+    
+    private void AnswerQuestion(string attempt, string answer, GameObject questionObject)
+    {
         // if the answer is correct, progress game
-        if (result.text == QuestionGenerator.answer.ToString())
+        if (attempt == answer)
         {
             // destroy boss and question
             GameObject boss = GameObject.Find(Constants.BOSS_PREFAB);
             BossAI bossAI = (BossAI) boss.GetComponent(typeof(BossAI));
             bossAI.DestroyAnimation();
-            Destroy(GameObject.Find(Constants.QUESTION_PREFAB));
+            Destroy(questionObject);
 
             // increment score
             Score.score += 10;

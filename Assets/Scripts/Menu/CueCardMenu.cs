@@ -1,14 +1,19 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using UnityEngine.EventSystems;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using TMPro;
 
 public class CueCardMenu : MonoBehaviour
 {
     public static Dictionary<string, string> cardmap = new Dictionary<string, string>();
     public GameObject cueCardPrefab;
+    public Transform cardScrollContent;
+    public Transform cardScrollView;
+    public TMP_InputField questionInput;
+    public TMP_InputField answerInput;
+    public Text createCardPrompt;
 
     public void UpdateCueCards()
     {
@@ -21,7 +26,6 @@ public class CueCardMenu : MonoBehaviour
         } 
 
         // Clear screen
-        Transform cardScrollContent = GameObject.Find(Constants.CARD_SCROLL_CONTENT).transform;
         foreach (Transform child in cardScrollContent)
         {
             GameObject.Destroy(child.gameObject);
@@ -31,7 +35,7 @@ public class CueCardMenu : MonoBehaviour
         foreach (KeyValuePair<string, string> pair in cardmap)
         {
             GameObject newCard = Instantiate(cueCardPrefab, new Vector2(0,0), Quaternion.identity, cardScrollContent) as GameObject;
-            GameObject.Find(Constants.CARD_SCROLL_VIEW).GetComponent<ScrollRect>().verticalNormalizedPosition = 1;
+            cardScrollView.GetComponent<ScrollRect>().verticalNormalizedPosition = 1;
 
             Text text = newCard.transform.GetChild(0).GetComponent<Text>();
             text.text = string.Format(Constants.CARD_TEXT_FORMAT, pair.Key, pair.Value);
@@ -40,28 +44,25 @@ public class CueCardMenu : MonoBehaviour
 
     public void CreateCueCard() 
     {
-        Text prompt = GameObject.Find(Constants.CARD_ADD_PROMPT).GetComponent<Text>();
         if (cardmap.Count >= Constants.MAX_CUE_CARDS) { // can't add more than max cards (100)
-            prompt.text = string.Format(Constants.MAX_CARDS_MSG, Constants.MAX_CUE_CARDS);
+            createCardPrompt.text = string.Format(Constants.MAX_CARDS_MSG, Constants.MAX_CUE_CARDS);
         } else { 
-            InputField question = GameObject.Find(Constants.CARD_QUESTION_INPUT).GetComponent<InputField>();
-            InputField answer = GameObject.Find(Constants.CARD_ANSWER_INPUT).GetComponent<InputField>();
-            if (question.text == "" || answer.text == "") { // empty fields check
-                prompt.text = Constants.EMPTY_FIELDS_MSG;
+            if (questionInput.text == "" || answerInput.text == "" || questionInput.text == "\n" || answerInput.text == "\n") { // empty fields check
+                createCardPrompt.text = Constants.EMPTY_FIELDS_MSG;
             } else {
-                if (!cardmap.ContainsKey(question.text)) { // add card
-                    cardmap.Add(question.text, answer.text);
-                    prompt.text = Constants.CARD_ADDED_MSG;
+                RemoveWhiteSpace();
+                if (!cardmap.ContainsKey(questionInput.text)) { // add card
+                    cardmap.Add(questionInput.text, answerInput.text);
+                    createCardPrompt.text = Constants.CARD_ADDED_MSG;
                 } else { // overwrite card
-                    cardmap[question.text] = answer.text;
-                    prompt.text = Constants.CARD_OVERWRITTEN_MSG; 
+                    cardmap[questionInput.text] = answerInput.text;
+                    createCardPrompt.text = Constants.CARD_OVERWRITTEN_MSG; 
                 }
 
-                question.text = "";
-                answer.text = "";
+                questionInput.text = "";
+                answerInput.text = "";
                 SaveCueCards();
             }
-            
         } 
     }
 
@@ -72,4 +73,17 @@ public class CueCardMenu : MonoBehaviour
         bf.Serialize(file, cardmap);
         file.Close();
     }
+
+    public void RemoveWhiteSpace()
+    {
+        if (questionInput.text.Contains("\n")) {
+            questionInput.text = questionInput.text.Replace("\n", "");
+        }
+        if (answerInput.text.Contains("\n")) {
+            answerInput.text = answerInput.text.Replace("\n", "");
+        }
+        questionInput.text = questionInput.text.Trim();
+        answerInput.text = answerInput.text.Trim();
+    }
+    
 }

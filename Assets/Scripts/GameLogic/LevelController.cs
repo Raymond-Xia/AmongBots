@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelController : MonoBehaviour
@@ -6,6 +7,7 @@ public class LevelController : MonoBehaviour
     public static int level;
     public static int enemiesPerRound;
     public static int gameMode;
+    public static List<KeyValuePair<string, string>> usedCueCards;
     public BossController bossController;
     public EnemyController enemyController;
     public GameObject backButton;
@@ -19,18 +21,13 @@ public class LevelController : MonoBehaviour
         canvas = gameObject.transform;
         enemyController = (EnemyController)canvas.GetComponent(typeof(EnemyController));
         NewLevel();
-
+        usedCueCards = new List<KeyValuePair<string, string>>();
+        
         backButton = GameObject.Find(Constants.MENU_BUTTON_OVERLAY);
         backButton.transform.SetPositionAndRotation(new Vector3((Screen.width - (Screen.width / 6)), (Screen.height - (Screen.height / 10)), 0), Quaternion.identity);
 
         score = GameObject.Find(Constants.SCORE_OVERLAY);
         score.transform.SetPositionAndRotation(new Vector3((Screen.width / 6), Screen.height - (Screen.height / 10), 0), Quaternion.identity);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void NewLevel()

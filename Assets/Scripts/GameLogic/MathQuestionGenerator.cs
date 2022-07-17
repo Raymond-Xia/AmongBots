@@ -2,24 +2,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class QuestionGenerator : MonoBehaviour
+public class MathQuestionGenerator : MonoBehaviour
 {
     public TMP_Text question;
     public TMP_Text a1;
     public TMP_Text a2;
     public TMP_Text a3;
-    public int X, Y;
+    int X, Y;
     public static int answer;
 
     // Start is called before the first frame update
     void Start()
     {
-        // Find question and answer components
-        question = GetComponent<TMP_Text>();
-        a1 = GameObject.Find(Constants.ANSWER_ONE_OVERLAY).GetComponent<TMP_Text>();
-        a2 = GameObject.Find(Constants.ANSWER_TWO_OVERLAY).GetComponent<TMP_Text>();
-        a3 = GameObject.Find(Constants.ANSWER_THREE_OVERLAY).GetComponent<TMP_Text>();
-        
         // Generate question
         int gameMode = LevelController.gameMode;
         int level = LevelController.level;
