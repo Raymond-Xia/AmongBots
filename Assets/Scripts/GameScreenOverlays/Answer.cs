@@ -26,11 +26,23 @@ public class Answer : MonoBehaviour
             LevelController levelController = (LevelController)canvas.GetComponent(typeof(LevelController));
             PowerupController powerupController = (PowerupController)canvas.GetComponent(typeof(PowerupController));
 
-            // Spawn health powerup every 3 bosses
+            // Spawn a health or nuke powerup every 3 bosses
             if (Score.score % 3 == 0)
             {
-                powerupController.SpawnHpPowerup();
-            }
+                int rand = Random.Range(0, 2);
+
+                switch (rand)
+                {
+                    case 0:
+                        powerupController.SpawnHpPowerup();
+                        break;
+                    case 1:
+                        powerupController.SpawnNukePowerup();
+                        break;
+                    default:
+                        break;
+                }
+            }   
 
             // start new level        
             levelController.NewLevel();
