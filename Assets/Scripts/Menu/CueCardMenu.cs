@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using UnityEngine.EventSystems;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using TMPro;

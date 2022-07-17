@@ -38,18 +38,10 @@ public class BossAI : MonoBehaviour
 
         if (askQuestion && !questionAsked) // create question if question not already asked
         {
-            if (LevelController.gameMode == Constants.CUE_CARDS_GAMEMODE) 
-            {
-                newQuestion = Instantiate(cueCardQuestion, new Vector2(canvas.position.x, canvas.position.y + questionY), Quaternion.identity, canvas) as GameObject;
-                newQuestion.transform.SetSiblingIndex(2);
-                questionAsked = true;
-            }
-            else
-            {
-                newQuestion = Instantiate(mathQuestion, new Vector2(canvas.position.x, canvas.position.y + questionY), Quaternion.identity, canvas) as GameObject;
-                newQuestion.transform.SetSiblingIndex(2);
-                questionAsked = true;
-            }
+            GameObject questionPrefab = (LevelController.gameMode == Constants.CUE_CARDS_GAMEMODE) ? cueCardQuestion : mathQuestion;
+            newQuestion = Instantiate(questionPrefab, new Vector2(canvas.position.x, canvas.position.y + questionY), Quaternion.identity, canvas) as GameObject;
+            newQuestion.transform.SetSiblingIndex(2);
+            questionAsked = true;
         }
 
     }

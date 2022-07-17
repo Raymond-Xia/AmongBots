@@ -1,9 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class CueCardQuestionGenerator : MonoBehaviour
 {
@@ -14,7 +12,7 @@ public class CueCardQuestionGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Generate question
+        // Pick random cue card question
         KeyValuePair<string, string> randomCard = CueCardMenu.cardmap.ToList()[Random.Range(0, CueCardMenu.cardmap.Count)];
         question = randomCard.Key;
         questionObject.text = question;
