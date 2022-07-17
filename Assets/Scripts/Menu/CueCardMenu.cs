@@ -50,7 +50,7 @@ public class CueCardMenu : MonoBehaviour
             if (questionInput.text == "" || answerInput.text == "" || questionInput.text == "\n" || answerInput.text == "\n") { // empty fields check
                 createCardPrompt.text = Constants.EMPTY_FIELDS_MSG;
             } else {
-                RemoveReturnCharacters();
+                RemoveWhiteSpace();
                 if (!cardmap.ContainsKey(questionInput.text)) { // add card
                     cardmap.Add(questionInput.text, answerInput.text);
                     createCardPrompt.text = Constants.CARD_ADDED_MSG;
@@ -74,7 +74,7 @@ public class CueCardMenu : MonoBehaviour
         file.Close();
     }
 
-    public void RemoveReturnCharacters()
+    public void RemoveWhiteSpace()
     {
         if (questionInput.text.Contains("\n")) {
             questionInput.text = questionInput.text.Replace("\n", "");
@@ -82,6 +82,8 @@ public class CueCardMenu : MonoBehaviour
         if (answerInput.text.Contains("\n")) {
             answerInput.text = answerInput.text.Replace("\n", "");
         }
+        questionInput.text = questionInput.text.Trim();
+        answerInput.text = answerInput.text.Trim();
     }
     
 }

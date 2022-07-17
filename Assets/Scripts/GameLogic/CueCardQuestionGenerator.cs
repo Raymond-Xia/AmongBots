@@ -13,9 +13,18 @@ public class CueCardQuestionGenerator : MonoBehaviour
     void Start()
     {
         // Pick random cue card question
-        KeyValuePair<string, string> randomCard = CueCardMenu.cardmap.ToList()[Random.Range(0, CueCardMenu.cardmap.Count)];
+        List<KeyValuePair<string, string>> cardList = CueCardMenu.cardmap.ToList();       
+        if (LevelController.usedCueCards.Count < cardList.Count) {
+            foreach (KeyValuePair<string, string> card in LevelController.usedCueCards) {
+                cardList.Remove(card);
+            }     
+        } else {
+            LevelController.usedCueCards.Clear();
+        }
+        KeyValuePair<string, string> randomCard = cardList[Random.Range(0, cardList.Count)];
         question = randomCard.Key;
         questionObject.text = question;
         answer = randomCard.Value;
+        LevelController.usedCueCards.Add(randomCard);
     }
 }

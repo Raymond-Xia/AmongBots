@@ -98,6 +98,7 @@ public class Constants
     public static readonly string EMPTY_FIELDS_MSG = "FIELDS CAN'T BE EMPTY!";
     public static readonly string CARD_ADDED_MSG = "CUE CARD ADDED!";
     public static readonly string CARD_OVERWRITTEN_MSG = "CUE CARD OVERWRITTEN!";
+    public static readonly string NO_CARDS_MSG = "MUST HAVE AT LEAST ONE CUE CARD TO PLAY!";
     public static readonly string CARD_TEXT_FORMAT = "Q: {0}\nA: {1}";
     public static readonly string CARDS_SCREEN = "CueCards";
     public const int MAX_CUE_CARDS = 100;

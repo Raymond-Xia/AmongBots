@@ -45,7 +45,7 @@ public class PlayMenu : MonoBehaviour
         }
         else
         {
-            warning.text = "MUST HAVE AT LEAST ONE CUE CARD TO PLAY!";
+            warning.text = Constants.NO_CARDS_MSG;
         }
     }
 
