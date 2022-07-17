@@ -125,7 +125,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7645268103759143574}
         m_TargetAssemblyTypeName: Answer, Assembly-CSharp
-        m_MethodName: AnswerQuestion
+        m_MethodName: AnswerMathQuestion
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -147,8 +147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d0048df2e609864c8e7490ef475f1c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  result: {fileID: 0}
-  hpPower: {fileID: 775424797627098482, guid: 7c0bda45dedad7241a79691e01fcc3a0, type: 3}
 --- !u!1 &7645268104295857026
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +272,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7645268104295857049}
         m_TargetAssemblyTypeName: Answer, Assembly-CSharp
-        m_MethodName: AnswerQuestion
+        m_MethodName: AnswerMathQuestion
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -296,8 +294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d0048df2e609864c8e7490ef475f1c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  result: {fileID: 0}
-  hpPower: {fileID: 775424797627098482, guid: 7c0bda45dedad7241a79691e01fcc3a0, type: 3}
 --- !u!1 &7645268104590146534
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,7 +824,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7645268104781042499}
         m_TargetAssemblyTypeName: Answer, Assembly-CSharp
-        m_MethodName: AnswerQuestion
+        m_MethodName: AnswerMathQuestion
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -850,8 +846,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d0048df2e609864c8e7490ef475f1c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  result: {fileID: 0}
-  hpPower: {fileID: 775424797627098482, guid: 7c0bda45dedad7241a79691e01fcc3a0, type: 3}
 --- !u!1 &7645268105257188822
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,7 +859,7 @@ GameObject:
   - component: {fileID: 7645268105257188840}
   - component: {fileID: 7645268105257188842}
   m_Layer: 5
-  m_Name: Question
+  m_Name: MathQuestion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1003,9 +997,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea0fd8380072e342a7b04c4594ad410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  question: {fileID: 0}
-  a1: {fileID: 0}
-  a2: {fileID: 0}
-  a3: {fileID: 0}
+  question: {fileID: 7645268105257188840}
+  a1: {fileID: 7645268104711205227}
+  a2: {fileID: 7645268104601698638}
+  a3: {fileID: 7645268104590146552}
   X: 0
   Y: 0

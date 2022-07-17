@@ -393,16 +393,6 @@ MonoBehaviour:
   backButton: {fileID: 0}
   score: {fileID: 0}
   canvas: {fileID: 0}
-  fixedSpawnLocations:
-  - {x: 0, y: 268, z: 0}
-  - {x: 0, y: 335, z: 0}
-  - {x: 0, y: 403, z: 0}
-  - {x: 366, y: 403, z: 0}
-  - {x: 733, y: 403, z: 0}
-  - {x: 1099, y: 403, z: 0}
-  - {x: 1466, y: 403, z: 0}
-  - {x: 1466, y: 335, z: 0}
-  - {x: 1466, y: 268, z: 0}
 --- !u!114 &169128971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -430,10 +420,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesPerRound: 3
+  enemiesPerWave: 0
   enemy: {fileID: 9176720485684825268, guid: 4bd95a026ea98804594546547b2c6e3e, type: 3}
   bossController: {fileID: 0}
   canvas: {fileID: 0}
-  fixedSpawnLocations: []
   bossSpawned: 0
 --- !u!114 &169128973
 MonoBehaviour:

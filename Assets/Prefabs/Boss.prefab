@@ -92,8 +92,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPosition: {x: 540, y: 1540}
   speed: 500
-  question: {fileID: 7645268105257188822, guid: a1a56807e39b6554caa2879443b511d1, type: 3}
-  explosion: {fileID: 9080909410638136605, guid: e0530412c5724304d8798b744e113220, type: 3}
+  mathQuestion: {fileID: 7645268105257188822, guid: a1a56807e39b6554caa2879443b511d1, type: 3}
+  cueCardQuestion: {fileID: 4015953770161670585, guid: f5423c067272ad9488a90a9eca73a913, type: 3}
+  explosion: {fileID: 6357124860556653728}
 --- !u!1 &6357124860556653728
 GameObject:
   m_ObjectHideFlags: 0

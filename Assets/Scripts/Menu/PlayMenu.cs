@@ -35,7 +35,11 @@ public class PlayMenu : MonoBehaviour
 
     public void CueCards()
     {
-        // to do
+        if (CueCardMenu.cardmap.Count > 0) 
+        {
+            InitializeGame();
+            LevelController.gameMode = Constants.CUE_CARDS_GAMEMODE;
+        }
     }
 
     private void InitializeGame()
