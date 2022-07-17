@@ -25,7 +25,7 @@ public class Constants
     public static readonly string HEALTHPOWERUP_TAG = "HpPowerup";
 
     // OVERLAYS
-    public static readonly string MENU_BUTTON_OVERLAY = "MenuButton";
+    public static readonly string PAUSE_BUTTON_OVERLAY = "PauseButton";
     public static readonly string SCORE_OVERLAY = "Score";
 
     // SPRITE NAMES
