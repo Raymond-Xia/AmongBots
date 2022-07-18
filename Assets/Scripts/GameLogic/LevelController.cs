@@ -13,12 +13,14 @@ public class LevelController : MonoBehaviour
     public GameObject pauseButton;
     public GameObject score;
     public Transform canvas;
+    public static AudioSource music;
     // Start is called before the first frame update
     void Start()
     {
         level = 0;
         Score.score = 0;
         canvas = gameObject.transform;
+        music = GetComponent<AudioSource>();
         enemyController = (EnemyController)canvas.GetComponent(typeof(EnemyController));
         NewLevel();
         usedCueCards = new List<KeyValuePair<string, string>>();

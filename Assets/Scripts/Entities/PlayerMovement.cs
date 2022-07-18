@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 canvasPosition;
     public GameObject player;
     public GameObject skin;
+    public AudioSource hitSound;
 
     // Start is called before the first frame update
     void Start()
@@ -72,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
                 SceneManager.LoadScene(Constants.LOSE_SCENE);
                 hp = Constants.MAX_HP;
             }
+            hitSound.Play();
         }
 
         if (collision.tag == Constants.HEALTHPOWERUP_TAG)
