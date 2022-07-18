@@ -24,6 +24,7 @@ public class Constants
     public static readonly string MISSILE_TAG = "Missile";
     public static readonly string HEALTHPOWERUP_TAG = "HpPowerup";
     public static readonly string NUKEPOWERUP_TAG = "NukePowerup";
+    public static readonly string NUKEBUTTON_TAG = "NukeButton";
 
     // OVERLAYS
     public static readonly string PAUSE_BUTTON_OVERLAY = "PauseButton";

@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     Collider2D touchedCollider;
     public Vector2 canvasPosition;
     public GameObject player;
-    public GameObject skin;
+    public GameObject skin;    
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
         col = GetComponent<Collider2D>();
 
         player.GetComponent<Image>().sprite = Cosmetics.UpdateSprite();
-        skin.GetComponent<Image>().sprite = Cosmetics.UpdateSkin();
+        skin.GetComponent<Image>().sprite = Cosmetics.UpdateSkin();        
     }
 
     // Update is called once per frame
@@ -81,7 +81,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.tag == Constants.NUKEPOWERUP_TAG)
         {
-            NukeButton.activateButton();           
+            NukeButton script = GameObject.Find("NukeButton").GetComponent<NukeButton>();
+            script.activateButton();
         }
     }
 }

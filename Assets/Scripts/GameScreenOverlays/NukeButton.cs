@@ -7,24 +7,27 @@ public class NukeButton : MonoBehaviour
 {
     public static Button nukeButton;
     public Transform nukeFrame;
+    public Sprite disabled;
+    public Sprite active;
 
     // Start is called before the first frame update
     void Start()
     {
-        nukeButton = GameObject.FindGameObjectWithTag("NukeButton").GetComponent<Button>();       
+        nukeButton = GameObject.FindGameObjectWithTag(Constants.NUKEBUTTON_TAG).GetComponent<Button>();       
         nukeButton.transform.SetPositionAndRotation(new Vector3(150, 200, 0), Quaternion.identity);
         nukeButton.interactable = false;
-        nukeFrame.transform.SetPositionAndRotation(new Vector3(150, 200, 0), Quaternion.identity);
+        nukeFrame.transform.SetPositionAndRotation(new Vector3(150, 200, 0), Quaternion.identity);        
     }
 
-    public static void activateButton()
+    public void activateButton()
     {
         nukeButton.interactable = true;
+        gameObject.GetComponent<Image>().sprite = active;
     }
 
     public void nukeEffect()
     {
-        var missiles = GameObject.FindGameObjectsWithTag("Missile");
+        var missiles = GameObject.FindGameObjectsWithTag(Constants.MISSILE_TAG);
 
         foreach (GameObject target in missiles)
         {
@@ -32,5 +35,6 @@ public class NukeButton : MonoBehaviour
         }
 
         nukeButton.interactable = false;
+        gameObject.GetComponent<Image>().sprite = disabled;
     }
 }

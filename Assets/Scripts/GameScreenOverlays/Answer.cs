@@ -43,7 +43,6 @@ public class Answer : MonoBehaviour
             if (Score.score % 3 == 0)
             {
                 int rand = Random.Range(0, 2);
-                Debug.Log(rand);
                 switch (rand)
                 {
                     case 0:
