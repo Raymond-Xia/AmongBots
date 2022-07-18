@@ -1,25 +1,25 @@
+// using System;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
-public class QuestionGenerator : MonoBehaviour
+public class MathQuestionGenerator : MonoBehaviour
 {
     public TMP_Text question;
     public TMP_Text a1;
     public TMP_Text a2;
     public TMP_Text a3;
-    public int X, Y;
+    int X, Y;
     public static int answer;
+    public Text timer;
+    private float remainingTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        // Find question and answer components
-        question = GetComponent<TMP_Text>();
-        a1 = GameObject.Find(Constants.ANSWER_ONE_OVERLAY).GetComponent<TMP_Text>();
-        a2 = GameObject.Find(Constants.ANSWER_TWO_OVERLAY).GetComponent<TMP_Text>();
-        a3 = GameObject.Find(Constants.ANSWER_THREE_OVERLAY).GetComponent<TMP_Text>();
-        
         // Generate question
         int gameMode = LevelController.gameMode;
         int level = LevelController.level;
@@ -116,6 +116,26 @@ public class QuestionGenerator : MonoBehaviour
         a1.text = randomButton == 1 ? answer + "" : wrongAnswers.Pop() + "";
         a2.text = randomButton == 2 ? answer + "" : wrongAnswers.Pop() + "";
         a3.text = randomButton == 3 ? answer + "" : wrongAnswers.Pop() + "";
+        
+        // Start timer
+        remainingTime = 10.00f;
+        StartCoroutine(RunTimer());
+    }
+
+    private IEnumerator RunTimer()
+    {
+        while (remainingTime >= 0.005f) 
+        {
+            remainingTime -= Time.deltaTime;
+            if (remainingTime <= 5.0f) timer.color = Color.red;
+            timer.text = "TIME: " + remainingTime.ToString("0.00");
+            yield return null;
+        }
+        if (remainingTime < 0.005f)
+        {
+            SceneManager.LoadScene(Constants.LOSE_SCENE);
+        }
+        
     }
 
 }

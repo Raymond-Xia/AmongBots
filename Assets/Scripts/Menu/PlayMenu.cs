@@ -1,8 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayMenu : MonoBehaviour
 {
+    public Text warning; 
+
     public void Original()
     {
         InitializeGame();
@@ -35,7 +38,15 @@ public class PlayMenu : MonoBehaviour
 
     public void CueCards()
     {
-        // to do
+        if (CueCardMenu.cardmap.Count > 0) 
+        {
+            InitializeGame();
+            LevelController.gameMode = Constants.CUE_CARDS_GAMEMODE;
+        }
+        else
+        {
+            warning.text = Constants.NO_CARDS_MSG;
+        }
     }
 
     private void InitializeGame()
