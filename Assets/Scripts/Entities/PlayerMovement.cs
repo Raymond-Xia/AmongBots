@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.tag == Constants.NUKEPOWERUP_TAG)
         {
-            NukeButton script = GameObject.Find("NukeButton").GetComponent<NukeButton>();
+            NukeButton script = GameObject.Find(Constants.NUKEBUTTON_TAG).GetComponent<NukeButton>();
             script.activateButton();
         }
     }
