@@ -107,6 +107,6 @@ public class Constants
     public static readonly string CARDS_SCREEN = "CueCards";
     public const int MAX_CUE_CARDS = 100;
 
-    public static readonly string HEALTH_PANEL = "HealthContainer";
+    public static readonly string HEALTH_PANEL = "Health";
     public const int MAX_HP = 5;
 }
