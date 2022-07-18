@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class NukeButton : MonoBehaviour
 {
     public static Button nukeButton;
+    public Transform nukeFrame;
 
     // Start is called before the first frame update
     void Start()
@@ -13,6 +14,7 @@ public class NukeButton : MonoBehaviour
         nukeButton = GameObject.FindGameObjectWithTag("NukeButton").GetComponent<Button>();       
         nukeButton.transform.SetPositionAndRotation(new Vector3(150, 200, 0), Quaternion.identity);
         nukeButton.interactable = false;
+        nukeFrame.transform.SetPositionAndRotation(new Vector3(150, 200, 0), Quaternion.identity);
     }
 
     public static void activateButton()
