@@ -10,6 +10,7 @@ public class Shop : MonoBehaviour
     {
         i = 1;
         UpdateSprite();
+        UpdateSkin();
         UpdateButton();
     }
 
@@ -17,6 +18,7 @@ public class Shop : MonoBehaviour
     {
         i = 1;
         UpdateSprite();
+        UpdateSkin();
         UpdateButton();
     }
 
@@ -27,7 +29,7 @@ public class Shop : MonoBehaviour
         {
             i = Constants.SKINS.Length - 1;
         }
-        UpdateSprite();
+        UpdateSkin();
         UpdateButton();
     }
 
@@ -38,7 +40,7 @@ public class Shop : MonoBehaviour
         {
             i = 1;
         }
-        UpdateSprite();
+        UpdateSkin();
         UpdateButton();
     }
 
@@ -55,9 +57,15 @@ public class Shop : MonoBehaviour
         UpdateButton();
     }
 
-    private void UpdateSprite()
+    private void UpdateSkin()
     {
         Sprite sprite = Resources.Load<Sprite>(Constants.SKINS[i]);
+        GameObject.Find(Constants.SKIN_OBJECT).GetComponent<Image>().sprite = sprite;
+    }
+
+    private void UpdateSprite()
+    {
+        Sprite sprite = Cosmetics.UpdateSprite();
         GameObject.Find(Constants.CREWMATE_OBJECT).GetComponent<Image>().sprite = sprite;
     }
 
