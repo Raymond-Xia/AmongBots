@@ -40,7 +40,7 @@ public class EnemyController : MonoBehaviour
 
     public void SelectWave(int level) 
     {
-        enemiesPerRound = 4;
+        enemiesPerRound = 2;
         StartCoroutine(Generate2Waves_A());
     }
 
@@ -83,7 +83,7 @@ public class EnemyController : MonoBehaviour
         enemiesPerWave = 0;
         enemiesPerWave += HorizontalLineSpawn_B(1);
         yield return new WaitUntil(new System.Func<bool>(() => enemiesDespawned == enemiesPerWave));
-        enemiesPerWave += HorizontalLineSpawn_A(3);
+        enemiesPerWave += HorizontalLineSpawn_A(1);
     }
 
     public void Generate2Waves_B() 
