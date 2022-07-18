@@ -69,4 +69,14 @@ public class Menu : MonoBehaviour
         PlayerPrefs.Save();
         skin.GetComponent<Image>().sprite = Cosmetics.UpdateSkin();
     }
+
+    public void UpdateSprite()
+    {
+        crewmate.GetComponent<Image>().sprite = Cosmetics.UpdateSprite();
+    }
+
+    public void UpdateSkin()
+    {
+        skin.GetComponent<Image>().sprite = Cosmetics.UpdateSkin();
+    }
 }
