@@ -97,6 +97,9 @@ public class Constants
     public const int PAUSE_TO_SHOOT = 1;
     public const int SHOOT_AND_FLY = 2;
 
+    // GAME OBJECT MESSAGES
+    public static readonly string EMPTY_AMMO = "EmptyAmmo";
+
     // CUE CARD CREATOR
     public static readonly string CARD_SAVE_FILE = "/savedCueCards.gd";
     public static readonly string MAX_CARDS_MSG = "MAX {0} CUE CARDS!";

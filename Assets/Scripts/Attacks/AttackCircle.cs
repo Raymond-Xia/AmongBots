@@ -27,6 +27,6 @@ public class AttackCircle : Attack
             yield return new WaitForSeconds(delay);
             angleOffset += 10;
         }
-        enemy.SendMessage("EmptyAmmo", 0);
+        enemy.SendMessage(Constants.EMPTY_AMMO, 0);
     }
 }

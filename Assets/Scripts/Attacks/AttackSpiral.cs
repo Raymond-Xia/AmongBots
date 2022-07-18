@@ -23,6 +23,6 @@ public class AttackSpiral : Attack
             ammo -= 1;
             yield return new WaitForSeconds(delay);
         }
-        enemy.SendMessage("EmptyAmmo", 0);
+        enemy.SendMessage(Constants.EMPTY_AMMO, 0);
     }
 }
