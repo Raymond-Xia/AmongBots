@@ -84,7 +84,7 @@ public class Constants
     public static readonly string MULTIPLICATION = "×";
     public static readonly string DIVISION = "÷";
     public static readonly string QUESTION_FORMAT = "{0} {1} {2} = ?";
-    
+
     // ATTACKS
     public const int VERTICAL_ATTACK = 1;
     public const int FAN_ATTACK = 2;
@@ -106,4 +106,6 @@ public class Constants
     public static readonly string CARD_TEXT_FORMAT = "Q: {0}\nA: {1}";
     public static readonly string CARDS_SCREEN = "CueCards";
     public const int MAX_CUE_CARDS = 100;
+
+    public const int MAX_HP = 5;
 }

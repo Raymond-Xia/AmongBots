@@ -20,7 +20,7 @@ public class Menu : MonoBehaviour
     public void PlayButton()
     {
         SceneManager.LoadScene(Constants.GAME_SCENE);
-        PlayerMovement.hp = 5;
+        PlayerMovement.hp = Constants.MAX_HP;
     }
 
     public void ExitButton()
