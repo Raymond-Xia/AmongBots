@@ -61,6 +61,7 @@ public class Constants
     public static readonly string SKIN_OWNED_KEY = "skin_owned";
     public static readonly string SKIN_OWNED_MASK = "100";
     public static readonly string SCORES_TOPSCORES = "TopScores";
+    public static readonly string SCORES_BALANCE = "balance";
 
     // INVENTORY
     public static readonly string SCROLL_CONTENT_INVENTORY = "ScrollContent";
@@ -69,6 +70,14 @@ public class Constants
     // SHOP
     public static readonly string BUY_BUTTON_SHOP = "BuyButton";
     public static readonly string BUY_TEXT_SHOP = "BuyText";
+    public static readonly string BALANCE_TEXT_SHOP = "BalanceText";
+    public static readonly string BALANCE_TEXT_PREFIX = "BALANCE: $";
+    public static readonly int[] PRICES =
+    {
+        0,
+        10,
+        10,
+    };
 
     // GAME MODES
     public const int ORIGINAL_GAMEMODE = 0;
@@ -84,7 +93,7 @@ public class Constants
     public static readonly string MULTIPLICATION = "×";
     public static readonly string DIVISION = "÷";
     public static readonly string QUESTION_FORMAT = "{0} {1} {2} = ?";
-    
+
     // ATTACKS
     public const int VERTICAL_ATTACK = 1;
     public const int FAN_ATTACK = 2;
