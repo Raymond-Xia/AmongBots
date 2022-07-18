@@ -19,6 +19,7 @@ public class EnemyAI : MonoBehaviour
     public Vector2 spawnLocation;
     public Vector2 exitLocation;
     public int shootBehaviour;
+    public float shootDelay;
     public Rigidbody2D body;
     public EnemyController enemyController;
     public int xPartition;
@@ -67,7 +68,7 @@ public class EnemyAI : MonoBehaviour
 
     bool checkBoundingBox(Vector2 point) 
     {
-        return transform.position.y <= point.y + 25 && transform.position.y >= point.x - 25 && transform.position.x <= point.x + 25 && transform.position.x >= point.x - 25;
+        return transform.position.y <= point.y + 25 && transform.position.y >= point.y - 25 && transform.position.x <= point.x + 25 && transform.position.x >= point.x - 25;
     }
 
     Vector2 calculateVelocity(Vector2 currentPoint, Vector2 targetPoint, float moveSpeed)
@@ -90,7 +91,7 @@ public class EnemyAI : MonoBehaviour
     (int, int, int) ShootAndFly(int xPartition, int yPartition, int attackPattern, int ammo, int xIncrement, int yIncrement) 
     {
         float x = xIncrement * Screen.width / (xPartition + 1);
-        float y = yIncrement * Screen.width / (yPartition + 1);
+        float y = Screen.height - (yIncrement * Screen.height / (yPartition + 1));
         if (xPartition == 1) 
         {
             x = transform.position.x;
@@ -119,6 +120,9 @@ public class EnemyAI : MonoBehaviour
                 case Constants.CIRCLE_ATTACK:
                     AttackCircle.ShootOnDemand(enemy, missile, shootSpeed, shootPos);
                     break;
+                case Constants.RANDOM_ATTACK:
+                    AttackRandom.ShootOnDemand(enemy, missile, shootSpeed, shootPos);
+                    break;
                 default:
                     break;
             }
@@ -142,19 +146,22 @@ public class EnemyAI : MonoBehaviour
         switch(attackPattern)
         {
             case Constants.VERTICAL_ATTACK:
-                StartCoroutine(AttackVertical.ShootInWaves(enemy, missile, 1, ammo, shootSpeed, shootPos));
+                StartCoroutine(AttackVertical.ShootInWaves(enemy, missile, shootDelay, ammo, shootSpeed, shootPos));
                 break;
             case Constants.FAN_ATTACK:
-                StartCoroutine(AttackFan.ShootInWaves(enemy, missile, 1, ammo, shootSpeed, shootPos));
+                StartCoroutine(AttackFan.ShootInWaves(enemy, missile, shootDelay, ammo, shootSpeed, shootPos));
                 break;
             case Constants.HOMING_ATTACK:
-                StartCoroutine(AttackHoming.ShootInWaves(enemy, missile, 1, ammo, shootSpeed, shootPos, player.transform));
+                StartCoroutine(AttackHoming.ShootInWaves(enemy, missile, shootDelay, ammo, shootSpeed, shootPos, player.transform));
                 break;
             case Constants.CIRCLE_ATTACK:
-                StartCoroutine(AttackCircle.ShootInWaves(enemy, missile, 1, ammo, shootSpeed, shootPos));
+                StartCoroutine(AttackCircle.ShootInWaves(enemy, missile, shootDelay, ammo, shootSpeed, shootPos));
                 break;
             case Constants.SPIRAL_ATTACK:
-                StartCoroutine(AttackSpiral.ShootInWaves(enemy, missile, 0.3f, ammo, shootSpeed, shootPos));
+                StartCoroutine(AttackSpiral.ShootInWaves(enemy, missile, shootDelay, ammo, shootSpeed, shootPos));
+                break;
+            case Constants.RANDOM_ATTACK:
+                StartCoroutine(AttackRandom.ShootInWaves(enemy, missile, shootDelay, ammo, shootSpeed, shootPos));
                 break;
             default:
                 break;
@@ -171,6 +178,7 @@ public class EnemyAI : MonoBehaviour
         this.spawnLocation = e.spawnLocation;
         this.exitLocation = e.exitLocation;
         this.shootBehaviour = e.shootBehaviour;
+        this.shootDelay = e.shootDelay;
         this.xPartition = e.xPartition;
         this.yPartition = e.yPartition;
     }

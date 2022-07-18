@@ -40,23 +40,17 @@ public class EnemyController : MonoBehaviour
 
     public void SelectWave(int level) 
     {
-        enemiesPerRound = 2;
+        enemiesPerRound = 5;
         StartCoroutine(Generate2Waves_A());
     }
 
-    int HorizontalLineSpawn_A(int spawnCount) 
+    int SpawnEnemiesSynchronous(int spawnCount, EnemyParameters[] e) 
     {
         for (int i = 0; i < spawnCount; i++) 
         {
             GameObject newEnemy = Instantiate(enemy, new Vector2(Screen.width / 2, Screen.height), Quaternion.identity, canvas) as GameObject;
             newEnemy.transform.SetSiblingIndex(1);
-            newEnemy.SendMessage("SetParameters", 
-                new EnemyParameters(30000f, 30000f, 5, Constants.CIRCLE_ATTACK, 
-                new Vector2((1 + i) * Screen.width / (spawnCount + 1), 2*Screen.height / 3), 
-                new Vector2((1 + i) * Screen.width / (spawnCount + 1), Screen.height), 
-                new Vector2((1 + i) * Screen.width / (spawnCount + 1), Screen.height),
-                Constants.PAUSE_TO_SHOOT, 1, 1
-            ));
+            newEnemy.SendMessage("SetParameters", e[i]);
         }
         return spawnCount;
     }
@@ -72,23 +66,57 @@ public class EnemyController : MonoBehaviour
                 new Vector2(Screen.width, (4 + i)*Screen.height/6), 
                 new Vector2(0, (4+i)*Screen.height/6), 
                 new Vector2(Screen.width, (4 + i)*Screen.height/6),
-                Constants.SHOOT_AND_FLY, 3, 1
+                Constants.SHOOT_AND_FLY, 1, 3, 1
             ));
         }
         return spawnCount;
     }
 
+    IEnumerator SpawnEnemiesWithDelay(int spawnCount, EnemyParameters[] e) 
+    {
+        int spawned = 0;
+        while (spawned < spawnCount) 
+        {
+            GameObject newEnemy = Instantiate(enemy, new Vector2(Screen.width / 2, Screen.height), Quaternion.identity, canvas) as GameObject;
+            newEnemy.transform.SetSiblingIndex(1);
+            newEnemy.SendMessage("SetParameters", e[spawned]);
+            yield return new WaitForSeconds(0.5f);
+            spawned += 1;
+        }
+    }
+
     IEnumerator Generate2Waves_A() 
     {
         enemiesPerWave = 0;
-        enemiesPerWave += HorizontalLineSpawn_B(1);
+        EnemyParameters[] e = new EnemyParameters[3];
+        for (int i = 0; i < 3; i++) 
+        {
+            e[i] = new EnemyParameters(
+                30000f, 30000f, 5, Constants.VERTICAL_ATTACK, 
+                new Vector2((1 + i) * Screen.width / 4, 2*Screen.height / 3), 
+                new Vector2((1 + i) * Screen.width / 4, Screen.height), 
+                new Vector2((1 + i) * Screen.width / 4, Screen.height),
+                Constants.PAUSE_TO_SHOOT, 0.33f, 1, 1);
+        }
+        enemiesPerWave += SpawnEnemiesSynchronous(3, e);
         yield return new WaitUntil(new System.Func<bool>(() => enemiesDespawned == enemiesPerWave));
-        enemiesPerWave += HorizontalLineSpawn_A(1);
+
+        e = new EnemyParameters[2];
+        for (int i = 0; i < 2; i++) 
+        {
+            e[i] = new EnemyParameters(30000f, 30000f, 3, Constants.FAN_ATTACK, 
+                new Vector2(Screen.width/2, Screen.height*0), 
+                new Vector2(Screen.width/2, Screen.height), 
+                new Vector2(Screen.width/2, 5*Screen.height * 0),
+                Constants.SHOOT_AND_FLY, 1, 1, 3
+            );
+        }
+        StartCoroutine(SpawnEnemiesWithDelay(2, e));
     }
 
     public void Generate2Waves_B() 
     {
-
+        enemiesPerWave = 0;
     }
 
     public void Generate2Waves_C() 
