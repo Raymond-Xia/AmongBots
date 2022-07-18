@@ -24,12 +24,11 @@ public class LevelController : MonoBehaviour
         enemyController = (EnemyController)canvas.GetComponent(typeof(EnemyController));
         NewLevel();
         usedCueCards = new List<KeyValuePair<string, string>>();
-        
+
         pauseButton = GameObject.Find(Constants.PAUSE_BUTTON_OVERLAY);
         pauseButton.transform.SetPositionAndRotation(new Vector3((Screen.width - (Screen.width / 6)), (Screen.height - (Screen.height / 10)), 0), Quaternion.identity);
 
         score = GameObject.Find(Constants.SCORE_OVERLAY);
-        score.transform.SetPositionAndRotation(new Vector3((Screen.width / 6), Screen.height - (Screen.height / 10), 0), Quaternion.identity);
     }
 
     public void NewLevel()
