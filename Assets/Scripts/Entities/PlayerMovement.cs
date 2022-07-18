@@ -81,12 +81,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.tag == Constants.NUKEPOWERUP_TAG)
         {
-            var missiles = GameObject.FindGameObjectsWithTag("Missile");           
-
-            foreach (GameObject target in missiles)
-            {
-                GameObject.Destroy(target);
-            }
+            NukeButton.activateButton();           
         }
     }
 }

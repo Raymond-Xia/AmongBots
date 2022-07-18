@@ -8,6 +8,7 @@ TagManager:
   - Missile
   - HpPowerup
   - NukePowerup
+  - NukeButton
   layers:
   - Default
   - TransparentFX

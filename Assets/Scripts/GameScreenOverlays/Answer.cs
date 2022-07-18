@@ -42,8 +42,7 @@ public class Answer : MonoBehaviour
                     default:
                         break;
                 }
-            }   
-
+            }
             // start new level        
             levelController.NewLevel();
         }
