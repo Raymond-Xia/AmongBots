@@ -27,7 +27,7 @@ public class Answer : MonoBehaviour
             PowerupController powerupController = (PowerupController)canvas.GetComponent(typeof(PowerupController));
 
             // Spawn a health or nuke powerup every 3 bosses
-            if (Score.score % 3 == 0)
+            if (Score.score % 1 == 0)
             {
                 int rand = Random.Range(0, 2);
 
@@ -37,8 +37,13 @@ public class Answer : MonoBehaviour
                         powerupController.SpawnHpPowerup();
                         break;
                     case 1:
-                        powerupController.SpawnNukePowerup();
-                        break;
+                        if (NukeButton.nukeButton.interactable == false)
+                        {
+                            powerupController.SpawnNukePowerup();
+                            break;
+                        }
+                        else
+                            goto case 0;
                     default:
                         break;
                 }
