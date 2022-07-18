@@ -12,7 +12,7 @@ public class Cosmetics : MonoBehaviour
         return Resources.Load<Sprite>(Constants.SPRITES[selected]);
     }
 
-    public static Sprite UpdateSkin() 
+    public static Sprite UpdateSkin()
     {
         int selected = 0;
         if (PlayerPrefs.HasKey(Constants.SKIN_SELECTED_KEY))
