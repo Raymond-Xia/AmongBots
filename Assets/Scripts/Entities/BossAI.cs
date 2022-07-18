@@ -12,6 +12,7 @@ public class BossAI : MonoBehaviour
     Transform canvas;
     GameObject newQuestion;
     bool askQuestion, questionAsked;
+    public AudioSource explosionSound;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +61,7 @@ public class BossAI : MonoBehaviour
     public void DestroyAnimation()
     {
         explosion.SetActive(true);
+        explosionSound.Play();
         StartCoroutine(HideBoss(explosionDuration));
     }
 
