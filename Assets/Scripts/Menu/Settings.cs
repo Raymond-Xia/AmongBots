@@ -8,9 +8,8 @@ public class Settings : MonoBehaviour
         PlayerPrefs.SetInt(Constants.SPRITE_SELECTED_KEY, 0);
         PlayerPrefs.SetString(Constants.SKIN_OWNED_KEY, Constants.SKIN_OWNED_MASK);
         PlayerPrefs.SetInt(Constants.SKIN_SELECTED_KEY, 0);
-        int[] ints = { Score.score, 0, 0, 0, 0, 0 };
+        int[] ints = { 0, 0, 0, 0, 0 };
         PlayerPrefs.SetString(Constants.SCORES_TOPSCORES, string.Join("/n", ints));
         PlayerPrefs.Save();
-        Debug.Log("Reset");
     }
 }
