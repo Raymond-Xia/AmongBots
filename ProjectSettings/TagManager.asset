@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Missile
   - HpPowerup
+  - NukePowerup
+  - NukeButton
   layers:
   - Default
   - TransparentFX
