@@ -118,7 +118,7 @@ public class EnemyAI : MonoBehaviour
                     AttackHoming.ShootOnDemand(enemy, missile, shootSpeed, shootPos, player.transform);
                     break;
                 case Constants.CIRCLE_ATTACK:
-                    AttackCircle.ShootOnDemand(enemy, missile, shootSpeed, shootPos);
+                    AttackCircle.ShootOnDemand(enemy, missile, shootSpeed, shootPos, 0);
                     break;
                 case Constants.RANDOM_ATTACK:
                     AttackRandom.ShootOnDemand(enemy, missile, shootSpeed, shootPos);
