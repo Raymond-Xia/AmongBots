@@ -20,7 +20,7 @@ public class HighScores : MonoBehaviour
             {
                 temp = temp + (i+1) + ". " + topScores[i] + "\n";
             }
-            GameObject.Find("HighScores").GetComponent<TMP_Text>().text = temp;
+            GameObject.Find(Constants.SCORES_TEXT).GetComponent<TMP_Text>().text = temp;
         }
     }
 }

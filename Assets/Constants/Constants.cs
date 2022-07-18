@@ -68,6 +68,8 @@ public class Constants
     public static readonly string BUY_BUTTON_SHOP = "BuyButton";
     public static readonly string BUY_TEXT_SHOP = "BuyText";
 
+    public static readonly string SCORES_TEXT = "HighScores";
+
     // GAME MODES
     public const int ORIGINAL_GAMEMODE = 0;
     public const int ADDITION_GAMEMODE = 1;
@@ -82,7 +84,7 @@ public class Constants
     public static readonly string MULTIPLICATION = "×";
     public static readonly string DIVISION = "÷";
     public static readonly string QUESTION_FORMAT = "{0} {1} {2} = ?";
-    
+
     // ATTACKS
     public const int VERTICAL_ATTACK = 1;
     public const int FAN_ATTACK = 2;
