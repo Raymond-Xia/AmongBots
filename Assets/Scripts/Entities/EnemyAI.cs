@@ -123,6 +123,18 @@ public class EnemyAI : MonoBehaviour
                 case Constants.RANDOM_ATTACK:
                     AttackRandom.ShootOnDemand(enemy, missile, shootSpeed, shootPos);
                     break;
+                case Constants.VERTICAL_AND_HOMING_ATTACK:
+                    AttackVertical.ShootOnDemand(enemy, missile, shootSpeed, shootPos);
+                    goto case Constants.HOMING_ATTACK;
+                case Constants.FAN_AND_HOMING_ATTACK:
+                    AttackFan.ShootOnDemand(enemy, missile, shootSpeed, shootPos);
+                    goto case Constants.HOMING_ATTACK;
+                case Constants.CIRCLE_AND_HOMING_ATTACK:
+                    AttackCircle.ShootOnDemand(enemy, missile, shootSpeed, shootPos, 0);
+                    goto case Constants.HOMING_ATTACK;
+                case Constants.RANDOM_AND_HOMING_ATTACK:
+                    AttackRandom.ShootOnDemand(enemy, missile, shootSpeed, shootPos);
+                    goto case Constants.HOMING_ATTACK;
                 default:
                     break;
             }
@@ -163,6 +175,21 @@ public class EnemyAI : MonoBehaviour
             case Constants.RANDOM_ATTACK:
                 StartCoroutine(AttackRandom.ShootInWaves(enemy, missile, shootDelay, ammo, shootSpeed, shootPos));
                 break;
+            case Constants.VERTICAL_AND_HOMING_ATTACK:
+                StartCoroutine(AttackVertical.ShootInWaves(enemy, missile, shootDelay, ammo, shootSpeed, shootPos));
+                goto case Constants.HOMING_ATTACK;
+            case Constants.FAN_AND_HOMING_ATTACK:
+                StartCoroutine(AttackFan.ShootInWaves(enemy, missile, shootDelay, ammo, shootSpeed, shootPos));
+                goto case Constants.HOMING_ATTACK;
+            case Constants.CIRCLE_AND_HOMING_ATTACK:
+                StartCoroutine(AttackCircle.ShootInWaves(enemy, missile, shootDelay, ammo, shootSpeed, shootPos));
+                goto case Constants.HOMING_ATTACK;
+            case Constants.SPIRAL_AND_HOMING_ATTACK:
+                StartCoroutine(AttackSpiral.ShootInWaves(enemy, missile, shootDelay, ammo, shootSpeed, shootPos));
+                goto case Constants.HOMING_ATTACK;
+            case Constants.RANDOM_AND_HOMING_ATTACK:
+                StartCoroutine(AttackRandom.ShootInWaves(enemy, missile, shootDelay, ammo, shootSpeed, shootPos));
+                goto case Constants.HOMING_ATTACK;
             default:
                 break;
         }

@@ -92,6 +92,11 @@ public class Constants
     public const int CIRCLE_ATTACK = 4;
     public const int SPIRAL_ATTACK = 5;
     public const int RANDOM_ATTACK = 6;
+    public const int VERTICAL_AND_HOMING_ATTACK = 7;
+    public const int FAN_AND_HOMING_ATTACK = 8;
+    public const int CIRCLE_AND_HOMING_ATTACK = 9;
+    public const int SPIRAL_AND_HOMING_ATTACK = 10;
+    public const int RANDOM_AND_HOMING_ATTACK = 11;
 
     // SHOOT BEHAVIOUR
     public const int PAUSE_TO_SHOOT = 1;
@@ -99,6 +104,7 @@ public class Constants
 
     // GAME OBJECT MESSAGES
     public static readonly string EMPTY_AMMO = "EmptyAmmo";
+    public static readonly string SET_PARAMETERS = "SetParameters";
 
     // CUE CARD CREATOR
     public static readonly string CARD_SAVE_FILE = "/savedCueCards.gd";

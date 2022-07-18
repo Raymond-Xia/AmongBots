@@ -8,8 +8,12 @@ public class AttackSpiral : Attack
     {
         while (ammo > 0)
         {
-            int angle = 0;
-            while (angle <= 345)
+            
+            System.Random r = new System.Random();
+            int angleOffset = r.Next(0, 3);
+            angleOffset = (angleOffset * 5) % 15;
+            int angle = angleOffset;
+            while (angle <= 345 + angleOffset)
             {
                 GameObject newMissile = Instantiate(missile, shootPos.position, Quaternion.identity) as GameObject;
                 newMissile.GetComponent<Rigidbody2D>().velocity = new Vector2(-shootSpeed * Time.fixedDeltaTime * Mathf.Cos((angle * Mathf.PI) / 180), -shootSpeed * Time.fixedDeltaTime * Mathf.Sin((angle * Mathf.PI) / 180));
@@ -18,7 +22,7 @@ public class AttackSpiral : Attack
                 angle += 15;
                 yield return new WaitForSeconds(0.01f);
             }
-            angle = 0;
+            angle = angleOffset;
             
             ammo -= 1;
             yield return new WaitForSeconds(delay);

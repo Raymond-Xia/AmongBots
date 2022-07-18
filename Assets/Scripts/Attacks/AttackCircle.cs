@@ -19,13 +19,13 @@ public class AttackCircle : Attack
 
     public static IEnumerator ShootInWaves(GameObject enemy, GameObject missile, float delay, int ammo, float shootSpeed, Transform shootPos)
     {
-        int angleOffset = 0;
         while (ammo > 0)
         {
-            ShootOnDemand(enemy, missile, shootSpeed, shootPos, angleOffset % 30);
+            System.Random r = new System.Random();
+            int angleOffset = r.Next(0,3);
+            ShootOnDemand(enemy, missile, shootSpeed, shootPos, (angleOffset * 10) % 30);
             ammo -= 1;
             yield return new WaitForSeconds(delay);
-            angleOffset += 10;
         }
         enemy.SendMessage(Constants.EMPTY_AMMO, 0);
     }

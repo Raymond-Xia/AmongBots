@@ -11,7 +11,7 @@ public class AttackRandom : Attack
         {
             int angle = 0;
             System.Random r = new System.Random();
-            angle = r.Next(0, 359);
+            angle = r.Next(0, 360);
             if (!randomList.Contains(angle))
             {
                 randomList.Add(angle);
