@@ -20,6 +20,7 @@ public class AttackSpiral : Attack
                 newMissile.transform.SetParent(GameObject.Find(Constants.CANVAS_OBJECT).transform, true);
                 newMissile.transform.SetSiblingIndex(4);
                 angle += 15;
+                EnemyAI.laserSound.Play();
                 yield return new WaitForSeconds(0.01f);
             }
             angle = angleOffset;

@@ -26,6 +26,7 @@ public class EnemyAI : MonoBehaviour
     public int yPartition;
     public int xIncrement;
     public int yIncrement;
+    public static AudioSource laserSound;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,7 @@ public class EnemyAI : MonoBehaviour
         player = GameObject.Find(Constants.PLAYER_OBJECT);
         enemyController = (EnemyController)canvas.GetComponent(typeof(EnemyController));
         transform.SetPositionAndRotation(spawnLocation, Quaternion.identity);
+        laserSound = GetComponent<AudioSource>();
         body = GetComponent<Rigidbody2D>();
         body.velocity = calculateVelocity(spawnLocation, pausePoint, moveSpeed);
         xIncrement = 1;
