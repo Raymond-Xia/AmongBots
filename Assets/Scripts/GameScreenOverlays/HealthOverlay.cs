@@ -3,20 +3,13 @@ using UnityEngine.UI;
 
 public class HealthOverlay : MonoBehaviour
 {
-    public Text healthText;
     public GameObject[] hearts = new GameObject[Constants.MAX_HP];
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        healthText = GetComponent<Text>();
-    }
 
     // Update is called once per frame
     void Update()
     {
         // healthText.text = "HP: " + PlayerMovement.hp.ToString();
-        foreach (Transform child in GameObject.Find("HealthContainer").transform)
+        foreach (Transform child in GameObject.Find(Constants.HEALTH_PANEL).transform)
         {
             GameObject.Destroy(child.gameObject);
         }
@@ -25,7 +18,7 @@ public class HealthOverlay : MonoBehaviour
         for (int i = 0; i < PlayerMovement.hp; i++)
         {
             hearts[i] = new GameObject();
-            hearts[i].transform.parent = GameObject.Find("HealthContainer").transform;
+            hearts[i].transform.parent = GameObject.Find(Constants.HEALTH_PANEL).transform;
 
             Sprite sprite = Resources.Load<Sprite>(Constants.SPRITES[9]);
             hearts[i].AddComponent<Image>().sprite = sprite;
