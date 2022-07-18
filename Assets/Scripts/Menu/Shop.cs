@@ -51,11 +51,11 @@ public class Shop : MonoBehaviour
         int balance = 0;
         if (PlayerPrefs.HasKey(Constants.SCORES_BALANCE))
         {
-            balance = int.Parse(PlayerPrefs.GetString(Constants.SCORES_BALANCE));
+            balance = PlayerPrefs.GetInt(Constants.SCORES_BALANCE);
         }
         if (balance >= Constants.PRICES[i])
         {
-            PlayerPrefs.SetString(Constants.SCORES_BALANCE, (balance - Constants.PRICES[i]).ToString());
+            PlayerPrefs.SetInt(Constants.SCORES_BALANCE, balance - Constants.PRICES[i]);
 
             char[] owned = Constants.SKIN_OWNED_MASK.ToCharArray();
             if (PlayerPrefs.HasKey(Constants.SKIN_OWNED_KEY))
@@ -103,10 +103,10 @@ public class Shop : MonoBehaviour
 
     private void UpdateBalance()
     {
-        string balance = "0";
+        int balance = 0;
         if (PlayerPrefs.HasKey(Constants.SCORES_BALANCE))
         {
-            balance = PlayerPrefs.GetString(Constants.SCORES_BALANCE);
+            balance = PlayerPrefs.GetInt(Constants.SCORES_BALANCE);
         }
         GameObject.Find(Constants.BALANCE_TEXT_SHOP).GetComponent<TMP_Text>().text = Constants.BALANCE_TEXT_PREFIX + balance;
     }

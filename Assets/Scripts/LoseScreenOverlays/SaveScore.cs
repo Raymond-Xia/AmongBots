@@ -34,8 +34,8 @@ public class SaveScore : MonoBehaviour
         int balance = 0;
         if (PlayerPrefs.HasKey(Constants.SCORES_BALANCE))
         {
-            balance = int.Parse(PlayerPrefs.GetString(Constants.SCORES_BALANCE));
+            balance = PlayerPrefs.GetInt(Constants.SCORES_BALANCE);
         }
-        PlayerPrefs.SetString(Constants.SCORES_BALANCE, (balance + Score.score).ToString());
+        PlayerPrefs.SetInt(Constants.SCORES_BALANCE, balance + Score.score);
     }
 }
