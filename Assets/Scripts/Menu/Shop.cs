@@ -33,6 +33,9 @@ public class Shop : MonoBehaviour
         }
         UpdateSkin();
         UpdateButton();
+        PlayerPrefs.SetInt(Constants.SCORES_BALANCE, 50);
+        PlayerPrefs.Save();
+        UpdateBalance();
     }
 
     public void RightButton()
