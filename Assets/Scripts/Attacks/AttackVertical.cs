@@ -9,6 +9,7 @@ public class AttackVertical : Attack
         newMissile.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -shootSpeed * Time.fixedDeltaTime);
         newMissile.transform.SetParent(GameObject.Find(Constants.CANVAS_OBJECT).transform, true);
         newMissile.transform.SetSiblingIndex(4);
+        EnemyAI.laserSound.Play();
     }
 
     public static IEnumerator ShootInWaves(GameObject enemy, GameObject missile, float delay, int ammo, float shootSpeed, Transform shootPos)
@@ -19,6 +20,6 @@ public class AttackVertical : Attack
             ammo -= 1;
             yield return new WaitForSeconds(delay);
         }
-        enemy.SendMessage("EmptyAmmo", 0);
+        enemy.SendMessage(Constants.EMPTY_AMMO, 0);
     }
 }
