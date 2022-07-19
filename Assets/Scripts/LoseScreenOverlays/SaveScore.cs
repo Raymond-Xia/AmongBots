@@ -7,9 +7,21 @@ public class SaveScore : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (PlayerPrefs.HasKey(Constants.SCORES_TOPSCORES))
+        //specify key based on game mode
+        string score_gameMode = Constants.SCORES_TOPSCORES;
+        if (PlayMenu.is_CueCard)
         {
-            String[] topScores = PlayerPrefs.GetString(Constants.SCORES_TOPSCORES).Split("/n");
+            score_gameMode = Constants.SCORES_CUECARD_TOPSCORES;
+        }
+        else if (PlayMenu.is_OneOperator)
+        {
+            score_gameMode = Constants.SCORES_ONEOPERATOR_TOPSCORES;
+        }
+
+        //update corresponding player pref with new score
+        if (PlayerPrefs.HasKey(score_gameMode))
+        {
+            String[] topScores = PlayerPrefs.GetString(score_gameMode).Split("/n");
         
             int[] ints = Array.ConvertAll(topScores, int.Parse);
             int tempScore = Score.score;
@@ -23,12 +35,12 @@ public class SaveScore : MonoBehaviour
                     tempScore = t;
                 }
             }
-            PlayerPrefs.SetString(Constants.SCORES_TOPSCORES, string.Join("/n", ints));
+            PlayerPrefs.SetString(score_gameMode, string.Join("/n", ints));
         }
         else
         {
             int[] ints = { Score.score, 0, 0, 0, 0, 0 };
-            PlayerPrefs.SetString(Constants.SCORES_TOPSCORES, string.Join("/n", ints));
+            PlayerPrefs.SetString(score_gameMode, string.Join("/n", ints));
         }
     }
 }
