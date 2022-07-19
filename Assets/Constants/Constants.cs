@@ -31,6 +31,7 @@ public class Constants
     public static readonly string SCORE_OVERLAY = "Score";
 
     // SPRITE NAMES
+    public static readonly string HEART_SPRITE = "Sprites/Heart";
     public static readonly string[] SPRITES =
     {
         "Sprites/CrewmateBlack",

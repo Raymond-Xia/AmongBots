@@ -20,7 +20,7 @@ public class HealthOverlay : MonoBehaviour
             hearts[i] = new GameObject();
             hearts[i].transform.parent = GameObject.Find(Constants.HEALTH_PANEL).transform;
 
-            Sprite sprite = Resources.Load<Sprite>(Constants.SPRITES[9]);
+            Sprite sprite = Resources.Load<Sprite>(Constants.HEART_SPRITE);
             hearts[i].AddComponent<Image>().sprite = sprite;
             RectTransform heartRectTransform = hearts[i].GetComponent<RectTransform>();
             heartRectTransform.transform.localScale = new Vector2(1.38f, 1.2f);
