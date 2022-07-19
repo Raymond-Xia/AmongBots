@@ -1,11 +1,42 @@
-using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using System;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine;
 
-public class SaveScore : MonoBehaviour
+public class LoseMenu : MonoBehaviour
 {
-    
-    // Start is called before the first frame update
-    void Start()
+    Text breakText;
+    public void Start() 
+    {
+        TakeABreak.breakMessage = TakeABreak.FindInActiveObject(GameObject.Find(Constants.CANVAS_OBJECT), Constants.BREAK_MESSAGE_OBJECT);
+        TakeABreak.breakMessage.SetActive(false);
+        if (TakeABreak.warning) {
+            TakeABreak.Warn();
+            breakText = TakeABreak.breakMessage.GetComponentInChildren<Text>();
+            breakText.text = string.Format(Constants.BREAK_MESSAGE_TEXT, (int)(TakeABreak.elapsedTime/60.0f));
+        }
+
+        SaveScore();
+    }
+
+    public void PlayButton()
+    {
+        PlayMenu.InitializeGame();
+    }
+
+    public void ExitButton()
+    {
+        SceneManager.LoadScene(Constants.MENU_SCENE);
+    }
+
+    public static void AcknowledgeWarning()
+    {
+        TakeABreak.Acknowledge();
+    }
+
+    public void SaveScore()
     {
         //specify key based on game mode
         string score_gameMode = Constants.SCORES_TOPSCORES;
@@ -34,7 +65,7 @@ public class SaveScore : MonoBehaviour
         if (PlayerPrefs.HasKey(score_gameMode))
         {
             String[] topScores = PlayerPrefs.GetString(score_gameMode).Split("/n");
-        
+
             int[] ints = Array.ConvertAll(topScores, int.Parse);
             int tempScore = Score.score;
             for (int i = 0; i < 5; i++)
@@ -54,5 +85,12 @@ public class SaveScore : MonoBehaviour
             int[] ints = { Score.score, 0, 0, 0, 0, 0 };
             PlayerPrefs.SetString(score_gameMode, string.Join("/n", ints));
         }
+
+        int balance = 0;
+        if (PlayerPrefs.HasKey(Constants.SCORES_BALANCE))
+        {
+            balance = PlayerPrefs.GetInt(Constants.SCORES_BALANCE);
+        }
+        PlayerPrefs.SetInt(Constants.SCORES_BALANCE, balance + Score.score);
     }
 }
