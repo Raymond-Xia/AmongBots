@@ -62,7 +62,12 @@ public class Constants
     public static readonly string SKIN_SELECTED_KEY = "skin_selected";
     public static readonly string SKIN_OWNED_KEY = "skin_owned";
     public static readonly string SKIN_OWNED_MASK = "100";
-    public static readonly string SCORES_TOPSCORES = "TopScores";
+    public static readonly string SCORES_TOPSCORES = "Original_TopScores";
+    public static readonly string SCORES_CUECARD_TOPSCORES = "CueCard_TopScores";
+    public static readonly string SCORES_ADDITION_TOPSCORES = "Addition_TopScores";
+    public static readonly string SCORES_SUBTRACTION_TOPSCORES = "Subtraction_TopScores";
+    public static readonly string SCORES_MULTIPLICATION_TOPSCORES = "Multiplication_TopScores";
+    public static readonly string SCORES_DIVISION_TOPSCORES = "Division_TopScores";
     public static readonly string SCORES_BALANCE = "balance";
 
     // INVENTORY
@@ -180,6 +185,10 @@ public class Constants
     public static readonly string CARDS_SCREEN = "CueCards";
     public const int MAX_CUE_CARDS = 100;
 
+    // WARNING MESSAGES
+    public static readonly string EPILEPSY_WARNING = "This game may potentially trigger seizures for people with photosensitive epilepsy. Player discretion is advised.";
+    public static readonly string AGE_WARNING = "By tapping acknowledge, you consent to being at least 7 years of age or older.";
+    
     // BREAK TIME
     public static readonly string BREAK_MESSAGE_TEXT = "You've been playing for {0} minutes!\nConsider taking a break, the bots will always be here for you to defeat!";
 }

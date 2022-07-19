@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using TMPro;
 
-public class HighScores : MonoBehaviour
+public class OriginalScores : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
