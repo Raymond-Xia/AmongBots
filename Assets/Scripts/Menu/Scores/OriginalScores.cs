@@ -4,11 +4,14 @@ using TMPro;
 
 public class OriginalScores : MonoBehaviour
 {
-    public TMP_Text highScoreText;
     // Start is called before the first frame update
     void Start()
     {
-        highScoreText = GetComponent<TMP_Text>();
+        UpdateScores();
+    }
+
+    public void UpdateScores()
+    {
         if (PlayerPrefs.HasKey(Constants.SCORES_TOPSCORES))
         {
             String[] topScores = PlayerPrefs.GetString(Constants.SCORES_TOPSCORES).Split("/n");
@@ -17,7 +20,7 @@ public class OriginalScores : MonoBehaviour
             {
                 temp = temp + (i+1) + ". " + topScores[i] + "\n";
             }
-            highScoreText.text = temp;
+            GameObject.Find(Constants.SCORES_TEXT).GetComponent<TMP_Text>().text = temp;
         }
     }
 }
