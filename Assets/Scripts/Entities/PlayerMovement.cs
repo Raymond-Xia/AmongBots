@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public static int hp = 5;
+    public static int hp = Constants.MAX_HP;
 
     public bool moveAllowed;
     public Collider2D col;
@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         col = GetComponent<Collider2D>();
 
         player.GetComponent<Image>().sprite = Cosmetics.UpdateSprite();
-        skin.GetComponent<Image>().sprite = Cosmetics.UpdateSkin();        
+        skin.GetComponent<Image>().sprite = Cosmetics.UpdateSkin();
     }
 
     // Update is called once per frame
@@ -71,14 +71,17 @@ public class PlayerMovement : MonoBehaviour
             if (hp == 0)
             {
                 SceneManager.LoadScene(Constants.LOSE_SCENE);
-                hp = 5;
+                hp = Constants.MAX_HP;
             }
             hitSound.Play();
         }
 
         if (collision.tag == Constants.HEALTHPOWERUP_TAG)
         {
-            hp += 1;
+            if (hp < Constants.MAX_HP)
+            {
+                hp += 1;
+            }
         }
 
         if (collision.tag == Constants.NUKEPOWERUP_TAG)

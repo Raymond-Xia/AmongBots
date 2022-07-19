@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class PlayMenu : MonoBehaviour
 {
-    public Text warning; 
+    public Text warning;
     public static bool is_CueCard = false;
     public static bool is_addition = false;
     public static bool is_subtraction = false;
@@ -54,7 +54,7 @@ public class PlayMenu : MonoBehaviour
 
     public void CueCards()
     {
-        if (CueCardMenu.cardmap.Count > 0) 
+        if (CueCardMenu.cardmap.Count > 0)
         {
             is_CueCard = true;
             InitializeGame();
@@ -69,7 +69,8 @@ public class PlayMenu : MonoBehaviour
     public static void InitializeGame()
     {
         SceneManager.LoadScene(Constants.GAME_SCENE);
-        PlayerMovement.hp = 5;
+        PlayerMovement.hp = Constants.MAX_HP;
+        Score.score = 0;
     }
 
 }

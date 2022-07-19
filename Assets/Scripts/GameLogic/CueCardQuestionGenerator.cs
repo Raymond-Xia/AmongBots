@@ -8,6 +8,8 @@ public class CueCardQuestionGenerator : MonoBehaviour
     public Text questionObject;
     public string question;
     public string answer;
+    // external use only
+    public static string latestQuestion;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,7 @@ public class CueCardQuestionGenerator : MonoBehaviour
         KeyValuePair<string, string> randomCard = cardList[Random.Range(0, cardList.Count)];
         question = randomCard.Key;
         questionObject.text = question;
+        latestQuestion = question;
         answer = randomCard.Value;
         LevelController.usedCueCards.Add(randomCard);
     }

@@ -8,6 +8,8 @@ using TMPro;
 
 public class MathQuestionGenerator : MonoBehaviour
 {
+    // for external use only
+    public static string latestQuestion;
     public TMP_Text question;
     public TMP_Text a1;
     public TMP_Text a2;
@@ -111,6 +113,7 @@ public class MathQuestionGenerator : MonoBehaviour
 
         // Write text to question and answer buttons
         question.text = string.Format(Constants.QUESTION_FORMAT, X, op, Y);
+        latestQuestion = question.text;
 
         int randomButton = Random.Range(1,4);
         a1.text = randomButton == 1 ? answer + "" : wrongAnswers.Pop() + "";

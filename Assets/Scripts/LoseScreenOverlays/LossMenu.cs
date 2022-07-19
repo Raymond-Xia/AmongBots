@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class LoseMenu : MonoBehaviour
+public class LossMenu : MonoBehaviour
 {
     Text breakText;
     public void Start() 
@@ -18,16 +18,23 @@ public class LoseMenu : MonoBehaviour
             breakText.text = string.Format(Constants.BREAK_MESSAGE_TEXT, (int)(TakeABreak.elapsedTime/60.0f));
         }
 
+        if (Answer.record.Count == 0)
+        {
+            Destroy(GameObject.Find("ReviewButton"));
+        }
+        
         SaveScore();
     }
 
     public void PlayButton()
     {
+        Answer.resetRecord();
         PlayMenu.InitializeGame();
     }
 
     public void ExitButton()
     {
+        Answer.resetRecord();
         SceneManager.LoadScene(Constants.MENU_SCENE);
     }
 
