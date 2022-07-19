@@ -186,7 +186,7 @@ public class EnemyController : MonoBehaviour
         for (int i = 0; i < enemiesThisWave; i++) 
         {
             e[i] = new EnemyParameters(
-                40000f, 30000f, 20, Constants.HOMING_ATTACK,
+                40000f, 30000f, 12, Constants.HOMING_ATTACK,
                 new Vector2((1 + i) * Screen.width / (enemiesThisWave + 1), 2*Screen.height / 3), 
                 new Vector2((1 + i) * Screen.width / (enemiesThisWave + 1), Screen.height), 
                 new Vector2((1 + i) * Screen.width / (enemiesThisWave + 1), Screen.height),
@@ -240,7 +240,7 @@ public class EnemyController : MonoBehaviour
         for (int i = 0; i < enemiesThisWave; i++) 
         {
             e[i] = new EnemyParameters(
-                40000f, 30000f, 8, Constants.HOMING_ATTACK,
+                40000f, 30000f, 20, Constants.HOMING_ATTACK,
                 new Vector2((1 + i) * Screen.width / (enemiesThisWave + 1), 2*Screen.height / 3), 
                 new Vector2((1 + i) * Screen.width / (enemiesThisWave + 1), Screen.height), 
                 new Vector2((1 + i) * Screen.width / (enemiesThisWave + 1), Screen.height),
