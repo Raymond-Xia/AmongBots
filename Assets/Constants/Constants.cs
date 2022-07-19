@@ -156,5 +156,5 @@ public class Constants
 
     // WARNING MESSAGES
     public static readonly string EPILEPSY_WARNING = "This game may potentially trigger seizures for people with photosensitive epilepsy. Player discretion is advised.";
-    public static readonly string AGE_WARNING = "By clicking acknowledge, you consent to being at least 7 years of age or older.";
+    public static readonly string AGE_WARNING = "By tapping acknowledge, you consent to being at least 7 years of age or older.";
 }
