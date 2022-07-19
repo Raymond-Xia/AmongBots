@@ -62,7 +62,12 @@ public class Constants
     public static readonly string SKIN_SELECTED_KEY = "skin_selected";
     public static readonly string SKIN_OWNED_KEY = "skin_owned";
     public static readonly string SKIN_OWNED_MASK = "100";
-    public static readonly string SCORES_TOPSCORES = "TopScores";
+    public static readonly string SCORES_TOPSCORES = "Original_TopScores";
+    public static readonly string SCORES_CUECARD_TOPSCORES = "CueCard_TopScores";
+    public static readonly string SCORES_ADDITION_TOPSCORES = "Addition_TopScores";
+    public static readonly string SCORES_SUBTRACTION_TOPSCORES = "Subtraction_TopScores";
+    public static readonly string SCORES_MULTIPLICATION_TOPSCORES = "Multiplication_TopScores";
+    public static readonly string SCORES_DIVISION_TOPSCORES = "Division_TopScores";
     public static readonly string SCORES_BALANCE = "balance";
 
     // INVENTORY
