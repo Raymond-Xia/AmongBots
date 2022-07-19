@@ -44,24 +44,55 @@ public class EnemyController : MonoBehaviour
 
     public void SelectWave(int level) 
     {
-        enemiesThisRound = 10;
-        List<Action> waves_2 = new List<Action>();
-        List<Action> waves_3 = new List<Action>();
-        List<Action> waves_4 = new List<Action>();
-        List<Action> waves_5 = new List<Action>();
-
         switch(level) 
         {
+            case > 30:
+                if (level % 3 == 0)
+                    StartCoroutine(Generate5Waves_A());
+                else if (level % 3 == 1)
+                    StartCoroutine(Generate5Waves_B());
+                else
+                    StartCoroutine(Generate5Waves_C());
+                break;
             case > 20:
+                if (level % 3 == 0)
+                    StartCoroutine(Generate4Waves_A());
+                else if (level % 3 == 1)
+                    StartCoroutine(Generate4Waves_B());
+                else
+                    StartCoroutine(Generate4Waves_C());
                 break;
             case > 10:
-
+                if (level % 3 == 0) {
+                    enemiesThisRound = 10;
+                    StartCoroutine(Generate3Waves_A());
+                }
+                else if (level % 3 == 1) {
+                    enemiesThisRound = 10;
+                    StartCoroutine(Generate3Waves_B());
+                }
+                else {
+                    enemiesThisRound = 10;
+                    StartCoroutine(Generate3Waves_C());
+                }
+                break;
+            case > 0:
+                if (level % 3 == 0) {
+                    enemiesThisRound = 5;
+                    StartCoroutine(Generate2Waves_A());
+                }
+                else if (level % 3 == 1) {
+                    enemiesThisRound = 5;
+                    StartCoroutine(Generate2Waves_B());
+                }
+                else {
+                    enemiesThisRound = 3;
+                    StartCoroutine(Generate2Waves_C());
+                }
                 break;
             default:
                 break;
         }
-
-        StartCoroutine(Generate3Waves_C());
     }
 
     void SpawnEnemiesSynchronous(int spawnCount, EnemyParameters[] e) 
@@ -138,6 +169,8 @@ public class EnemyController : MonoBehaviour
         }
         enemiesSpawned += enemiesThisWave;
         SpawnEnemiesSynchronous(enemiesThisWave, e);
+        Debug.Log(enemiesSpawned);
+        Debug.Log(enemiesDespawned == enemiesSpawned);
         yield return new WaitUntil(new System.Func<bool>(() => enemiesDespawned == enemiesSpawned));
 
         enemiesThisWave = 3;
@@ -376,45 +409,51 @@ public class EnemyController : MonoBehaviour
         SpawnEnemiesSynchronous(enemiesThisWave, e);
     }
 
-    public void Generate4Waves_A() 
+    IEnumerator Generate4Waves_A() 
     {
         enemiesSpawned = 0;
         int enemiesThisWave = 3;
         EnemyParameters[] e = new EnemyParameters[enemiesThisWave];
+        yield return new WaitUntil(new System.Func<bool>(() => enemiesDespawned == enemiesSpawned));
     }
 
-    public void Generate4Waves_B() 
+    IEnumerator Generate4Waves_B() 
     {
         enemiesSpawned = 0;
         int enemiesThisWave = 3;
         EnemyParameters[] e = new EnemyParameters[enemiesThisWave];
+        yield return new WaitUntil(new System.Func<bool>(() => enemiesDespawned == enemiesSpawned));
     }
 
-    public void Generate4Waves_C() 
+    IEnumerator Generate4Waves_C() 
     {
         enemiesSpawned = 0;
         int enemiesThisWave = 3;
         EnemyParameters[] e = new EnemyParameters[enemiesThisWave];
+        yield return new WaitUntil(new System.Func<bool>(() => enemiesDespawned == enemiesSpawned));
     }
 
-    public void Generate5Waves_A() 
+    IEnumerator Generate5Waves_A() 
     {
         enemiesSpawned = 0;
         int enemiesThisWave = 3;
         EnemyParameters[] e = new EnemyParameters[enemiesThisWave];
+        yield return new WaitUntil(new System.Func<bool>(() => enemiesDespawned == enemiesSpawned));
     }
 
-    public void Generate5Waves_B() 
+    IEnumerator Generate5Waves_B() 
     {
         enemiesSpawned = 0;
         int enemiesThisWave = 3;
         EnemyParameters[] e = new EnemyParameters[enemiesThisWave];
+        yield return new WaitUntil(new System.Func<bool>(() => enemiesDespawned == enemiesSpawned));
     }
 
-    public void Generate5Waves_C() 
+    IEnumerator Generate5Waves_C() 
     {
         enemiesSpawned = 0;
         int enemiesThisWave = 3;
         EnemyParameters[] e = new EnemyParameters[enemiesThisWave];
+        yield return new WaitUntil(new System.Func<bool>(() => enemiesDespawned == enemiesSpawned));
     }
 }
