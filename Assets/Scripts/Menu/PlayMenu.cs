@@ -6,39 +6,48 @@ public class PlayMenu : MonoBehaviour
 {
     public Text warning; 
     public static bool is_CueCard = false;
-    public static bool is_OneOperator = false;
+    public static bool is_addition = false;
+    public static bool is_subtraction = false;
+    public static bool is_multiplication = false;
+    public static bool is_division = false;
+
     public void Original()
     {
+        /*
         is_CueCard = false;
-        is_OneOperator = false;
+        is_addition = false;
+        is_subtraction = false;
+        is_multiplication = false;
+        is_division = false;
+        */
         InitializeGame();
         LevelController.gameMode = Constants.ORIGINAL_GAMEMODE;
     }
 
     public void Addition()
     {
-        is_OneOperator = true;
+        is_addition = true;
         InitializeGame();
         LevelController.gameMode = Constants.ADDITION_GAMEMODE;
     }
 
     public void Subtraction()
     {
-        is_OneOperator = true;
+        is_subtraction = true;
         InitializeGame();
         LevelController.gameMode = Constants.SUBTRACTION_GAMEMODE;
     }
 
     public void Multiplication()
     {
-        is_OneOperator = true;
+        is_multiplication = true;
         InitializeGame();
         LevelController.gameMode = Constants.MULTIPLICATION_GAMEMODE;
     }
 
     public void Division()
     {
-        is_OneOperator = true;
+        is_division = true;
         InitializeGame();
         LevelController.gameMode = Constants.DIVISION_GAMEMODE;
     }

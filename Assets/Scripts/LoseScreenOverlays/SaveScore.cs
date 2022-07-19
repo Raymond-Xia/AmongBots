@@ -13,9 +13,21 @@ public class SaveScore : MonoBehaviour
         {
             score_gameMode = Constants.SCORES_CUECARD_TOPSCORES;
         }
-        else if (PlayMenu.is_OneOperator)
+        else if (PlayMenu.is_addition)
         {
-            score_gameMode = Constants.SCORES_ONEOPERATOR_TOPSCORES;
+            score_gameMode = Constants.SCORES_ADDITION_TOPSCORES;
+        }
+        else if (PlayMenu.is_subtraction)
+        {
+            score_gameMode = Constants.SCORES_SUBTRACTION_TOPSCORES;
+        }
+        else if (PlayMenu.is_multiplication)
+        {
+            score_gameMode = Constants.SCORES_MULTIPLICATION_TOPSCORES;
+        }
+        else if (PlayMenu.is_division)
+        {
+            score_gameMode = Constants.SCORES_DIVISION_TOPSCORES;
         }
 
         //update corresponding player pref with new score
