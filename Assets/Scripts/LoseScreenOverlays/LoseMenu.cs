@@ -1,11 +1,42 @@
-using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using System;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine;
 
-public class SaveScore : MonoBehaviour
+public class LoseMenu : MonoBehaviour
 {
+    Text breakText;
+    public void Start() 
+    {
+        TakeABreak.breakMessage = TakeABreak.FindInActiveObject(GameObject.Find(Constants.CANVAS_OBJECT), Constants.BREAK_MESSAGE_OBJECT);
+        TakeABreak.breakMessage.SetActive(false);
+        if (TakeABreak.warning) {
+            TakeABreak.Warn();
+            breakText = TakeABreak.breakMessage.GetComponentInChildren<Text>();
+            breakText.text = string.Format(Constants.BREAK_MESSAGE_TEXT, (int)(TakeABreak.elapsedTime/60.0f));
+        }
 
-    // Start is called before the first frame update
-    void Start()
+        SaveScore();
+    }
+
+    public void PlayButton()
+    {
+        PlayMenu.InitializeGame();
+    }
+
+    public void ExitButton()
+    {
+        SceneManager.LoadScene(Constants.MENU_SCENE);
+    }
+
+    public static void AcknowledgeWarning()
+    {
+        TakeABreak.Acknowledge();
+    }
+
+    public void SaveScore()
     {
         if (PlayerPrefs.HasKey(Constants.SCORES_TOPSCORES))
         {
