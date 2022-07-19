@@ -67,6 +67,52 @@ public class Constants
     // INVENTORY
     public static readonly string SCROLL_CONTENT_INVENTORY = "ScrollContent";
     public static readonly string SCROLL_VIEW_INVENTORY = "ScrollView";
+    public static readonly string UNLOCKS_AT_INVENTORY = "UNLOCKS AT ";
+    public static readonly int[] HIGHSCORE_THRESHOLDS =
+    {
+        0,
+        10,
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90,
+        100,
+        200,
+    };
+    public static readonly string[] CREWMATES_INVENTORY =
+    {
+        "Crewmate (0)",
+        "Crewmate (1)",
+        "Crewmate (2)",
+        "Crewmate (3)",
+        "Crewmate (4)",
+        "Crewmate (5)",
+        "Crewmate (6)",
+        "Crewmate (7)",
+        "Crewmate (8)",
+        "Crewmate (9)",
+        "Crewmate (10)",
+        "Crewmate (11)",
+    };
+    public static readonly string[] TEXT_INVENTORY =
+    {
+        "Text (0)",
+        "Text (1)",
+        "Text (2)",
+        "Text (3)",
+        "Text (4)",
+        "Text (5)",
+        "Text (6)",
+        "Text (7)",
+        "Text (8)",
+        "Text (9)",
+        "Text (10)",
+        "Text (11)",
+    };
 
     // SHOP
     public static readonly string BUY_BUTTON_SHOP = "BuyButton";
@@ -86,7 +132,7 @@ public class Constants
     public static readonly string MULTIPLICATION = "×";
     public static readonly string DIVISION = "÷";
     public static readonly string QUESTION_FORMAT = "{0} {1} {2} = ?";
-    
+
     // ATTACKS
     public const int VERTICAL_ATTACK = 1;
     public const int FAN_ATTACK = 2;
