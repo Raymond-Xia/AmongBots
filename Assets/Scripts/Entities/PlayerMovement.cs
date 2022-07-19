@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
                 if (moveAllowed)
                 {
                     transform.position = new Vector2(touchPosition.x, touchPosition.y);
-                    skin.transform.position = new Vector2(touchPosition.x, touchPosition.y);
+                    skin.transform.position = new Vector2(touchPosition.x, touchPosition.y + 25);
                 }
             }
 

@@ -54,6 +54,14 @@ public class Constants
         "Sprites/Skin0",
         "Sprites/Skin1",
         "Sprites/Skin2",
+        "Sprites/Skin3",
+        "Sprites/Skin4",
+        "Sprites/Skin5",
+        "Sprites/Skin6",
+        "Sprites/Skin7",
+        "Sprites/Skin8",
+        "Sprites/Skin9",
+        "Sprites/Skin10",
     };
 
     // PLAYER PREF KEYS
@@ -62,7 +70,7 @@ public class Constants
     public static readonly string SPRITE_OWNED_MASK = "100000000000";
     public static readonly string SKIN_SELECTED_KEY = "skin_selected";
     public static readonly string SKIN_OWNED_KEY = "skin_owned";
-    public static readonly string SKIN_OWNED_MASK = "100";
+    public static readonly string SKIN_OWNED_MASK = "10000000000";
     public static readonly string SCORES_TOPSCORES = "Original_TopScores";
     public static readonly string SCORES_CUECARD_TOPSCORES = "CueCard_TopScores";
     public static readonly string SCORES_ADDITION_TOPSCORES = "Addition_TopScores";
@@ -131,6 +139,14 @@ public class Constants
         0,
         10,
         10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        50,
+        100,
     };
 
     public static readonly string SCORES_TEXT = "HighScores";
