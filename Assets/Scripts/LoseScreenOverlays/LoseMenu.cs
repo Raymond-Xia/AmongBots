@@ -41,7 +41,7 @@ public class LoseMenu : MonoBehaviour
         if (PlayerPrefs.HasKey(Constants.SCORES_TOPSCORES))
         {
             String[] topScores = PlayerPrefs.GetString(Constants.SCORES_TOPSCORES).Split("/n");
-        
+
             int[] ints = Array.ConvertAll(topScores, int.Parse);
             int tempScore = Score.score;
             for (int i = 0; i < 5; i++)
@@ -61,5 +61,12 @@ public class LoseMenu : MonoBehaviour
             int[] ints = { Score.score, 0, 0, 0, 0, 0 };
             PlayerPrefs.SetString(Constants.SCORES_TOPSCORES, string.Join("/n", ints));
         }
+
+        int balance = 0;
+        if (PlayerPrefs.HasKey(Constants.SCORES_BALANCE))
+        {
+            balance = PlayerPrefs.GetInt(Constants.SCORES_BALANCE);
+        }
+        PlayerPrefs.SetInt(Constants.SCORES_BALANCE, balance + Score.score);
     }
 }
