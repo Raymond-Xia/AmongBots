@@ -4,6 +4,7 @@ public class Constants
     public static readonly string MENU_SCENE = "Menu";
     public static readonly string GAME_SCENE = "Game";
     public static readonly string LOSE_SCENE = "Lose";
+    public static readonly string WARNING_SCENE = "Warning";
 
     // GAME OBJECTS
     public static readonly string CANVAS_OBJECT = "Canvas";
@@ -11,6 +12,7 @@ public class Constants
     public static readonly string SKIN_OBJECT = "Skin";
     public static readonly string PLAYER_OBJECT = "Player";
     public static readonly string CARD_ANSWER_TEXT_OBJECT = "AnswerText";
+    public static readonly string BREAK_MESSAGE_OBJECT = "BreakMessage";
 
     // PREFABS
     public static readonly string BOSS_PREFAB = "Boss(Clone)";
@@ -61,7 +63,13 @@ public class Constants
     public static readonly string SKIN_SELECTED_KEY = "skin_selected";
     public static readonly string SKIN_OWNED_KEY = "skin_owned";
     public static readonly string SKIN_OWNED_MASK = "100";
-    public static readonly string SCORES_TOPSCORES = "TopScores";
+    public static readonly string SCORES_TOPSCORES = "Original_TopScores";
+    public static readonly string SCORES_CUECARD_TOPSCORES = "CueCard_TopScores";
+    public static readonly string SCORES_ADDITION_TOPSCORES = "Addition_TopScores";
+    public static readonly string SCORES_SUBTRACTION_TOPSCORES = "Subtraction_TopScores";
+    public static readonly string SCORES_MULTIPLICATION_TOPSCORES = "Multiplication_TopScores";
+    public static readonly string SCORES_DIVISION_TOPSCORES = "Division_TopScores";
+    public static readonly string SCORES_BALANCE = "balance";
 
     // INVENTORY
     public static readonly string SCROLL_CONTENT_INVENTORY = "ScrollContent";
@@ -116,6 +124,19 @@ public class Constants
     // SHOP
     public static readonly string BUY_BUTTON_SHOP = "BuyButton";
     public static readonly string BUY_TEXT_SHOP = "BuyText";
+    public static readonly string BALANCE_TEXT_SHOP = "BalanceText";
+    public static readonly string BALANCE_TEXT_PREFIX = "BALANCE: $";
+    public static readonly int[] PRICES =
+    {
+        0,
+        10,
+        10,
+    };
+
+    public static readonly string SCORES_TEXT = "HighScores";
+
+    public static readonly string CONFIRMATION_TEXT = "Confirmation";
+    public static readonly string CONFIRMATION_DATA = "DATA HAS BEEN RESET";
 
     // GAME MODES
     public const int ORIGINAL_GAMEMODE = 0;
@@ -138,10 +159,21 @@ public class Constants
     public const int HOMING_ATTACK = 3;
     public const int CIRCLE_ATTACK = 4;
     public const int SPIRAL_ATTACK = 5;
+    public const int RANDOM_ATTACK = 6;
+    public const int VERTICAL_AND_HOMING_ATTACK = 7;
+    public const int FAN_AND_HOMING_ATTACK = 8;
+    public const int CIRCLE_AND_HOMING_ATTACK = 9;
+    public const int SPIRAL_AND_HOMING_ATTACK = 10;
+    public const int RANDOM_AND_HOMING_ATTACK = 11;
+    public const int NO_ATTACK = 100;
 
     // SHOOT BEHAVIOUR
     public const int PAUSE_TO_SHOOT = 1;
     public const int SHOOT_AND_FLY = 2;
+
+    // GAME OBJECT MESSAGES
+    public static readonly string EMPTY_AMMO = "EmptyAmmo";
+    public static readonly string SET_PARAMETERS = "SetParameters";
 
     // CUE CARD CREATOR
     public static readonly string CARD_SAVE_FILE = "/savedCueCards.gd";
@@ -156,4 +188,10 @@ public class Constants
 
     public static readonly string HEALTH_PANEL = "Health";
     public const int MAX_HP = 5;
+    // WARNING MESSAGES
+    public static readonly string EPILEPSY_WARNING = "This game may potentially trigger seizures for people with photosensitive epilepsy. Player discretion is advised.";
+    public static readonly string AGE_WARNING = "By tapping acknowledge, you consent to being at least 7 years of age or older.";
+
+    // BREAK TIME
+    public static readonly string BREAK_MESSAGE_TEXT = "You've been playing for {0} minutes!\nConsider taking a break, the bots will always be here for you to defeat!";
 }

@@ -5,17 +5,17 @@ public class AttackFan : Attack
 {
     public static void ShootOnDemand(GameObject enemy, GameObject missile, float shootSpeed, Transform shootPos) 
     {
-        int angle = 60;
-        while (angle <= 120)
+        int angle = 50;
+        while (angle <= 130)
         {
             GameObject newMissile = Instantiate(missile, shootPos.position, Quaternion.identity) as GameObject;
             newMissile.GetComponent<Rigidbody2D>().velocity = new Vector2(-shootSpeed * Time.fixedDeltaTime * Mathf.Cos((angle * Mathf.PI) / 180), -shootSpeed * Time.fixedDeltaTime * Mathf.Sin((angle * Mathf.PI) / 180));
             newMissile.transform.SetParent(GameObject.Find(Constants.CANVAS_OBJECT).transform, true);
             newMissile.transform.SetSiblingIndex(4);
             EnemyAI.laserSound.Play();
-            angle += 30;
+            angle += 40;
         }
-        angle = 60;
+        angle = 50;
     }
 
     public static IEnumerator ShootInWaves(GameObject enemy, GameObject missile, float delay, int ammo, float shootSpeed, Transform shootPos)
@@ -26,6 +26,6 @@ public class AttackFan : Attack
             ammo -= 1;
             yield return new WaitForSeconds(delay);
         }
-        enemy.SendMessage("EmptyAmmo", 0);
+        enemy.SendMessage(Constants.EMPTY_AMMO, 0);
     }
 }

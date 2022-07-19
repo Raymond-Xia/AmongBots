@@ -2,29 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackSpiral : Attack
+public class AttackRandom : Attack
 {
-    public static IEnumerator ShootInWaves(GameObject enemy, GameObject missile, float delay, int ammo, float shootSpeed, Transform shootPos)
+    public static void ShootOnDemand(GameObject enemy, GameObject missile, float shootSpeed, Transform shootPos) 
     {
-        while (ammo > 0)
+        List<int> randomList = new List<int>();
+        while (randomList.Count < 5)
         {
-            
+            int angle = 0;
             System.Random r = new System.Random();
-            int angleOffset = r.Next(0, 4);
-            angleOffset = (angleOffset * 5) % 20;
-            int angle = angleOffset;
-            while (angle <= 340 + angleOffset)
+            angle = r.Next(0, 360);
+            if (!randomList.Contains(angle))
             {
+                randomList.Add(angle);
                 GameObject newMissile = Instantiate(missile, shootPos.position, Quaternion.identity) as GameObject;
                 newMissile.GetComponent<Rigidbody2D>().velocity = new Vector2(-shootSpeed * Time.fixedDeltaTime * Mathf.Cos((angle * Mathf.PI) / 180), -shootSpeed * Time.fixedDeltaTime * Mathf.Sin((angle * Mathf.PI) / 180));
                 newMissile.transform.SetParent(GameObject.Find(Constants.CANVAS_OBJECT).transform, true);
                 newMissile.transform.SetSiblingIndex(4);
-                angle += 20;
                 EnemyAI.laserSound.Play();
-                yield return new WaitForSeconds(0.01f);
             }
-            angle = angleOffset;
-            
+        }
+    }
+
+    public static IEnumerator ShootInWaves(GameObject enemy, GameObject missile, float delay, int ammo, float shootSpeed, Transform shootPos)
+    {
+        while (ammo > 0)
+        {
+            ShootOnDemand(enemy, missile, shootSpeed, shootPos);
             ammo -= 1;
             yield return new WaitForSeconds(delay);
         }
