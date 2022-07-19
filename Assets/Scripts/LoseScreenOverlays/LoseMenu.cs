@@ -11,6 +11,7 @@ public class LoseMenu : MonoBehaviour
     public void Start() 
     {
         TakeABreak.breakMessage = TakeABreak.FindInActiveObject(GameObject.Find(Constants.CANVAS_OBJECT), Constants.BREAK_MESSAGE_OBJECT);
+        TakeABreak.breakMessage.SetActive(false);
         if (TakeABreak.warning) {
             TakeABreak.Warn();
             breakText = TakeABreak.breakMessage.GetComponentInChildren<Text>();

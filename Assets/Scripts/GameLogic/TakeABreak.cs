@@ -45,7 +45,6 @@ public class TakeABreak : MonoBehaviour
 
     public static void Acknowledge()
     {
-        breakMessage.SetActive(false);
         warning = false;
     }
         
