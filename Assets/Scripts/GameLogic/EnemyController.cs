@@ -13,12 +13,22 @@ public class EnemyController : MonoBehaviour
     public BossController bossController;
     public Transform canvas;
     public bool bossSpawned;
+    public List<Vector2> fixedSpawnLocations;
+    public List<Vector2> fixedExitLocations;
     // Start is called before the first frame update
     void Start()
     {
         canvas = gameObject.transform;
         bossController = (BossController)canvas.GetComponent(typeof(BossController));
         enemiesThisRound = 1;
+
+        for (int i = 0; i <= 12; i++) 
+        {
+            fixedSpawnLocations.Add(new Vector2(0, i * Screen.height / 12));
+            fixedSpawnLocations.Add(new Vector2(i * Screen.width / 12, Screen.height));
+            fixedExitLocations.Add(new Vector2(Screen.width, Screen.height - (i * Screen.height / 12)));
+            fixedExitLocations.Add(new Vector2(Screen.width - (i * Screen.width / 12), 0));
+        }
     }
 
     // Update is called once per frame
@@ -55,8 +65,10 @@ public class EnemyController : MonoBehaviour
                     StartCoroutine(Generate5Waves_C());
                 break;
             case > 20:
-                if (level % 3 == 0)
+                if (level % 3 == 0) {
+                    enemiesThisRound = 24;
                     StartCoroutine(Generate4Waves_A());
+                }
                 else if (level % 3 == 1)
                     StartCoroutine(Generate4Waves_B());
                 else
@@ -169,8 +181,6 @@ public class EnemyController : MonoBehaviour
         }
         enemiesSpawned += enemiesThisWave;
         SpawnEnemiesSynchronous(enemiesThisWave, e);
-        Debug.Log(enemiesSpawned);
-        Debug.Log(enemiesDespawned == enemiesSpawned);
         yield return new WaitUntil(new System.Func<bool>(() => enemiesDespawned == enemiesSpawned));
 
         enemiesThisWave = 3;
@@ -412,8 +422,40 @@ public class EnemyController : MonoBehaviour
     IEnumerator Generate4Waves_A() 
     {
         enemiesSpawned = 0;
-        int enemiesThisWave = 3;
+        int enemiesThisWave = 24;
         EnemyParameters[] e = new EnemyParameters[enemiesThisWave];
+
+        for (int i = 0; i < enemiesThisWave; i++) 
+        {
+            System.Random r1 = new System.Random();
+            int pointPair = r1.Next(0, 13);
+
+            System.Random r2 = new System.Random();
+            int forwards = r2.Next(0, 2);
+
+            if (forwards == 1) 
+            {
+                e[i] = new EnemyParameters(
+                    40000f, 60000f, 1, Constants.NO_ATTACK, 
+                    fixedExitLocations[pointPair], 
+                    fixedSpawnLocations[pointPair], 
+                    fixedExitLocations[pointPair],
+                    Constants.SHOOT_AND_FLY, 1, 1, 1
+                );
+            }
+            else 
+            {
+                e[i] = new EnemyParameters(
+                    40000f, 60000f, 1, Constants.NO_ATTACK, 
+                    fixedSpawnLocations[pointPair], 
+                    fixedExitLocations[pointPair], 
+                    fixedSpawnLocations[pointPair],
+                    Constants.SHOOT_AND_FLY, 1, 1, 1
+                );
+            }
+        }
+        enemiesSpawned += enemiesThisWave;
+        StartCoroutine(SpawnEnemiesWithDelay(enemiesThisWave, e));
         yield return new WaitUntil(new System.Func<bool>(() => enemiesDespawned == enemiesSpawned));
     }
 

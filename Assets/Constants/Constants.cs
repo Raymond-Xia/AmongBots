@@ -143,6 +143,7 @@ public class Constants
     public const int CIRCLE_AND_HOMING_ATTACK = 9;
     public const int SPIRAL_AND_HOMING_ATTACK = 10;
     public const int RANDOM_AND_HOMING_ATTACK = 11;
+    public const int NO_ATTACK = 100;
 
     // SHOOT BEHAVIOUR
     public const int PAUSE_TO_SHOOT = 1;

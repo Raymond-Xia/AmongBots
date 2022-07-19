@@ -61,7 +61,7 @@ public class EnemyAI : MonoBehaviour
                 }
                 break;
             case Constants.SHOOT_AND_FLY:
-                (xIncrement, yIncrement, ammo) = ShootAndFly(xPartition, yPartition, attackPattern, ammo, xIncrement, yIncrement);
+                (xIncrement, yIncrement, ammo) = ShootAndFly(xPartition, yPartition, attackPattern, ammo, xIncrement, yIncrement, spawnLocation, exitLocation);
                 break;
             default:
                 break;
@@ -90,10 +90,11 @@ public class EnemyAI : MonoBehaviour
         return new Vector2(x * moveSpeed * Time.fixedDeltaTime, y * moveSpeed * Time.fixedDeltaTime);
     }
 
-    (int, int, int) ShootAndFly(int xPartition, int yPartition, int attackPattern, int ammo, int xIncrement, int yIncrement) 
+    (int, int, int) ShootAndFly(int xPartition, int yPartition, int attackPattern, int ammo, int xIncrement, int yIncrement, Vector2 spawnLocation, Vector2 exitLocation) 
     {
-        float x = xIncrement * Screen.width / (xPartition + 1);
-        float y = Screen.height - (yIncrement * Screen.height / (yPartition + 1));
+        float x = spawnLocation.x >= exitLocation.x ? xIncrement * Screen.width / (xPartition + 1) : Screen.width - (xIncrement * Screen.width / (xPartition + 1));
+        float y = spawnLocation.y >= exitLocation.y ? Screen.height - (yIncrement * Screen.height / (yPartition + 1)) : yIncrement * Screen.height / (yPartition + 1);
+        
         if (xPartition == 1) 
         {
             x = transform.position.x;
