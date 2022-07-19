@@ -153,4 +153,8 @@ public class Constants
     public static readonly string CARD_TEXT_FORMAT = "Q: {0}\nA: {1}";
     public static readonly string CARDS_SCREEN = "CueCards";
     public const int MAX_CUE_CARDS = 100;
+
+    // WARNING MESSAGES
+    public static readonly string EPILEPSY_WARNING = "This game may potentially trigger seizures for people with photosensitive epilepsy. Player discretion is advised.";
+    public static readonly string AGE_WARNING = "By clicking acknowledge, you consent to being at least 7 years of age or older.";
 }
