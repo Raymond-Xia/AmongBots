@@ -4,6 +4,7 @@ public class Constants
     public static readonly string MENU_SCENE = "Menu";
     public static readonly string GAME_SCENE = "Game";
     public static readonly string LOSE_SCENE = "Lose";
+    public static readonly string WARNING_SCENE = "Warning";
 
     // GAME OBJECTS
     public static readonly string CANVAS_OBJECT = "Canvas";
@@ -66,6 +67,52 @@ public class Constants
     // INVENTORY
     public static readonly string SCROLL_CONTENT_INVENTORY = "ScrollContent";
     public static readonly string SCROLL_VIEW_INVENTORY = "ScrollView";
+    public static readonly string UNLOCKS_AT_INVENTORY = "UNLOCKS AT ";
+    public static readonly int[] HIGHSCORE_THRESHOLDS =
+    {
+        0,
+        10,
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90,
+        100,
+        200,
+    };
+    public static readonly string[] CREWMATES_INVENTORY =
+    {
+        "Crewmate (0)",
+        "Crewmate (1)",
+        "Crewmate (2)",
+        "Crewmate (3)",
+        "Crewmate (4)",
+        "Crewmate (5)",
+        "Crewmate (6)",
+        "Crewmate (7)",
+        "Crewmate (8)",
+        "Crewmate (9)",
+        "Crewmate (10)",
+        "Crewmate (11)",
+    };
+    public static readonly string[] TEXT_INVENTORY =
+    {
+        "Text (0)",
+        "Text (1)",
+        "Text (2)",
+        "Text (3)",
+        "Text (4)",
+        "Text (5)",
+        "Text (6)",
+        "Text (7)",
+        "Text (8)",
+        "Text (9)",
+        "Text (10)",
+        "Text (11)",
+    };
 
     // SHOP
     public static readonly string BUY_BUTTON_SHOP = "BuyButton";
@@ -100,10 +147,21 @@ public class Constants
     public const int HOMING_ATTACK = 3;
     public const int CIRCLE_ATTACK = 4;
     public const int SPIRAL_ATTACK = 5;
+    public const int RANDOM_ATTACK = 6;
+    public const int VERTICAL_AND_HOMING_ATTACK = 7;
+    public const int FAN_AND_HOMING_ATTACK = 8;
+    public const int CIRCLE_AND_HOMING_ATTACK = 9;
+    public const int SPIRAL_AND_HOMING_ATTACK = 10;
+    public const int RANDOM_AND_HOMING_ATTACK = 11;
+    public const int NO_ATTACK = 100;
 
     // SHOOT BEHAVIOUR
     public const int PAUSE_TO_SHOOT = 1;
     public const int SHOOT_AND_FLY = 2;
+
+    // GAME OBJECT MESSAGES
+    public static readonly string EMPTY_AMMO = "EmptyAmmo";
+    public static readonly string SET_PARAMETERS = "SetParameters";
 
     // CUE CARD CREATOR
     public static readonly string CARD_SAVE_FILE = "/savedCueCards.gd";
