@@ -20,7 +20,7 @@ public class Answer : MonoBehaviour
         GameObject questionObject = GameObject.Find(Constants.CUE_CARD_QUESTION_PREFAB);
         AnswerQuestion(attempt, answer, questionObject);
     }
-    
+
     private void AnswerQuestion(string attempt, string answer, GameObject questionObject)
     {
         // if the answer is correct, progress game
@@ -57,10 +57,11 @@ public class Answer : MonoBehaviour
                         else
                             goto case 0;
                     default:
+                        powerupController.SpawnHpPowerup();
                         break;
                 }
             }
-            // start new level        
+            // start new level
             levelController.NewLevel();
         }
         else // if answer is incorrect, lose game
