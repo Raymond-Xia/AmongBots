@@ -13,6 +13,7 @@ public class Constants
     public static readonly string PLAYER_OBJECT = "Player";
     public static readonly string CARD_ANSWER_TEXT_OBJECT = "AnswerText";
     public static readonly string BREAK_MESSAGE_OBJECT = "BreakMessage";
+    public static readonly string AUDIO_CONTROLLER_OBJECT = "AudioController";
 
     // PREFABS
     public static readonly string BOSS_PREFAB = "Boss(Clone)";
@@ -188,6 +189,7 @@ public class Constants
 
     public static readonly string HEALTH_PANEL = "Health";
     public const int MAX_HP = 5;
+    
     // WARNING MESSAGES
     public static readonly string EPILEPSY_WARNING = "This game may potentially trigger seizures for people with photosensitive epilepsy. Player discretion is advised.";
     public static readonly string AGE_WARNING = "By tapping acknowledge, you consent to being at least 7 years of age or older.";
