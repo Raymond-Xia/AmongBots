@@ -294,7 +294,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 786}
   m_SizeDelta: {x: 200, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &94941253
@@ -350,6 +350,87 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94941251}
+  m_CullTransparentMesh: 1
+--- !u!1 &112852169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 112852170}
+  - component: {fileID: 112852172}
+  - component: {fileID: 112852171}
+  m_Layer: 5
+  m_Name: BreakText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &112852170
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112852169}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -49.631092}
+  m_LocalScale: {x: 0.95, y: 0.95, z: 0.95}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 579536108}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.08715, y: -0.0003109}
+  m_SizeDelta: {x: 936.33, y: 469.54}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &112852171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112852169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
+    m_FontSize: 70
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 140
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "You've been playing for x minutes! \nConsider taking a break, the bots
+    will always be here for you to defeat!"
+--- !u!222 &112852172
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112852169}
   m_CullTransparentMesh: 1
 --- !u!1 &190332541
 GameObject:
@@ -736,7 +817,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0039062, y: -403}
+  m_AnchoredPosition: {x: 0, y: -290}
   m_SizeDelta: {x: 590.288, y: 205.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &345040898
@@ -1159,6 +1240,83 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &579536107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 579536108}
+  - component: {fileID: 579536110}
+  - component: {fileID: 579536109}
+  m_Layer: 0
+  m_Name: BreakMessage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &579536108
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579536107}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 54.99291}
+  m_LocalScale: {x: 1.1080315, y: 1.1080315, z: 1.1080315}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 112852170}
+  m_Father: {fileID: 2049475517}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -641}
+  m_SizeDelta: {x: 889.3357, y: 446.0634}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &579536109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579536107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.745283, g: 0.18535942, b: 0.12304199, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &579536110
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579536107}
+  m_CullTransparentMesh: 1
 --- !u!1 &615170362
 GameObject:
   m_ObjectHideFlags: 0
@@ -1306,7 +1464,6 @@ GameObject:
   - component: {fileID: 645423526}
   - component: {fileID: 645423525}
   - component: {fileID: 645423524}
-  - component: {fileID: 645423523}
   m_Layer: 5
   m_Name: ReviewExitButton
   m_TagString: Untagged
@@ -1335,18 +1492,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0039062, y: -866}
   m_SizeDelta: {x: 590.288, y: 205.32}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &645423523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 645423521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bfddb6fb833a4ffda6acaef893b51d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &645423524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1391,8 +1536,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1925791461}
-        m_TargetAssemblyTypeName: ReviewMenu, Assembly-CSharp
+      - m_Target: {fileID: 2049475518}
+        m_TargetAssemblyTypeName: LoseMenu, Assembly-CSharp
         m_MethodName: ExitButton
         m_Mode: 1
         m_Arguments:
@@ -2234,7 +2379,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0039062, y: -694}
+  m_AnchoredPosition: {x: -0.0039062, y: -631}
   m_SizeDelta: {x: 590.288, y: 205.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1056480894
@@ -2281,8 +2426,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2049475519}
-        m_TargetAssemblyTypeName: LossMenu, Assembly-CSharp
+      - m_Target: {fileID: 2049475518}
+        m_TargetAssemblyTypeName: LoseMenu, Assembly-CSharp
         m_MethodName: PlayButton
         m_Mode: 1
         m_Arguments:
@@ -2367,7 +2512,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000019073, y: 0}
+  m_AnchoredPosition: {x: -0.000019073, y: 90}
   m_SizeDelta: {x: 1039.9612, y: 232.7989}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1532460740
@@ -2976,7 +3121,6 @@ GameObject:
   - component: {fileID: 1785300241}
   - component: {fileID: 1785300240}
   - component: {fileID: 1785300239}
-  - component: {fileID: 1785300242}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -3049,8 +3193,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2049475519}
-        m_TargetAssemblyTypeName: LossMenu, Assembly-CSharp
+      - m_Target: {fileID: 2049475518}
+        m_TargetAssemblyTypeName: LoseMenu, Assembly-CSharp
         m_MethodName: ExitButton
         m_Mode: 1
         m_Arguments:
@@ -3099,18 +3243,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1785300237}
   m_CullTransparentMesh: 1
---- !u!114 &1785300242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1785300237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bfddb6fb833a4ffda6acaef893b51d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1925791459
 GameObject:
   m_ObjectHideFlags: 0
@@ -3177,7 +3309,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2049475517}
-  - component: {fileID: 2049475519}
+  - component: {fileID: 2049475518}
   m_Layer: 5
   m_Name: LossMenu
   m_TagString: Untagged
@@ -3205,6 +3337,7 @@ RectTransform:
   - {fileID: 384169732}
   - {fileID: 94941252}
   - {fileID: 345040897}
+  - {fileID: 579536108}
   m_Father: {fileID: 1562313307}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3213,7 +3346,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2049475519
+--- !u!114 &2049475518
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3222,11 +3355,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2049475516}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a40678daf9bfd494b820b474f012cb96, type: 3}
+  m_Script: {fileID: 11500000, guid: f6d0209b4b6ccea49ab77b0b3cbb0bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crewmate: {fileID: 0}
-  skin: {fileID: 0}
 --- !u!1 &2083773003
 GameObject:
   m_ObjectHideFlags: 0
