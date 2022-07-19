@@ -4,6 +4,7 @@ public class Constants
     public static readonly string MENU_SCENE = "Menu";
     public static readonly string GAME_SCENE = "Game";
     public static readonly string LOSE_SCENE = "Lose";
+    public static readonly string WARNING_SCENE = "Warning";
 
     // GAME OBJECTS
     public static readonly string CANVAS_OBJECT = "Canvas";
