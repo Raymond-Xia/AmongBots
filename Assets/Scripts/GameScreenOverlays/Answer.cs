@@ -1,10 +1,18 @@
+using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class Answer : MonoBehaviour
 {
+    // store the answers and the attempts for later use
+    public static Dictionary<string, string> record = new Dictionary<string, string>();
+
+    public static void resetRecord ()
+    {
+        record = new Dictionary<string, string>();
+    }
     public void AnswerMathQuestion()
     {
         string attempt = GetComponentInChildren<TMP_Text>().text;
@@ -23,6 +31,7 @@ public class Answer : MonoBehaviour
     
     private void AnswerQuestion(string attempt, string answer, GameObject questionObject)
     {
+
         // if the answer is correct, progress game
         if (attempt == answer)
         {
@@ -31,6 +40,9 @@ public class Answer : MonoBehaviour
             BossAI bossAI = (BossAI) boss.GetComponent(typeof(BossAI));
             bossAI.DestroyAnimation();
             Destroy(questionObject);
+
+            // reset record
+            resetRecord();
 
             // increment score
             Score.score += 10;
@@ -64,7 +76,17 @@ public class Answer : MonoBehaviour
             levelController.NewLevel();
         }
         else // if answer is incorrect, lose game
-        {
+        {   
+            // update record to contain the question, attempt and the solution
+            if (LevelController.gameMode == Constants.CUE_CARDS_GAMEMODE) {
+                record.Add("question", CueCardQuestionGenerator.latestQuestion);
+            }
+            else {
+                record.Add("question", MathQuestionGenerator.latestQuestion);
+            }
+            record.Add("attempt", attempt);
+            record.Add("solution", answer);
+
             SceneManager.LoadScene(Constants.LOSE_SCENE);
         }
     }
