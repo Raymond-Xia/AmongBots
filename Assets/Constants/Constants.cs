@@ -180,6 +180,10 @@ public class Constants
     public static readonly string CARDS_SCREEN = "CueCards";
     public const int MAX_CUE_CARDS = 100;
 
+    // WARNING MESSAGES
+    public static readonly string EPILEPSY_WARNING = "This game may potentially trigger seizures for people with photosensitive epilepsy. Player discretion is advised.";
+    public static readonly string AGE_WARNING = "By tapping acknowledge, you consent to being at least 7 years of age or older.";
+    
     // BREAK TIME
     public static readonly string BREAK_MESSAGE_TEXT = "You've been playing for {0} minutes!\nConsider taking a break, the bots will always be here for you to defeat!";
 }
