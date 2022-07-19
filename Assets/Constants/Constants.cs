@@ -129,6 +129,9 @@ public class Constants
 
     public static readonly string SCORES_TEXT = "HighScores";
 
+    public static readonly string CONFIRMATION_TEXT = "Confirmation";
+    public static readonly string CONFIRMATION_DATA = "DATA HAS BEEN RESET";
+
     // GAME MODES
     public const int ORIGINAL_GAMEMODE = 0;
     public const int ADDITION_GAMEMODE = 1;
