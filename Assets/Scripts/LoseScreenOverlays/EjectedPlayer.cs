@@ -33,8 +33,8 @@ public class EjectedPlayer : MonoBehaviour
         rotationAngle += 0.5f;
 
         Quaternion target = Quaternion.Euler(0, 0, rotationAngle);
-        transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 3.0f);
-        skin.transform.rotation = Quaternion.Slerp(skin.transform.rotation, target, Time.deltaTime * 3.0f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 5.0f);
+        skin.transform.rotation = Quaternion.Slerp(skin.transform.rotation, target, Time.deltaTime * 5.0f);
 
         if (rotationAngle >= 360f)
         {
