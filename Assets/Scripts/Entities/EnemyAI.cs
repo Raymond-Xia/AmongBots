@@ -92,7 +92,7 @@ public class EnemyAI : MonoBehaviour
 
     (int, int, int) ShootAndFly(int xPartition, int yPartition, int attackPattern, int ammo, int xIncrement, int yIncrement, Vector2 spawnLocation, Vector2 exitLocation) 
     {
-        float x = spawnLocation.x >= exitLocation.x ? xIncrement * Screen.width / (xPartition + 1) : Screen.width - (xIncrement * Screen.width / (xPartition + 1));
+        float x = spawnLocation.x >= exitLocation.x ? Screen.width - (xIncrement * Screen.width / (xPartition + 1)) : (xIncrement * Screen.width / (xPartition + 1));
         float y = spawnLocation.y >= exitLocation.y ? Screen.height - (yIncrement * Screen.height / (yPartition + 1)) : yIncrement * Screen.height / (yPartition + 1);
         
         if (xPartition == 1) 
