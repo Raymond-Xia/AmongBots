@@ -27,13 +27,16 @@ public class EnemyParameters
     // Determines whether enemy stops and shoots or moves while shooting
     public int shootBehaviour;
 
+    // Determines how quickly waves of bullets should be shot
+    public float shootDelay;
+
     // For moves while shooting, partition screen to select when to shoot based on X pos
     public int xPartition;
 
     // For moves while shooting, partition screen to select when to shoot based on Y pos
     public int yPartition;
 
-    public EnemyParameters(float shootSpeed, float moveSpeed, int ammo, int attackPattern, Vector2 pausePoint, Vector3 spawnLocation, Vector3 exitLocation, int shootBehaviour, int xPartition, int yPartition) 
+    public EnemyParameters(float shootSpeed, float moveSpeed, int ammo, int attackPattern, Vector2 pausePoint, Vector3 spawnLocation, Vector3 exitLocation, int shootBehaviour, float shootDelay, int xPartition, int yPartition) 
     {
         this.shootSpeed = shootSpeed;
         this.moveSpeed = moveSpeed;
@@ -43,6 +46,7 @@ public class EnemyParameters
         this.spawnLocation = spawnLocation;
         this.exitLocation = exitLocation;
         this.shootBehaviour = shootBehaviour;
+        this.shootDelay = shootDelay;
         this.xPartition = xPartition;
         this.yPartition = yPartition;
     }

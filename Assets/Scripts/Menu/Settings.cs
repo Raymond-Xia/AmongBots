@@ -10,6 +10,7 @@ public class Settings : MonoBehaviour
         PlayerPrefs.SetInt(Constants.SKIN_SELECTED_KEY, 0);
         int[] ints = { 0, 0, 0, 0, 0 };
         PlayerPrefs.SetString(Constants.SCORES_TOPSCORES, string.Join("/n", ints));
+        PlayerPrefs.SetInt(Constants.SCORES_BALANCE, 0);
         PlayerPrefs.Save();
     }
 }

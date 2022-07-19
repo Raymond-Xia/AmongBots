@@ -10,14 +10,18 @@ public class Shop : MonoBehaviour
     {
         i = 1;
         UpdateSprite();
+        UpdateSkin();
         UpdateButton();
+        UpdateBalance();
     }
 
     public void UpdateStart()
     {
         i = 1;
         UpdateSprite();
+        UpdateSkin();
         UpdateButton();
+        UpdateBalance();
     }
 
     public void LeftButton()
@@ -27,7 +31,7 @@ public class Shop : MonoBehaviour
         {
             i = Constants.SKINS.Length - 1;
         }
-        UpdateSprite();
+        UpdateSkin();
         UpdateButton();
     }
 
@@ -38,26 +42,43 @@ public class Shop : MonoBehaviour
         {
             i = 1;
         }
-        UpdateSprite();
+        UpdateSkin();
         UpdateButton();
     }
 
     public void BuyButton()
     {
-        char[] owned = Constants.SKIN_OWNED_MASK.ToCharArray();
-        if (PlayerPrefs.HasKey(Constants.SKIN_OWNED_KEY))
+        int balance = 0;
+        if (PlayerPrefs.HasKey(Constants.SCORES_BALANCE))
         {
-            owned = PlayerPrefs.GetString(Constants.SKIN_OWNED_KEY).ToCharArray();
+            balance = PlayerPrefs.GetInt(Constants.SCORES_BALANCE);
         }
-        owned[i] = '1';
-        PlayerPrefs.SetString(Constants.SKIN_OWNED_KEY, new string(owned));
-        PlayerPrefs.Save();
-        UpdateButton();
+        if (balance >= Constants.PRICES[i])
+        {
+            PlayerPrefs.SetInt(Constants.SCORES_BALANCE, balance - Constants.PRICES[i]);
+
+            char[] owned = Constants.SKIN_OWNED_MASK.ToCharArray();
+            if (PlayerPrefs.HasKey(Constants.SKIN_OWNED_KEY))
+            {
+                owned = PlayerPrefs.GetString(Constants.SKIN_OWNED_KEY).ToCharArray();
+            }
+            owned[i] = '1';
+            PlayerPrefs.SetString(Constants.SKIN_OWNED_KEY, new string(owned));
+            PlayerPrefs.Save();
+            UpdateButton();
+            UpdateBalance();
+        }
+    }
+
+    private void UpdateSkin()
+    {
+        Sprite sprite = Resources.Load<Sprite>(Constants.SKINS[i]);
+        GameObject.Find(Constants.SKIN_OBJECT).GetComponent<Image>().sprite = sprite;
     }
 
     private void UpdateSprite()
     {
-        Sprite sprite = Resources.Load<Sprite>(Constants.SKINS[i]);
+        Sprite sprite = Cosmetics.UpdateSprite();
         GameObject.Find(Constants.CREWMATE_OBJECT).GetComponent<Image>().sprite = sprite;
     }
 
@@ -76,7 +97,17 @@ public class Shop : MonoBehaviour
         else
         {
             GameObject.Find(Constants.BUY_BUTTON_SHOP).GetComponent<Button>().interactable = true;
-            GameObject.Find(Constants.BUY_TEXT_SHOP).GetComponent<TMP_Text>().text = "BUY";
+            GameObject.Find(Constants.BUY_TEXT_SHOP).GetComponent<TMP_Text>().text = "$" + Constants.PRICES[i];
         }
+    }
+
+    private void UpdateBalance()
+    {
+        int balance = 0;
+        if (PlayerPrefs.HasKey(Constants.SCORES_BALANCE))
+        {
+            balance = PlayerPrefs.GetInt(Constants.SCORES_BALANCE);
+        }
+        GameObject.Find(Constants.BALANCE_TEXT_SHOP).GetComponent<TMP_Text>().text = Constants.BALANCE_TEXT_PREFIX + balance;
     }
 }

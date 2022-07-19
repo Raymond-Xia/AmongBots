@@ -12,6 +12,7 @@ public class AttackFan : Attack
             newMissile.GetComponent<Rigidbody2D>().velocity = new Vector2(-shootSpeed * Time.fixedDeltaTime * Mathf.Cos((angle * Mathf.PI) / 180), -shootSpeed * Time.fixedDeltaTime * Mathf.Sin((angle * Mathf.PI) / 180));
             newMissile.transform.SetParent(GameObject.Find(Constants.CANVAS_OBJECT).transform, true);
             newMissile.transform.SetSiblingIndex(4);
+            EnemyAI.laserSound.Play();
             angle += 30;
         }
         angle = 60;
@@ -25,6 +26,6 @@ public class AttackFan : Attack
             ammo -= 1;
             yield return new WaitForSeconds(delay);
         }
-        enemy.SendMessage("EmptyAmmo", 0);
+        enemy.SendMessage(Constants.EMPTY_AMMO, 0);
     }
 }

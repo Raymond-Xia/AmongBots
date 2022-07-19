@@ -49,11 +49,10 @@ public class PlayMenu : MonoBehaviour
         }
     }
 
-    private void InitializeGame()
+    public static void InitializeGame()
     {
         SceneManager.LoadScene(Constants.GAME_SCENE);
         PlayerMovement.hp = 5;
-        Score.score = 0;
     }
 
 }

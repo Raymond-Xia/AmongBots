@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 canvasPosition;
     public GameObject player;
     public GameObject skin;
+    public AudioSource hitSound;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         col = GetComponent<Collider2D>();
 
         player.GetComponent<Image>().sprite = Cosmetics.UpdateSprite();
-        skin.GetComponent<Image>().sprite = Cosmetics.UpdateSkin();
+        skin.GetComponent<Image>().sprite = Cosmetics.UpdateSkin();        
     }
 
     // Update is called once per frame
@@ -72,11 +73,18 @@ public class PlayerMovement : MonoBehaviour
                 SceneManager.LoadScene(Constants.LOSE_SCENE);
                 hp = 5;
             }
+            hitSound.Play();
         }
 
         if (collision.tag == Constants.HEALTHPOWERUP_TAG)
         {
             hp += 1;
+        }
+
+        if (collision.tag == Constants.NUKEPOWERUP_TAG)
+        {
+            NukeButton script = GameObject.Find(Constants.NUKEBUTTON_TAG).GetComponent<NukeButton>();
+            script.activateButton();
         }
     }
 }

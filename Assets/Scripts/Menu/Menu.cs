@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
@@ -15,17 +14,6 @@ public class Menu : MonoBehaviour
 
         crewmate.GetComponent<Image>().sprite = Cosmetics.UpdateSprite();
         skin.GetComponent<Image>().sprite = Cosmetics.UpdateSkin();
-    }
-
-    public void PlayButton()
-    {
-        SceneManager.LoadScene(Constants.GAME_SCENE);
-        PlayerMovement.hp = 5;
-    }
-
-    public void ExitButton()
-    {
-        SceneManager.LoadScene(Constants.MENU_SCENE);
     }
 
     public void LeftButton()
@@ -67,6 +55,16 @@ public class Menu : MonoBehaviour
         } while (owned[i] == '0');
         PlayerPrefs.SetInt(Constants.SKIN_SELECTED_KEY, i);
         PlayerPrefs.Save();
+        skin.GetComponent<Image>().sprite = Cosmetics.UpdateSkin();
+    }
+
+    public void UpdateSprite()
+    {
+        crewmate.GetComponent<Image>().sprite = Cosmetics.UpdateSprite();
+    }
+
+    public void UpdateSkin()
+    {
         skin.GetComponent<Image>().sprite = Cosmetics.UpdateSkin();
     }
 }
