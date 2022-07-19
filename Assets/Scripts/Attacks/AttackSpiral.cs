@@ -10,16 +10,16 @@ public class AttackSpiral : Attack
         {
             
             System.Random r = new System.Random();
-            int angleOffset = r.Next(0, 3);
-            angleOffset = (angleOffset * 5) % 15;
+            int angleOffset = r.Next(0, 4);
+            angleOffset = (angleOffset * 5) % 20;
             int angle = angleOffset;
-            while (angle <= 345 + angleOffset)
+            while (angle <= 340 + angleOffset)
             {
                 GameObject newMissile = Instantiate(missile, shootPos.position, Quaternion.identity) as GameObject;
                 newMissile.GetComponent<Rigidbody2D>().velocity = new Vector2(-shootSpeed * Time.fixedDeltaTime * Mathf.Cos((angle * Mathf.PI) / 180), -shootSpeed * Time.fixedDeltaTime * Mathf.Sin((angle * Mathf.PI) / 180));
                 newMissile.transform.SetParent(GameObject.Find(Constants.CANVAS_OBJECT).transform, true);
                 newMissile.transform.SetSiblingIndex(4);
-                angle += 15;
+                angle += 20;
                 EnemyAI.laserSound.Play();
                 yield return new WaitForSeconds(0.01f);
             }
