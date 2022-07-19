@@ -11,6 +11,7 @@ public class Constants
     public static readonly string SKIN_OBJECT = "Skin";
     public static readonly string PLAYER_OBJECT = "Player";
     public static readonly string CARD_ANSWER_TEXT_OBJECT = "AnswerText";
+    public static readonly string BREAK_MESSAGE_OBJECT = "BreakMessage";
 
     // PREFABS
     public static readonly string BOSS_PREFAB = "Boss(Clone)";
@@ -152,4 +153,7 @@ public class Constants
     public static readonly string CARD_TEXT_FORMAT = "Q: {0}\nA: {1}";
     public static readonly string CARDS_SCREEN = "CueCards";
     public const int MAX_CUE_CARDS = 100;
+
+    // BREAK TIME
+    public static readonly string BREAK_MESSAGE_TEXT = "You've been playing for {0} minutes!\nConsider taking a break, the bots will always be here for you to defeat!";
 }
