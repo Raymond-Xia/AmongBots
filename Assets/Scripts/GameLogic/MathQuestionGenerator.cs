@@ -29,7 +29,7 @@ public class MathQuestionGenerator : MonoBehaviour
         string op = "";
         switch (gameMode) {
             case Constants.ORIGINAL_GAMEMODE:
-                chooseDifficulty = Random.Range(0, Mathf.Min(1 + level/5, 8));
+                chooseDifficulty = Random.Range(0, Mathf.Min(1 + level/2, 8));
                 break;
             case Constants.ADDITION_GAMEMODE:
                 chooseDifficulty = level < 10 ? 0 : Random.Range(0, 2);
