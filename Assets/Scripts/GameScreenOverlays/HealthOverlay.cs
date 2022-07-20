@@ -14,7 +14,7 @@ public class HealthOverlay : MonoBehaviour
             GameObject.Destroy(child.gameObject);
         }
 
-        int x = 130;
+        int x = 100;
         for (int i = 0; i < PlayerMovement.hp; i++)
         {
             hearts[i] = new GameObject();
@@ -24,7 +24,7 @@ public class HealthOverlay : MonoBehaviour
             hearts[i].AddComponent<Image>().sprite = sprite;
             RectTransform heartRectTransform = hearts[i].GetComponent<RectTransform>();
             heartRectTransform.transform.localScale = new Vector2(1.38f, 1.2f);
-            heartRectTransform.transform.position = new Vector2(x, Screen.height - 350);
+            heartRectTransform.transform.position = new Vector2(x, Screen.height - 370);
             hearts[i].SetActive(true);
             x += 150;
         }
