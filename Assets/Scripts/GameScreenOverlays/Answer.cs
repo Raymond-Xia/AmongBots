@@ -48,7 +48,7 @@ public class Answer : MonoBehaviour
             if (LevelController.gameMode == Constants.CUE_CARDS_GAMEMODE) {
                 Score.score += 10;
             } else {
-                Score.score += System.Math.Min((int)MathQuestionGenerator.remainingTime + 1, 10);
+                Score.score += (int)System.Math.Ceiling(MathQuestionGenerator.remainingTime);
             }
 
             GameObject canvas = GameObject.Find(Constants.CANVAS_OBJECT);
