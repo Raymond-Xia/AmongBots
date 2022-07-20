@@ -5,19 +5,21 @@ public class DeathBotAI : MonoBehaviour
 {
     public Transform canvas;
     public GameObject player;
+    public GameObject skin;
     public GameObject deathBot;
     public Rigidbody2D body;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find(Constants.PLAYER_OBJECT);
+        skin = GameObject.Find(Constants.SKIN_OBJECT);
         body = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        skin.transform.position = new Vector2(player.transform.position.x, player.transform.position.y + 25);
     }
 
     private IEnumerator OnTriggerEnter2D(Collider2D collision) 
