@@ -20,6 +20,10 @@ public class Scores : MonoBehaviour
             }
             highScoreText.text = temp;
         }
-        Debug.Log(gameModeKey);
+        else
+        {
+            highScoreText.text = "";
+        }
+
     }
 }
