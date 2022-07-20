@@ -191,6 +191,7 @@ public class Constants
     // GAME OBJECT MESSAGES
     public static readonly string EMPTY_AMMO = "EmptyAmmo";
     public static readonly string SET_PARAMETERS = "SetParameters";
+    public static readonly string DEATH_ANIMATION = "DeathAnimation";
 
     // CUE CARD CREATOR
     public static readonly string CARD_SAVE_FILE = "/savedCueCards.gd";

@@ -93,7 +93,7 @@ public class Answer : MonoBehaviour
             record.Add("solution", answer);
 
             GameObject player = GameObject.Find(Constants.PLAYER_OBJECT);
-            player.SendMessage("DeathAnimation", 0);
+            player.SendMessage(Constants.DEATH_ANIMATION, 0);
         }
     }
 }

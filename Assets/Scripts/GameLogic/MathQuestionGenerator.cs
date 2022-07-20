@@ -137,7 +137,7 @@ public class MathQuestionGenerator : MonoBehaviour
         if (remainingTime < 0.005f)
         {
             GameObject player = GameObject.Find(Constants.PLAYER_OBJECT);
-            player.SendMessage("DeathAnimation", 0);
+            player.SendMessage(Constants.DEATH_ANIMATION, 0);
         }
         
     }
