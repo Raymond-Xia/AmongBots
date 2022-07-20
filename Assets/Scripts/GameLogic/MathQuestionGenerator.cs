@@ -119,7 +119,7 @@ public class MathQuestionGenerator : MonoBehaviour
         a1.text = randomButton == 1 ? answer + "" : wrongAnswers.Pop() + "";
         a2.text = randomButton == 2 ? answer + "" : wrongAnswers.Pop() + "";
         a3.text = randomButton == 3 ? answer + "" : wrongAnswers.Pop() + "";
-        
+
         // Start timer
         remainingTime = 10.00f;
         StartCoroutine(RunTimer());
@@ -127,7 +127,7 @@ public class MathQuestionGenerator : MonoBehaviour
 
     private IEnumerator RunTimer()
     {
-        while (remainingTime >= 0.005f) 
+        while (remainingTime >= 0.005f)
         {
             remainingTime -= Time.deltaTime;
             if (remainingTime <= 5.0f) timer.color = Color.red;
@@ -139,7 +139,7 @@ public class MathQuestionGenerator : MonoBehaviour
             GameObject player = GameObject.Find(Constants.PLAYER_OBJECT);
             player.SendMessage(Constants.DEATH_ANIMATION, 0);
         }
-        
+
     }
 
 }

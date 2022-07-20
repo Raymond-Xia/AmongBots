@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class Inventory : MonoBehaviour
 {
@@ -31,6 +32,22 @@ public class Inventory : MonoBehaviour
         if (PlayerPrefs.HasKey(Constants.SCORES_TOPSCORES))
         {
             highScore = int.Parse(PlayerPrefs.GetString(Constants.SCORES_TOPSCORES).Split("/n")[0]);
+        }
+        if (PlayerPrefs.HasKey(Constants.SCORES_ADDITION_TOPSCORES))
+        {
+            highScore = Math.Max(highScore, int.Parse(PlayerPrefs.GetString(Constants.SCORES_ADDITION_TOPSCORES).Split("/n")[0]));
+        }
+        if (PlayerPrefs.HasKey(Constants.SCORES_SUBTRACTION_TOPSCORES))
+        {
+            highScore = Math.Max(highScore, int.Parse(PlayerPrefs.GetString(Constants.SCORES_SUBTRACTION_TOPSCORES).Split("/n")[0]));
+        }
+        if (PlayerPrefs.HasKey(Constants.SCORES_MULTIPLICATION_TOPSCORES))
+        {
+            highScore = Math.Max(highScore, int.Parse(PlayerPrefs.GetString(Constants.SCORES_MULTIPLICATION_TOPSCORES).Split("/n")[0]));
+        }
+        if (PlayerPrefs.HasKey(Constants.SCORES_DIVISION_TOPSCORES))
+        {
+            highScore = Math.Max(highScore, int.Parse(PlayerPrefs.GetString(Constants.SCORES_DIVISION_TOPSCORES).Split("/n")[0]));
         }
 
         for (int i = 0; i < Constants.CREWMATES_INVENTORY.Length; i++)

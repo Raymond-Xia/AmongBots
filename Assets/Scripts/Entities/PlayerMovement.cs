@@ -2,11 +2,12 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
     public static int hp = Constants.MAX_HP;
-    public static float rotationAngle = 0.0f;
+    public static bool invulnerable = false;
     public bool moveAllowed;
     public bool beingEjected;
     public Collider2D col;
@@ -70,15 +71,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == Constants.ENEMY_TAG || collision.tag == Constants.MISSILE_TAG)
+        if (!invulnerable && (collision.tag == Constants.ENEMY_TAG || collision.tag == Constants.MISSILE_TAG))
         {
             hp -= 1;
             if (hp == 0)
             {
                 DeathAnimation();
-                
+                invulnerable = false;
             }
             hitSound.Play();
+            StartCoroutine(IFrames());
         }
 
         if (collision.tag == Constants.HEALTHPOWERUP_TAG)
@@ -107,5 +109,45 @@ public class PlayerMovement : MonoBehaviour
     void LoadLoseScene() 
     {
         SceneManager.LoadScene(Constants.LOSE_SCENE);
+    }
+    
+    private IEnumerator IFrames()
+    {
+        float time = 1;
+        invulnerable = true;
+        while (time >= 0.005f)
+        {
+            time -= Time.deltaTime;
+            if ((int)(time * 10) % 2 == 0)
+            {
+                var playerColor = player.GetComponent<Image>().color;
+                playerColor.a = 1f;
+                player.GetComponent<Image>().color = playerColor;
+                var skinColor = skin.GetComponent<Image>().color;
+                skinColor.a = 1f;
+                player.GetComponent<Image>().color = skinColor;
+            }
+            else
+            {
+                var playerColor = player.GetComponent<Image>().color;
+                playerColor.a = 0.5f;
+                player.GetComponent<Image>().color = playerColor;
+                var skinColor = skin.GetComponent<Image>().color;
+                skinColor.a = 0.5f;
+                player.GetComponent<Image>().color = skinColor;
+            }
+
+            yield return null;
+        }
+        if (time < 0.005f)
+        {
+            invulnerable = false;
+            var playerColor = player.GetComponent<Image>().color;
+            playerColor.a = 1f;
+            player.GetComponent<Image>().color = playerColor;
+            var skinColor = skin.GetComponent<Image>().color;
+            skinColor.a = 1f;
+            player.GetComponent<Image>().color = skinColor;
+        }
     }
 }
