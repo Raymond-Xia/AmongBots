@@ -159,8 +159,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -433.00003, y: 100}
-  m_SizeDelta: {x: 350, y: 200.478}
+  m_AnchoredPosition: {x: 0, y: 100}
+  m_SizeDelta: {x: 600, y: 200.478}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &19130851
 MonoBehaviour:
@@ -194,15 +194,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1. 10
-
-    2. 0
-
-    3. 0
-
-    4. 0
-
-    5. 0
+  m_text: '
 
 '
   m_isRightToLeft: 0
@@ -4010,6 +4002,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1775775982}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &292096051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4256,8 +4260,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -433.00003, y: 100}
-  m_SizeDelta: {x: 350, y: 200.478}
+  m_AnchoredPosition: {x: 0, y: 100}
+  m_SizeDelta: {x: 600, y: 200.478}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &307452851
 MonoBehaviour:
@@ -4291,15 +4295,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1. 0
-
-    2. 0
-
-    3. 0
-
-    4. 0
-
-    5. 0'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e8fff67cb09444a5b7f7a5e3b293c74, type: 2}
   m_sharedMaterial: {fileID: -2962719752531161906, guid: 5e8fff67cb09444a5b7f7a5e3b293c74, type: 2}
@@ -4487,6 +4483,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2049475518}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: UpdateSprite
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2049475518}
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: UpdateSkin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5417,8 +5425,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -433.00003, y: 100}
-  m_SizeDelta: {x: 350, y: 200.478}
+  m_AnchoredPosition: {x: 0, y: 100}
+  m_SizeDelta: {x: 600, y: 200.478}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &382460420
 MonoBehaviour:
@@ -5452,15 +5460,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1. 0
-
-    2. 0
-
-    3. 0
-
-    4. 0
-
-    5. 0'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e8fff67cb09444a5b7f7a5e3b293c74, type: 2}
   m_sharedMaterial: {fileID: -2962719752531161906, guid: 5e8fff67cb09444a5b7f7a5e3b293c74, type: 2}
@@ -8926,8 +8926,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -433.00003, y: 100}
-  m_SizeDelta: {x: 350, y: 200.478}
+  m_AnchoredPosition: {x: 0, y: 100}
+  m_SizeDelta: {x: 600, y: 200.478}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &717214096
 MonoBehaviour:
@@ -8949,15 +8949,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1. 0
-
-    2. 0
-
-    3. 0
-
-    4. 0
-
-    5. 0'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e8fff67cb09444a5b7f7a5e3b293c74, type: 2}
   m_sharedMaterial: {fileID: -2962719752531161906, guid: 5e8fff67cb09444a5b7f7a5e3b293c74, type: 2}
@@ -14102,8 +14094,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -433.00003, y: 100}
-  m_SizeDelta: {x: 350, y: 200.478}
+  m_AnchoredPosition: {x: 0, y: 100}
+  m_SizeDelta: {x: 600, y: 200.478}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1065878509
 MonoBehaviour:
@@ -14137,15 +14129,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1. 10
-
-    2. 0
-
-    3. 0
-
-    4. 0
-
-    5. 0
+  m_text: '
 
 '
   m_isRightToLeft: 0
@@ -22149,7 +22133,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -936}
+  m_AnchoredPosition: {x: 0, y: -851}
   m_SizeDelta: {x: 482.5671, y: 200.478}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1719605539
@@ -22231,6 +22215,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 322718853}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1719605540
 MonoBehaviour:
@@ -23570,8 +23566,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -433.00003, y: 100}
-  m_SizeDelta: {x: 350, y: 200.478}
+  m_AnchoredPosition: {x: 0, y: 100}
+  m_SizeDelta: {x: 600, y: 200.478}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1840240441
 MonoBehaviour:
@@ -23605,15 +23601,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1. 0
-
-    2. 0
-
-    3. 0
-
-    4. 0
-
-    5. 0'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e8fff67cb09444a5b7f7a5e3b293c74, type: 2}
   m_sharedMaterial: {fileID: -2962719752531161906, guid: 5e8fff67cb09444a5b7f7a5e3b293c74, type: 2}
@@ -23799,6 +23787,18 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1561483916}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 322718853}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -26497,6 +26497,18 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1561483916}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 322718853}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6

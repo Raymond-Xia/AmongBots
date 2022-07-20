@@ -72,11 +72,17 @@ public class Constants
     public static readonly string SKIN_SELECTED_KEY = "skin_selected";
     public static readonly string SKIN_OWNED_KEY = "skin_owned";
     public static readonly string SKIN_OWNED_MASK = "10000000000";
+    public static readonly string SCORES_TOPSCORES_NAMES = "Original_TopScores_Names";
     public static readonly string SCORES_TOPSCORES = "Original_TopScores";
+    public static readonly string SCORES_CUECARD_TOPSCORES_NAMES = "CueCard_TopScores_Names";
     public static readonly string SCORES_CUECARD_TOPSCORES = "CueCard_TopScores";
+    public static readonly string SCORES_ADDITION_TOPSCORES_NAMES = "Addition_TopScores_Names";
     public static readonly string SCORES_ADDITION_TOPSCORES = "Addition_TopScores";
+    public static readonly string SCORES_SUBTRACTION_TOPSCORES_NAMES = "Subtraction_TopScores_Names";
     public static readonly string SCORES_SUBTRACTION_TOPSCORES = "Subtraction_TopScores";
+    public static readonly string SCORES_MULTIPLICATION_TOPSCORES_NAMES = "Multiplication_TopScores_Names";
     public static readonly string SCORES_MULTIPLICATION_TOPSCORES = "Multiplication_TopScores";
+    public static readonly string SCORES_DIVISION_TOPSCORES_NAMES = "Division_TopScores_Names";
     public static readonly string SCORES_DIVISION_TOPSCORES = "Division_TopScores";
     public static readonly string SCORES_BALANCE = "balance";
     public static readonly string USERNAME = "user_name";
@@ -151,6 +157,7 @@ public class Constants
         100,
     };
 
+    public static readonly string DEFAULT_USERNAME = "USER";
     public static readonly string USERNAME_TEXT = "UserName";
     public static readonly string SCORES_TEXT = "HighScores";
 

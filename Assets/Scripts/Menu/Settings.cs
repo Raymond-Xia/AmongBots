@@ -6,20 +6,7 @@ public class Settings : MonoBehaviour
 {
     public void ResetButton()
     {
-        PlayerPrefs.SetString(Constants.SPRITE_OWNED_KEY, Constants.SPRITE_OWNED_MASK);
-        PlayerPrefs.SetInt(Constants.SPRITE_SELECTED_KEY, 0);
-        PlayerPrefs.SetString(Constants.SKIN_OWNED_KEY, Constants.SKIN_OWNED_MASK);
-        PlayerPrefs.SetInt(Constants.SKIN_SELECTED_KEY, 0);
-        int[] ints = { 0, 0, 0, 0, 0 };
-        PlayerPrefs.SetString(Constants.SCORES_TOPSCORES, string.Join("/n", ints));
-        PlayerPrefs.SetString(Constants.SCORES_ADDITION_TOPSCORES, string.Join("/n", ints));
-        PlayerPrefs.SetString(Constants.SCORES_SUBTRACTION_TOPSCORES, string.Join("/n", ints));
-        PlayerPrefs.SetString(Constants.SCORES_MULTIPLICATION_TOPSCORES, string.Join("/n", ints));
-        PlayerPrefs.SetString(Constants.SCORES_DIVISION_TOPSCORES, string.Join("/n", ints));
-        PlayerPrefs.SetString(Constants.SCORES_CUECARD_TOPSCORES, string.Join("/n", ints));
-        PlayerPrefs.SetInt(Constants.SCORES_BALANCE, 0);
-        PlayerPrefs.SetString(Constants.USERNAME, "USER");
-        PlayerPrefs.Save();
+        PlayerPrefs.DeleteAll();
         StartCoroutine(Confirmation());
     }
 
