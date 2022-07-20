@@ -8,7 +8,7 @@ using UnityEngine;
 public class LossMenu : MonoBehaviour
 {
     Text breakText;
-    public void Start() 
+    public void Start()
     {
         TakeABreak.breakMessage = TakeABreak.FindInActiveObject(GameObject.Find(Constants.CANVAS_OBJECT), Constants.BREAK_MESSAGE_OBJECT);
         TakeABreak.breakMessage.SetActive(false);
@@ -22,7 +22,7 @@ public class LossMenu : MonoBehaviour
         {
             Destroy(GameObject.Find("ReviewButton"));
         }
-        
+
         SaveScore();
     }
 
@@ -66,7 +66,7 @@ public class LossMenu : MonoBehaviour
         else if (PlayMenu.is_division)
         {
             score_gameMode = Constants.SCORES_DIVISION_TOPSCORES;
-        }
+        }gi
 
         //update corresponding player pref with new score
         if (PlayerPrefs.HasKey(score_gameMode))
@@ -93,11 +93,14 @@ public class LossMenu : MonoBehaviour
             PlayerPrefs.SetString(score_gameMode, string.Join("/n", ints));
         }
 
-        int balance = 0;
-        if (PlayerPrefs.HasKey(Constants.SCORES_BALANCE))
+        if (!PlayMenu.is_CueCard)
         {
-            balance = PlayerPrefs.GetInt(Constants.SCORES_BALANCE);
+            int balance = 0;
+            if (PlayerPrefs.HasKey(Constants.SCORES_BALANCE))
+            {
+                balance = PlayerPrefs.GetInt(Constants.SCORES_BALANCE);
+            }
+            PlayerPrefs.SetInt(Constants.SCORES_BALANCE, balance + Score.score);
         }
-        PlayerPrefs.SetInt(Constants.SCORES_BALANCE, balance + Score.score);
     }
 }
