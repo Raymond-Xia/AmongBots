@@ -11,7 +11,7 @@ public class PlayMenu : MonoBehaviour
     public static bool is_multiplication = false;
     public static bool is_division = false;
 
-    public void ResetMode() 
+    public void ResetMode()
     {
         is_CueCard = false;
         is_addition = false;
@@ -78,6 +78,7 @@ public class PlayMenu : MonoBehaviour
     {
         SceneManager.LoadScene(Constants.GAME_SCENE);
         PlayerMovement.hp = Constants.MAX_HP;
+        PlayerMovement.invulnerable = false;
         Score.score = 0;
     }
 
