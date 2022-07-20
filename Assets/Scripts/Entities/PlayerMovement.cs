@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -5,19 +6,23 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     public static int hp = Constants.MAX_HP;
-
+    public static float rotationAngle = 0.0f;
     public bool moveAllowed;
+    public bool beingEjected;
     public Collider2D col;
     public Vector2 touchPosition;
     Collider2D touchedCollider;
+    public Transform canvas;
     public Vector2 canvasPosition;
     public GameObject player;
     public GameObject skin;
+    public GameObject deathBot;
     public AudioSource hitSound;
 
     // Start is called before the first frame update
     void Start()
     {
+        canvas = GameObject.Find(Constants.CANVAS_OBJECT).transform;
         canvasPosition = GameObject.Find(Constants.CANVAS_OBJECT).transform.position;
         player = GameObject.Find(Constants.PLAYER_OBJECT);
         skin = GameObject.Find(Constants.SKIN_OBJECT);
@@ -30,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount > 0 && Time.timeScale > 0)
+        if (Input.touchCount > 0 && Time.timeScale > 0 && !beingEjected)
         {
             Touch touch = Input.GetTouch(0);
             touchPosition = touch.position;
@@ -70,8 +75,8 @@ public class PlayerMovement : MonoBehaviour
             hp -= 1;
             if (hp == 0)
             {
-                SceneManager.LoadScene(Constants.LOSE_SCENE);
-                hp = Constants.MAX_HP;
+                DeathAnimation();
+                
             }
             hitSound.Play();
         }
@@ -89,5 +94,18 @@ public class PlayerMovement : MonoBehaviour
             NukeButton script = GameObject.Find(Constants.NUKEBUTTON_TAG).GetComponent<NukeButton>();
             script.activateButton();
         }
+    }
+
+    public void DeathAnimation() 
+    {
+        beingEjected = true;
+        GameObject newDeathBot = Instantiate(deathBot, new Vector2(0, player.transform.position.y), Quaternion.identity, canvas) as GameObject;
+        newDeathBot.transform.SetSiblingIndex(1);
+        newDeathBot.GetComponent<Rigidbody2D>().velocity = new Vector2(30000f * Time.fixedDeltaTime,0);    
+    } 
+
+    void LoadLoseScene() 
+    {
+        SceneManager.LoadScene(Constants.LOSE_SCENE);
     }
 }
