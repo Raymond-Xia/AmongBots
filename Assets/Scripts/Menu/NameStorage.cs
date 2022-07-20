@@ -7,10 +7,15 @@ public class NameStorage : MonoBehaviour
 {
     public string theName;
     public GameObject inputField;
+    public GameObject textDisplay;
 
     public void StoreName()
     {
         theName = inputField.GetComponent<Text>().text;
-        PlayerPrefs.SetString(Constants.USERNAME, theName);
+        if (theName != "")
+        {
+            PlayerPrefs.SetString(Constants.USERNAME, theName);
+            textDisplay.GetComponent<Text>().text = "Username: " + theName + " Saved";
+        }
     }
 }

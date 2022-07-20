@@ -13,6 +13,7 @@ public class Settings : MonoBehaviour
         int[] ints = { 0, 0, 0, 0, 0 };
         PlayerPrefs.SetString(Constants.SCORES_TOPSCORES, string.Join("/n", ints));
         PlayerPrefs.SetInt(Constants.SCORES_BALANCE, 0);
+        PlayerPrefs.SetString(Constants.USERNAME, "USER");
         PlayerPrefs.Save();
         StartCoroutine(Confirmation());
     }
