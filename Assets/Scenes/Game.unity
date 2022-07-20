@@ -2931,11 +2931,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveAllowed: 0
+  beingEjected: 0
   col: {fileID: 0}
   touchPosition: {x: 0, y: 0}
+  canvas: {fileID: 0}
   canvasPosition: {x: 0, y: 0}
   player: {fileID: 0}
   skin: {fileID: 0}
+  deathBot: {fileID: 4357830140323886887, guid: ee21f69c349edc84db0f9654643eca02, type: 3}
   hitSound: {fileID: 1823073772}
 --- !u!114 &1823073776
 MonoBehaviour:

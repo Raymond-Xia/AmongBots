@@ -136,7 +136,8 @@ public class MathQuestionGenerator : MonoBehaviour
         }
         if (remainingTime < 0.005f)
         {
-            SceneManager.LoadScene(Constants.LOSE_SCENE);
+            GameObject player = GameObject.Find(Constants.PLAYER_OBJECT);
+            player.SendMessage(Constants.DEATH_ANIMATION, 0);
         }
 
     }

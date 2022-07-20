@@ -92,7 +92,8 @@ public class Answer : MonoBehaviour
             record.Add("attempt", attempt);
             record.Add("solution", answer);
 
-            SceneManager.LoadScene(Constants.LOSE_SCENE);
+            GameObject player = GameObject.Find(Constants.PLAYER_OBJECT);
+            player.SendMessage(Constants.DEATH_ANIMATION, 0);
         }
     }
 }
