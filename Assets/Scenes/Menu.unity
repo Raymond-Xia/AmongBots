@@ -174,7 +174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7aa35f052d1b43269cd1866648dd88c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highScoreText: {fileID: 19130852}
 --- !u!114 &19130852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3843,7 +3842,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e258a51b890748959c7c6b233cfe157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highScoreText: {fileID: 0}
 --- !u!114 &307452852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4835,7 +4833,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7543cbd2da91041b8a3f654f00984b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highScoreText: {fileID: 0}
 --- !u!114 &382460421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8290,7 +8287,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6814002bca14340abb499363b83ce870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highScoreText: {fileID: 0}
 --- !u!1 &730134251
 GameObject:
   m_ObjectHideFlags: 0
@@ -22094,7 +22090,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d84afdc8f69a47da9d643a4657709ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highScoreText: {fileID: 0}
 --- !u!114 &1840240442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25010,6 +25005,78 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1065878509}
+        m_TargetAssemblyTypeName: OriginalScores, Assembly-CSharp
+        m_MethodName: UpdateScores
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 717214098}
+        m_TargetAssemblyTypeName: AdditionScores, Assembly-CSharp
+        m_MethodName: UpdateScores
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1840240441}
+        m_TargetAssemblyTypeName: SubtractionScores, Assembly-CSharp
+        m_MethodName: UpdateScores
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 382460420}
+        m_TargetAssemblyTypeName: MultiplicationScores, Assembly-CSharp
+        m_MethodName: UpdateScores
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 307452851}
+        m_TargetAssemblyTypeName: DivisionScores, Assembly-CSharp
+        m_MethodName: UpdateScores
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 19130851}
+        m_TargetAssemblyTypeName: CueCardScores, Assembly-CSharp
+        m_MethodName: UpdateScores
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
