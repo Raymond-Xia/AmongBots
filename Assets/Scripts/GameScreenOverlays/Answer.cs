@@ -45,7 +45,11 @@ public class Answer : MonoBehaviour
             resetRecord();
 
             // increment score
-            Score.score += 10;
+            if (LevelController.gameMode == Constants.CUE_CARDS_GAMEMODE) {
+                Score.score += 10;
+            } else {
+                Score.score += (int)System.Math.Ceiling(MathQuestionGenerator.remainingTime);
+            }
 
             GameObject canvas = GameObject.Find(Constants.CANVAS_OBJECT);
             LevelController levelController = (LevelController)canvas.GetComponent(typeof(LevelController));

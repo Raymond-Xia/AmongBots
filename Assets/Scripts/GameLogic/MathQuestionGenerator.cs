@@ -17,7 +17,7 @@ public class MathQuestionGenerator : MonoBehaviour
     int X, Y;
     public static int answer;
     public Text timer;
-    private float remainingTime;
+    public static float remainingTime;
 
     // Start is called before the first frame update
     void Start()
