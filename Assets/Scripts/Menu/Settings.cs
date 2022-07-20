@@ -18,6 +18,7 @@ public class Settings : MonoBehaviour
         PlayerPrefs.SetString(Constants.SCORES_DIVISION_TOPSCORES, string.Join("/n", ints));
         PlayerPrefs.SetString(Constants.SCORES_CUECARD_TOPSCORES, string.Join("/n", ints));
         PlayerPrefs.SetInt(Constants.SCORES_BALANCE, 0);
+        PlayerPrefs.SetString(Constants.USERNAME, "USER");
         PlayerPrefs.Save();
         StartCoroutine(Confirmation());
     }
