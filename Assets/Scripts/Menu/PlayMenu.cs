@@ -11,21 +11,25 @@ public class PlayMenu : MonoBehaviour
     public static bool is_multiplication = false;
     public static bool is_division = false;
 
-    public void Original()
+    public void ResetMode() 
     {
-        /*
         is_CueCard = false;
         is_addition = false;
         is_subtraction = false;
         is_multiplication = false;
         is_division = false;
-        */
+    }
+
+    public void Original()
+    {
+        ResetMode();
         InitializeGame();
         LevelController.gameMode = Constants.ORIGINAL_GAMEMODE;
     }
 
     public void Addition()
     {
+        ResetMode();
         is_addition = true;
         InitializeGame();
         LevelController.gameMode = Constants.ADDITION_GAMEMODE;
@@ -33,6 +37,7 @@ public class PlayMenu : MonoBehaviour
 
     public void Subtraction()
     {
+        ResetMode();
         is_subtraction = true;
         InitializeGame();
         LevelController.gameMode = Constants.SUBTRACTION_GAMEMODE;
@@ -40,6 +45,7 @@ public class PlayMenu : MonoBehaviour
 
     public void Multiplication()
     {
+        ResetMode();
         is_multiplication = true;
         InitializeGame();
         LevelController.gameMode = Constants.MULTIPLICATION_GAMEMODE;
@@ -47,6 +53,7 @@ public class PlayMenu : MonoBehaviour
 
     public void Division()
     {
+        ResetMode();
         is_division = true;
         InitializeGame();
         LevelController.gameMode = Constants.DIVISION_GAMEMODE;
@@ -56,6 +63,7 @@ public class PlayMenu : MonoBehaviour
     {
         if (CueCardMenu.cardmap.Count > 0)
         {
+            ResetMode();
             is_CueCard = true;
             InitializeGame();
             LevelController.gameMode = Constants.CUE_CARDS_GAMEMODE;
