@@ -66,7 +66,7 @@ public class LossMenu : MonoBehaviour
         else if (PlayMenu.is_division)
         {
             score_gameMode = Constants.SCORES_DIVISION_TOPSCORES;
-        }gi
+        }
 
         //update corresponding player pref with new score
         if (PlayerPrefs.HasKey(score_gameMode))
