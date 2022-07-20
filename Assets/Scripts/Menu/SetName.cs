@@ -12,10 +12,14 @@ public class SetName : MonoBehaviour
 
     public void setName()
     {
-         if (PlayerPrefs.HasKey(Constants.USERNAME))
+        if (PlayerPrefs.HasKey(Constants.USERNAME))
         {
             String name = PlayerPrefs.GetString(Constants.USERNAME);
             GameObject.Find(Constants.USERNAME_TEXT).GetComponent<TMP_Text>().text = name;
+        }
+        else
+        {
+            GameObject.Find(Constants.USERNAME_TEXT).GetComponent<TMP_Text>().text = Constants.DEFAULT_USERNAME;
         }
     }
 
