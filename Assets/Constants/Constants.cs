@@ -79,6 +79,7 @@ public class Constants
     public static readonly string SCORES_MULTIPLICATION_TOPSCORES = "Multiplication_TopScores";
     public static readonly string SCORES_DIVISION_TOPSCORES = "Division_TopScores";
     public static readonly string SCORES_BALANCE = "balance";
+    public static readonly string USERNAME = "user_name";
 
     // INVENTORY
     public static readonly string SCROLL_CONTENT_INVENTORY = "ScrollContent";
@@ -150,6 +151,7 @@ public class Constants
         100,
     };
 
+    public static readonly string USERNAME_TEXT = "UserName";
     public static readonly string SCORES_TEXT = "HighScores";
 
     public static readonly string CONFIRMATION_TEXT = "Confirmation";
