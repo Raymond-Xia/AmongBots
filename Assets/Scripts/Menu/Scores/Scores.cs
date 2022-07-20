@@ -4,15 +4,19 @@ using TMPro;
 
 public class Scores : MonoBehaviour
 {
-    public static void UpdateScores(TMP_Text highScoreText, string gameModeKey)
+    public static void UpdateScores(TMP_Text highScoreText, string gameModeKey, string nameKey)
     {
-        if (PlayerPrefs.HasKey(gameModeKey))
+        if ((PlayerPrefs.HasKey(gameModeKey)) && (PlayerPrefs.HasKey(nameKey)))
         {
             String[] topScores = PlayerPrefs.GetString(gameModeKey).Split("/n");
+            String[] names = PlayerPrefs.GetString(nameKey).Split("/n");
             string temp = "";
             for (int i = 0; i < 5; i++)
             {
-                temp = temp + (i+1) + ". " + topScores[i] + "\n";
+                if (topScores[i] != "0")
+                {
+                    temp = temp + names[i] + "   " + topScores[i] + "\n";
+                }
             }
             highScoreText.text = temp;
         }
